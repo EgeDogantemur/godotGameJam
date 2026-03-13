@@ -56,6 +56,10 @@ func _add_occupant() -> void:
 		_is_pressed = true
 		$Sprite2D.modulate = Color(0.5, 1.0, 0.5)
 		button_pressed.emit()
+		var gs = get_node_or_null("/root/GameState")
+		if gs:
+			gs.trigger_button(name)
+			gs.trigger_gate_unlock()
 
 func _remove_occupant() -> void:
 	_occupants -= 1

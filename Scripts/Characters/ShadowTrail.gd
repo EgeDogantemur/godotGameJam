@@ -3,17 +3,11 @@ extends Node
 @export_category("Configuration")
 @export var follow_delay_frames: int = 60
 @export var shadow_follow_smoothness: float = 0.1
-
-@export_category("Time Manipulation")
-@export var slowmo_duration: float = 1.0
-@export var slowmo_speed: float = 0.2
 @export var catchup_speed: float = 3.0
 
 var history: Array[Dictionary] = []
 
-var slowmo_timer: float = 0.0
 var fractional_index: float = 0.0
-
 var _consumption_rate: float = 1.0
 var _current_target_speed: float = 1.0
 var _speed_tween: Tween
@@ -29,17 +23,16 @@ func _ready() -> void:
 func set_shadow(node: Node2D) -> void:
 	shadow_node = node
 
-func _set_target_speed(speed: float) -> void:
-	if _current_target_speed == speed:
+func _set_target_speed(spd: float) -> void:
+	if _current_target_speed == spd:
 		return
-	_current_target_speed = speed
+	_current_target_speed = spd
 	
 	if _speed_tween:
 		_speed_tween.kill()
 		
-	# Smoothly tween the time consumption rate
 	_speed_tween = create_tween()
-	_speed_tween.tween_property(self, "_consumption_rate", speed, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	_speed_tween.tween_property(self, "_consumption_rate", spd, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 func _physics_process(delta: float) -> void:
 	if shadow_node == null: return
@@ -53,21 +46,11 @@ func _physics_process(delta: float) -> void:
 	var target_size = max(1, follow_delay_frames)
 	var data: Dictionary = {}
 	
-	# Determine speed phase
-	if shadow_node.get("is_solid"):
-		if slowmo_timer < slowmo_duration:
-			slowmo_timer += delta
-			_set_target_speed(slowmo_speed)
-		else:
-			_set_target_speed(1.0)
+	if history.size() > target_size + 5:
+		_set_target_speed(catchup_speed)
 	else:
-		slowmo_timer = 0.0
-		# If we have fallen back beyond the buffer limit (plus an acceptable margin)
-		if history.size() > target_size + 5:
-			_set_target_speed(catchup_speed)
-		else:
-			_set_target_speed(1.0)
-			
+		_set_target_speed(1.0)
+		
 	fractional_index += _consumption_rate
 	var pop_count = floor(fractional_index)
 	
@@ -85,7 +68,6 @@ func _physics_process(delta: float) -> void:
 		data = history[0]
 	
 	if not data.is_empty():
-		# Use a Tween for absolutely soft spatial following
 		if _pos_tween:
 			_pos_tween.kill()
 			

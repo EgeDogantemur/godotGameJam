@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://7p3ovn45sywp" path="res://Scenes/Characters/Player.tscn" id="1_abc12"]
 [ext_resource type="Texture2D" uid="uid://y514wmisvyuf" path="res://icon.svg" id="2_xyz34"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/BaseButton.tscn" id="3_btn1"]
-[ext_resource type="PackedScene" path="res://Scenes/UI/HUD.tscn" id="4_hud1"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/LevelGoal.tscn" id="5_goal1"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/EnergyCell.tscn" id="6_ec1"]
 
@@ -39,8 +38,6 @@ accepted_type = 1
 position = Vector2(700, 576)
 accepted_type = 2
 
-[node name="HUD" parent="." unique_id=1015905005 instance=ExtResource("4_hud1")]
-
 [node name="LevelGoal" parent="." unique_id=928139239 instance=ExtResource("5_goal1")]
 position = Vector2(900, 550)
 next_level_path = "res://Scenes/EgeTestScene.tscn"
@@ -50,5 +47,3 @@ position = Vector2(300, 480)
 
 [node name="EnergyCell2" parent="." unique_id=1477432932 instance=ExtResource("6_ec1")]
 position = Vector2(360, 480)
-
-[connection signal="button_pressed" from="Button_Both" to="LevelGoal" method="unlock"]

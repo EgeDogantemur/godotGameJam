@@ -8,9 +8,10 @@
 size = Vector2(58, 60)
 
 [node name="Player" type="CharacterBody2D" unique_id=1389075244 groups=["player"]]
-collision_layer = 1
 collision_mask = 4
 script = ExtResource("1_a1b2c")
+parry_window = 1.0
+parry_cooldown = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=782364925]
 shape = SubResource("RectangleShape2D_o5en2")
@@ -21,6 +22,5 @@ texture = ExtResource("2_d3e4f")
 
 [node name="ShadowTrail" type="Node" parent="." unique_id=198756207]
 script = ExtResource("3_trail")
-slowmo_duration = 2.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1249836894]

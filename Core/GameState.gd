@@ -10,6 +10,8 @@ var checkpoint_pos: Vector2 = Vector2.ZERO
 signal state_changed(new_state: State)
 signal player_died()
 signal resync_flash()
+signal gate_unlocked()
+signal button_activated(button_name: String)
 
 const ENERGY_DRAIN_RATE = 1.0 / 4.0
 const ENERGY_REGEN_RATE = 1.0 / 4.0
@@ -35,6 +37,16 @@ func _set_state(new_state: State) -> void:
 
 func trigger_player_death() -> void:
 	player_died.emit()
-	
+
+func trigger_gate_unlock() -> void:
+	gate_unlocked.emit()
+
+func trigger_button(btn_name: String) -> void:
+	button_activated.emit(btn_name)
+
 func add_sync_point_energy() -> void:
 	desync_energy = minf(desync_energy + desync_energy_max * SYNC_POINT_BONUS, desync_energy_max)
+
+func reset_for_level() -> void:
+	desync_energy = desync_energy_max
+	current_state = State.SYNC

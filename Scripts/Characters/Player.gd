@@ -14,6 +14,14 @@ extends CharacterBody2D
 @export var dash_duration: float = 0.15
 @export var dash_cooldown: float = 0.5
 
+@export_category("Parry")
+@export var parry_window: float = 0.25
+@export var parry_launch_force: float = -750.0
+@export var parry_cooldown: float = 0.6
+@export var parry_freeze_duration: float = 0.07
+@export var parry_zoom_amount: float = 0.92
+@export var parry_zoom_duration: float = 0.25
+
 var _coyote_timer: float = 0.0
 var _jump_buffer: float = 0.0
 var _was_on_floor: bool = false
@@ -22,6 +30,10 @@ var _is_dashing: bool = false
 var _dash_cooldown_timer: float = 0.0
 var _dash_direction: float = 0.0
 var _dash_tween: Tween
+
+var is_parrying: bool = false
+var _parry_timer: float = 0.0
+var _parry_cooldown_timer: float = 0.0
 
 var shadow_scene = preload("res://Scenes/Characters/Shadow.tscn")
 var shadow_instance: Node2D = null
@@ -35,6 +47,9 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	_dash_cooldown_timer -= delta
+	_parry_cooldown_timer -= delta
+	
+	_update_parry(delta)
 	
 	if _is_dashing:
 		velocity.x = _dash_direction * dash_speed
@@ -50,6 +65,47 @@ func _physics_process(delta: float) -> void:
 	_try_dash()
 	move_and_slide()
 	_update_animation()
+
+func _update_parry(delta: float) -> void:
+	if Input.is_action_just_pressed("evade") and _parry_cooldown_timer <= 0.0:
+		is_parrying = true
+		_parry_timer = parry_window
+		_parry_cooldown_timer = parry_cooldown
+	
+	if is_parrying:
+		_parry_timer -= delta
+		if _parry_timer <= 0.0:
+			is_parrying = false
+
+func execute_parry_launch() -> void:
+	is_parrying = false
+	_parry_timer = 0.0
+	velocity.y = parry_launch_force
+	_coyote_timer = 0.0
+	
+	_do_hit_freeze()
+	_do_zoom_punch()
+
+func _do_hit_freeze() -> void:
+	get_tree().paused = true
+	
+	var freeze_tween = create_tween()
+	freeze_tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
+	freeze_tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	freeze_tween.tween_interval(parry_freeze_duration)
+	freeze_tween.tween_callback(func(): get_tree().paused = false)
+
+func _do_zoom_punch() -> void:
+	var cam = get_viewport().get_camera_2d()
+	if not cam: return
+	
+	var original_zoom = cam.zoom
+	var punch_zoom = original_zoom * parry_zoom_amount
+	
+	var zoom_tween = create_tween()
+	zoom_tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	zoom_tween.tween_property(cam, "zoom", punch_zoom, parry_zoom_duration * 0.3).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	zoom_tween.tween_property(cam, "zoom", original_zoom, parry_zoom_duration * 0.7).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 func _apply_gravity(delta: float) -> void:
 	if not is_on_floor():
