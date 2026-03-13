@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://goal_lvl"]
+[gd_scene load_steps=4 format=3]
 
 [ext_resource type="Script" path="res://Scripts/Objects/LevelGoal.gd" id="1_gl1"]
 [ext_resource type="Texture2D" uid="uid://y514wmisvyuf" path="res://icon.svg" id="2_img1"]

@@ -1,0 +1,101 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Scripts/UI/UIManager.gd" id="1_uim1"]
+
+[node name="UIManager" type="CanvasLayer"]
+layer = 100
+script = ExtResource("1_uim1")
+
+[node name="PauseMenu" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.701961)
+
+[node name="VBox" type="VBoxContainer" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -68.0
+offset_right = 100.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="ResumeBtn" type="Button" parent="PauseMenu/VBox"]
+layout_mode = 2
+text = "RESUME"
+
+[node name="SettingsBtn" type="Button" parent="PauseMenu/VBox"]
+layout_mode = 2
+text = "SETTINGS"
+
+[node name="MainMenuBtn" type="Button" parent="PauseMenu/VBox"]
+layout_mode = 2
+text = "RETURN TO MENU"
+
+[node name="SettingsMenu" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.0509804, 0.101961, 0.901961)
+
+[node name="VBox" type="VBoxContainer" parent="SettingsMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -80.0
+offset_right = 150.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="SettingsMenu/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+text = "-- SYSTEM CONFIG --"
+horizontal_alignment = 1
+
+[node name="MasterVolLabel" type="Label" parent="SettingsMenu/VBox"]
+layout_mode = 2
+text = "Master Audio"
+
+[node name="MasterVolSlider" type="HSlider" parent="SettingsMenu/VBox"]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="GlitchLabel" type="Label" parent="SettingsMenu/VBox"]
+layout_mode = 2
+text = "Glitch Intensity"
+
+[node name="GlitchSlider" type="HSlider" parent="SettingsMenu/VBox"]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="Control" type="Control" parent="SettingsMenu/VBox"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="CloseBtn" type="Button" parent="SettingsMenu/VBox"]
+layout_mode = 2
+text = "CLOSE"
