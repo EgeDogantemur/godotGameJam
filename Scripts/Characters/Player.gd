@@ -18,14 +18,11 @@ func _ready() -> void:
 	shadow_instance = shadow_scene.instantiate()
 	get_tree().current_scene.call_deferred("add_child", shadow_instance)
 	trail.call_deferred("set_shadow", shadow_instance)
-	GameState.state_changed.connect(_on_state_changed)
-	GameState.resync_flash.connect(_on_resync_flash)
 
 func _physics_process(delta: float) -> void:
 	_apply_gravity(delta)
 	_handle_coyote(delta)
 	_handle_jump_buffer(delta)
-	_handle_desync_input()
 	_handle_movement()
 	_try_jump()
 	move_and_slide()
@@ -43,16 +40,6 @@ func _handle_coyote(delta: float) -> void:
 	else:
 		_coyote_timer -= delta
 	_was_on_floor = is_on_floor()
-
-func _handle_desync_input() -> void:
-	var pressing = Input.is_action_pressed("desync")
-	match GameState.current_state:
-		GameState.State.SYNC:
-			if pressing and GameState.desync_energy > 0.0:
-				GameState._set_state(GameState.State.DESYNC)
-		GameState.State.DESYNC:
-			if not pressing:
-				GameState._set_state(GameState.State.RESYNC)
 
 func _handle_jump_buffer(delta: float) -> void:
 	if Input.is_action_just_pressed("jump"):
@@ -81,13 +68,3 @@ func _update_animation() -> void:
 		anim.play("run")
 	elif anim.has_animation("idle"):
 		anim.play("idle")
-
-func _on_state_changed(_new_state: GameState.State) -> void:
-	pass
-
-func _on_resync_flash() -> void:
-	var sprite = get_node_or_null("Sprite2D")
-	if not sprite: return
-	var tween = create_tween()
-	tween.tween_property(sprite, "modulate", Color(1, 1, 1, 0), 0.05)
-	tween.tween_property(sprite, "modulate", Color(1, 1, 1, 1), 0.15)

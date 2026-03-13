@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://button_base_1"]
+
+[ext_resource type="Script" path="res://Scripts/Objects/BaseButton.gd" id="1_btn1"]
+[ext_resource type="Texture2D" uid="uid://y514wmisvyuf" path="res://icon.svg" id="2_img1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_btn"]
+size = Vector2(32, 16)
+
+[node name="BaseButton" type="Area2D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_btn1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_btn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+scale = Vector2(0.25, 0.125)
+texture = ExtResource("2_img1")

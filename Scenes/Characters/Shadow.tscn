@@ -1,29 +1,40 @@
 [gd_scene format=3 uid="uid://x2p7v4lajnrm"]
 
-[ext_resource type="Script" path="res://Scripts/Characters/Shadow.gd" id="1_a1b2c"]
+[ext_resource type="Script" uid="uid://bq53rn502w3jv" path="res://Scripts/Characters/Shadow.gd" id="1_a1b2c"]
 [ext_resource type="Texture2D" uid="uid://y514wmisvyuf" path="res://icon.svg" id="2_xyz34"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_shd2"]
 radius = 8.0
 height = 32.0
 
-[node name="Shadow" type="Area2D" groups=["shadow"]]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_platf"]
+size = Vector2(58, 57)
+
+[node name="Shadow" type="Area2D" unique_id=1581785216 groups=["shadow"]]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_a1b2c")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1131167185]
 shape = SubResource("CapsuleShape2D_shd2")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1684309783]
 modulate = Color(1, 1, 1, 0.45)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_xyz34")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=92147204]
 visible = false
 offset_left = -16.0
 offset_top = -32.0
 offset_right = 16.0
 offset_bottom = 32.0
 color = Color(1, 0.2, 0.2, 0.3)
+
+[node name="PlatformBody" type="StaticBody2D" parent="." unique_id=1674324764]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformBody" unique_id=848075880]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_platf")
