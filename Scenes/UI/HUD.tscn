@@ -1,0 +1,74 @@
+[gd_scene load_steps=2 format=3 uid="uid://hud_gui"]
+
+[ext_resource type="Script" path="res://Scripts/UI/HUD.gd" id="1_hud1"]
+
+[node name="HUD" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_hud1")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "SYNC LEVEL"
+
+[node name="SyncBar" type="ProgressBar" parent="Control/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+value = 100.0
+show_percentage = false
+
+[node name="RestartPanel" type="ColorRect" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.8)
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/RestartPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/RestartPanel/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="Control/RestartPanel/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.2, 0.2, 1)
+theme_override_font_sizes/font_size = 48
+text = "SYNC LOST"
+horizontal_alignment = 1
+
+[node name="RestartBtn" type="Button" parent="Control/RestartPanel/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+text = "REESTABLISH CONNECTION (RETRY)"
+
+[connection signal="pressed" from="Control/RestartPanel/CenterContainer/VBoxContainer/RestartBtn" to="." method="_on_restart_button_pressed"]

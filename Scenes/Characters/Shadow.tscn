@@ -3,9 +3,8 @@
 [ext_resource type="Script" uid="uid://bq53rn502w3jv" path="res://Scripts/Characters/Shadow.gd" id="1_a1b2c"]
 [ext_resource type="Texture2D" uid="uid://y514wmisvyuf" path="res://icon.svg" id="2_xyz34"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_shd2"]
-radius = 8.0
-height = 32.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ytw1o"]
+size = Vector2(66, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_platf"]
 size = Vector2(58, 57)
@@ -16,7 +15,7 @@ collision_mask = 0
 script = ExtResource("1_a1b2c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1131167185]
-shape = SubResource("CapsuleShape2D_shd2")
+shape = SubResource("RectangleShape2D_ytw1o")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1684309783]
 modulate = Color(1, 1, 1, 0.45)

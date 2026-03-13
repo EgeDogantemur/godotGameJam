@@ -33,5 +33,8 @@ func _set_state(new_state: State) -> void:
 		await get_tree().create_timer(0.2).timeout
 		_set_state(State.SYNC)
 
+func trigger_player_death() -> void:
+	player_died.emit()
+	
 func add_sync_point_energy() -> void:
 	desync_energy = minf(desync_energy + desync_energy_max * SYNC_POINT_BONUS, desync_energy_max)
