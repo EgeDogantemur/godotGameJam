@@ -20,5 +20,6 @@ texture = ExtResource("2_d3e4f")
 
 [node name="ShadowTrail" type="Node" parent="." unique_id=198756207]
 script = ExtResource("3_trail")
+slowmo_duration = 2.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1249836894]

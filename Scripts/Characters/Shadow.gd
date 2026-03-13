@@ -1,6 +1,6 @@
 extends Area2D
 
-const PLATFORM_DURATION: float = 5.0
+@export var platform_duration: float = 5.0
 var platform_timer: float = 0.0
 
 var _overlap_frames: int = 0
@@ -11,7 +11,7 @@ var is_solid: bool = false
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("evade") and not is_solid:
 		_set_solid(true)
-		platform_timer = PLATFORM_DURATION
+		platform_timer = platform_duration
 		
 	if is_solid:
 		platform_timer -= delta
