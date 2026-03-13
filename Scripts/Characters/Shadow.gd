@@ -3,10 +3,12 @@ extends Area2D
 @export var platform_duration: float = 5.0
 var platform_timer: float = 0.0
 
-var _overlap_frames: int = 0
-const GRACE_FRAMES: int = 2
-
 var is_solid: bool = false
+var _player_inside: bool = false
+
+func _ready() -> void:
+	body_entered.connect(_on_body_entered)
+	body_exited.connect(_on_body_exited)
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("evade") and not is_solid:
@@ -18,22 +20,20 @@ func _physics_process(delta: float) -> void:
 		if platform_timer <= 0.0:
 			_set_solid(false)
 			
-	var player = get_tree().get_first_node_in_group("player")
-	if player == null or is_solid: 
-		_overlap_frames = 0
-		return
-	
-	# Use overlaps_body instead of distance to properly respect the large CollisionShape2Ds
-	if overlaps_body(player):
-		_overlap_frames += 1
-		if _overlap_frames >= GRACE_FRAMES:
-			var game_state = get_node_or_null("/root/GameState")
-			if game_state:
-				game_state.trigger_player_death()
-			else:
-				get_tree().reload_current_scene()
-	else:
-		_overlap_frames = 0
+	if _player_inside and not is_solid:
+		var game_state = get_node_or_null("/root/GameState")
+		if game_state:
+			game_state.trigger_player_death()
+		else:
+			get_tree().reload_current_scene()
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		_player_inside = true
+
+func _on_body_exited(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		_player_inside = false
 
 func _set_solid(solid: bool) -> void:
 	is_solid = solid

@@ -11,8 +11,11 @@ size = Vector2(58, 57)
 
 [node name="Shadow" type="Area2D" unique_id=1581785216 groups=["shadow"]]
 collision_layer = 2
-collision_mask = 0
+collision_mask = 1
 script = ExtResource("1_a1b2c")
+platform_duration = 1.0
+monitorable = true
+monitoring = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1131167185]
 shape = SubResource("RectangleShape2D_ytw1o")

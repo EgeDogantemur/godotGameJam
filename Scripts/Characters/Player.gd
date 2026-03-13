@@ -1,14 +1,28 @@
 extends CharacterBody2D
 
-const SPEED = 220.0
-const JUMP_FORCE = -520.0
-const GRAVITY = 980.0
-const COYOTE_TIME = 0.12
-const JUMP_BUFFER = 0.10
+@export_category("Movement")
+@export var speed: float = 220.0
+@export var jump_force: float = -520.0
+@export var gravity_force: float = 980.0
+
+@export_category("Jump Tuning")
+@export var coyote_time: float = 0.12
+@export var jump_buffer_time: float = 0.10
+
+@export_category("Dash")
+@export var dash_speed: float = 600.0
+@export var dash_duration: float = 0.15
+@export var dash_cooldown: float = 0.5
 
 var _coyote_timer: float = 0.0
 var _jump_buffer: float = 0.0
 var _was_on_floor: bool = false
+
+var _is_dashing: bool = false
+var _dash_cooldown_timer: float = 0.0
+var _dash_direction: float = 0.0
+var _dash_tween: Tween
+
 var shadow_scene = preload("res://Scenes/Characters/Shadow.tscn")
 var shadow_instance: Node2D = null
 
@@ -20,43 +34,76 @@ func _ready() -> void:
 	trail.call_deferred("set_shadow", shadow_instance)
 
 func _physics_process(delta: float) -> void:
+	_dash_cooldown_timer -= delta
+	
+	if _is_dashing:
+		velocity.x = _dash_direction * dash_speed
+		velocity.y = 0.0
+		move_and_slide()
+		return
+	
 	_apply_gravity(delta)
 	_handle_coyote(delta)
 	_handle_jump_buffer(delta)
 	_handle_movement()
 	_try_jump()
+	_try_dash()
 	move_and_slide()
 	_update_animation()
 
 func _apply_gravity(delta: float) -> void:
 	if not is_on_floor():
-		velocity.y += GRAVITY * delta
+		velocity.y += gravity_force * delta
 
 func _handle_coyote(delta: float) -> void:
 	if _was_on_floor and not is_on_floor():
-		_coyote_timer = COYOTE_TIME
+		_coyote_timer = coyote_time
 	elif is_on_floor():
-		_coyote_timer = COYOTE_TIME
+		_coyote_timer = coyote_time
 	else:
 		_coyote_timer -= delta
 	_was_on_floor = is_on_floor()
 
 func _handle_jump_buffer(delta: float) -> void:
 	if Input.is_action_just_pressed("jump"):
-		_jump_buffer = JUMP_BUFFER
+		_jump_buffer = jump_buffer_time
 	else:
 		_jump_buffer -= delta
 
 func _handle_movement() -> void:
 	var dir = Input.get_axis("move_left", "move_right")
-	velocity.x = dir * SPEED
+	velocity.x = dir * speed
 
 func _try_jump() -> void:
 	var can_jump = is_on_floor() or _coyote_timer > 0.0
 	if _jump_buffer > 0.0 and can_jump:
-		velocity.y = JUMP_FORCE
+		velocity.y = jump_force
 		_coyote_timer = 0.0
 		_jump_buffer = 0.0
+
+func _try_dash() -> void:
+	if not Input.is_action_just_pressed("dash"): return
+	if _dash_cooldown_timer > 0.0: return
+	
+	var dir = Input.get_axis("move_left", "move_right")
+	if dir == 0.0:
+		var sprite = get_node_or_null("Sprite2D")
+		dir = -1.0 if (sprite and sprite.flip_h) else 1.0
+	
+	_dash_direction = dir
+	_is_dashing = true
+	_dash_cooldown_timer = dash_cooldown
+	
+	if _dash_tween:
+		_dash_tween.kill()
+	
+	_dash_tween = create_tween()
+	_dash_tween.tween_interval(dash_duration)
+	_dash_tween.tween_callback(_end_dash)
+
+func _end_dash() -> void:
+	_is_dashing = false
+	velocity.x = _dash_direction * speed * 0.5
 
 func _update_animation() -> void:
 	var anim = get_node_or_null("AnimationPlayer")
