@@ -29,7 +29,7 @@ texture = ExtResource("2_xyz34")
 position = Vector2(500, 400)
 
 [node name="Button_Both" parent="." unique_id=1461333545 instance=ExtResource("3_btn1")]
-position = Vector2(300, 576)
+position = Vector2(586, 576)
 
 [node name="Button_PlayerOnly" parent="." unique_id=2127347203 instance=ExtResource("3_btn1")]
 position = Vector2(500, 576)
@@ -49,4 +49,6 @@ next_level_path = "res://Scenes/EgeTestScene.tscn"
 position = Vector2(300, 480)
 
 [node name="EnergyCell2" parent="." unique_id=1477432932 instance=ExtResource("6_ec1")]
-position = Vector2(500, 480)
+position = Vector2(360, 480)
+
+[connection signal="button_pressed" from="Button_Both" to="LevelGoal" method="unlock"]

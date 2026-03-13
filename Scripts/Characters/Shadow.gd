@@ -1,7 +1,9 @@
 extends Area2D
 
 @export var platform_duration: float = 5.0
+@export var spawn_immunity: float = 1.0
 var platform_timer: float = 0.0
+var _immunity_timer: float = 0.0
 
 var is_solid: bool = false
 var _player_inside: bool = false
@@ -9,8 +11,13 @@ var _player_inside: bool = false
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
+	_immunity_timer = spawn_immunity
 
 func _physics_process(delta: float) -> void:
+	if _immunity_timer > 0.0:
+		_immunity_timer -= delta
+		return
+		
 	if Input.is_action_just_pressed("evade") and not is_solid:
 		_set_solid(true)
 		platform_timer = platform_duration
