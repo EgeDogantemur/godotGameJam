@@ -1,3 +1,25 @@
 [gd_scene format=3 uid="uid://8os2lsm6xcrc"]
 
-[node name="Node2D" type="Node2D" unique_id=1009184652]
+[ext_resource type="PackedScene" path="res://Scenes/Characters/Player.tscn" id="1_abc12"]
+[ext_resource type="Texture2D" uid="uid://y514wmisvyuf" path="res://icon.svg" id="2_xyz34"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_flr1"]
+size = Vector2(1000, 50)
+
+[node name="EmiranTestScene" type="Node2D" unique_id=2026834683]
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=367465628]
+position = Vector2(500, 600)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=204627247]
+shape = SubResource("RectangleShape2D_flr1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor" unique_id=432793117]
+modulate = Color(0.2, 0.2, 0.2, 1)
+scale = Vector2(8, 0.4)
+texture = ExtResource("2_xyz34")
+
+[node name="Player" parent="." unique_id=57907100 instance=ExtResource("1_abc12")]
+position = Vector2(500, 400)
