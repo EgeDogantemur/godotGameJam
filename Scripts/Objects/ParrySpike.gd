@@ -13,28 +13,38 @@ func _ready() -> void:
 	
 	_start_pulse_animation()
 
+var _coyote_death_timer: float = 0.0
+
 func _physics_process(delta: float) -> void:
 	if _cooldown_timer > 0.0:
 		_cooldown_timer -= delta
 		return
 	
 	var bodies = get_overlapping_bodies()
+	var player_touching = false
+	
 	for body in bodies:
 		if body.is_in_group("player"):
-			if body.is_parrying:
+			player_touching = true
+			if body.current_parry_state == body.ParryState.ACTIVE:
 				# Successful parry!
 				body.execute_parry_launch()
-				_cooldown_timer = 0.5 # Disable spike temporarily so it doesn't kill player instantly mid-launch
+				_cooldown_timer = 0.5
+				_coyote_death_timer = 0.0
 				_do_parry_feedback()
 				return
+				
+	if player_touching:
+		_coyote_death_timer += delta
+		if _coyote_death_timer >= 0.1: # 0.1s Coyote Tolerance
+			_coyote_death_timer = 0.0
+			var gs = get_node_or_null("/root/GameState")
+			if gs:
+				gs.trigger_player_death()
 			else:
-				# Death!
-				var gs = get_node_or_null("/root/GameState")
-				if gs:
-					gs.trigger_player_death()
-				else:
-					get_tree().reload_current_scene()
-				return
+				get_tree().reload_current_scene()
+	else:
+		_coyote_death_timer = 0.0
 
 func _start_pulse_animation() -> void:
 	var sprite = get_node_or_null("Sprite2D")

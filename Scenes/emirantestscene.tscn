@@ -28,7 +28,6 @@ texture = ExtResource("2_xyz34")
 
 [node name="Player" parent="." unique_id=57907100 instance=ExtResource("1_abc12")]
 position = Vector2(500, 400)
-parry_window = 1.0
 parry_cooldown = 1.0
 
 [node name="Button_Both" parent="." unique_id=1461333545 instance=ExtResource("3_btn1")]

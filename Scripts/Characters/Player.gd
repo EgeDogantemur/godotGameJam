@@ -14,13 +14,27 @@ extends CharacterBody2D
 @export var dash_duration: float = 0.15
 @export var dash_cooldown: float = 0.5
 
-@export_category("Parry")
-@export var parry_window: float = 0.4
-@export var parry_launch_force: float = 800.0
-@export var parry_cooldown: float = 0.6
+@export_category("Advanced Parry")
+@export var parry_startup_frames: int = 2
+@export var parry_active_window: float = 0.15 # Tighter, professional window
+@export var parry_launch_force_y: float = 750.0 
+@export var parry_launch_force_x: float = 650.0 # Directional thrust
+@export var parry_cooldown: float = 0.4
+@export var parry_buffer_time: float = 0.12 # Input buffer tolerance (press slightly early)
 @export var parry_freeze_duration: float = 0.12
 @export var parry_zoom_amount: float = 0.65
 @export var parry_zoom_duration: float = 0.35
+@export var post_parry_slowmo_scale: float = 0.3
+@export var post_parry_slowmo_duration: float = 0.25
+
+enum ParryState { NONE, STARTUP, ACTIVE, SUCCESS, COOLDOWN }
+var current_parry_state: ParryState = ParryState.NONE
+
+var _parry_input_buffer: float = 0.0
+var _parry_state_timer: float = 0.0
+var _startup_frames_count: int = 0
+var _parry_zoom_tween: Tween
+var _slowmo_tween: Tween
 
 var _coyote_timer: float = 0.0
 var _jump_buffer: float = 0.0
@@ -31,27 +45,22 @@ var _dash_cooldown_timer: float = 0.0
 var _dash_direction: float = 0.0
 var _dash_tween: Tween
 
-var is_parrying: bool = false
-var _parry_timer: float = 0.0
-var _parry_cooldown_timer: float = 0.0
-var _parry_zoom_tween: Tween
-
 var shadow_scene = preload("res://Scenes/Characters/Shadow.tscn")
+var shockwave_scene = preload("res://Scenes/VFX/Shockwave.tscn")
 var shadow_instance: Node2D = null
 
 @onready var trail = $ShadowTrail
 
 func _ready() -> void:
-	collision_layer = 1 # Force layer 1 so parry ALWAYS works regardless of editor
+	collision_layer = 1
 	shadow_instance = shadow_scene.instantiate()
 	get_tree().current_scene.call_deferred("add_child", shadow_instance)
 	trail.call_deferred("set_shadow", shadow_instance)
 
 func _physics_process(delta: float) -> void:
 	_dash_cooldown_timer -= delta
-	_parry_cooldown_timer -= delta
 	
-	_update_parry(delta)
+	_update_parry_state_machine(delta)
 	
 	if _is_dashing:
 		velocity.x = _dash_direction * dash_speed
@@ -59,54 +68,112 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		return
 	
-	_apply_gravity(delta)
-	_handle_coyote(delta)
-	_handle_jump_buffer(delta)
-	_handle_movement()
-	_try_jump()
-	_try_dash()
+	# If in SUCCESS state, ignore gravity/inputs for a split second or let momentum carry
+	if current_parry_state != ParryState.SUCCESS:
+		_apply_gravity(delta)
+		_handle_coyote(delta)
+		_handle_jump_buffer(delta)
+		_handle_movement()
+		_try_jump()
+		_try_dash()
+	else:
+		_apply_gravity(delta * 0.5) # Float a bit more after success
+		
 	move_and_slide()
 	_update_animation()
 
-func _update_parry(delta: float) -> void:
-	if Input.is_action_just_pressed("evade") and _parry_cooldown_timer <= 0.0:
-		is_parrying = true
-		_parry_timer = parry_window
-		_parry_cooldown_timer = parry_cooldown
-		_start_parry_zoom()
+func _update_parry_state_machine(delta: float) -> void:
+	if Input.is_action_just_pressed("evade"):
+		_parry_input_buffer = parry_buffer_time
+	else:
+		_parry_input_buffer -= delta
+
+	match current_parry_state:
+		ParryState.NONE:
+			if _parry_input_buffer > 0.0:
+				_parry_input_buffer = 0.0
+				current_parry_state = ParryState.STARTUP
+				_startup_frames_count = parry_startup_frames
+		
+		ParryState.STARTUP:
+			_startup_frames_count -= 1
+			if _startup_frames_count <= 0:
+				current_parry_state = ParryState.ACTIVE
+				_parry_state_timer = parry_active_window
+				_start_parry_zoom()
+				
+		ParryState.ACTIVE:
+			_parry_state_timer -= delta
+			if _parry_state_timer <= 0.0:
+				current_parry_state = ParryState.COOLDOWN
+				_parry_state_timer = parry_cooldown
+				_end_parry_window()
+				
+		ParryState.SUCCESS:
+			_parry_state_timer -= delta
+			if _parry_state_timer <= 0.0:
+				current_parry_state = ParryState.NONE
+				
+		ParryState.COOLDOWN:
+			_parry_state_timer -= delta
+			if _parry_state_timer <= 0.0:
+				current_parry_state = ParryState.NONE
+
+func execute_parry_launch() -> void:
+	if current_parry_state == ParryState.SUCCESS: return # Prevent double parry execution
 	
-	if is_parrying:
-		_parry_timer -= delta
-		if _parry_timer <= 0.0:
-			_end_parry_window()
+	current_parry_state = ParryState.SUCCESS
+	_parry_state_timer = 0.3 # Short internal float lock
+	_coyote_timer = 0.0
+	
+	# Directional Momentum Logic
+	var dir_x = Input.get_axis("move_left", "move_right")
+	var dir_y = 0.0
+	if Input.is_action_pressed("jump"): # Try to parry UP specifically
+		dir_y = -1.0
+	elif Input.get_vector("move_left", "move_right", "ui_up", "ui_down").y > 0.5: # pressing down
+		dir_y = 1.0
+		
+	# If pushing left/right, heavily favor horizontal thrust
+	if dir_x != 0:
+		velocity.x = dir_x * parry_launch_force_x
+		velocity.y = -parry_launch_force_y * 0.6 # Reduced vertical if side-dashing
+	elif dir_y > 0:
+		velocity.x = 0
+		velocity.y = parry_launch_force_y * 0.8 # Downward smash
+	else:
+		velocity.x = 0
+		velocity.y = -parry_launch_force_y # Pure vertical
+		
+	_do_hit_freeze()
+	_do_success_zoom()
+	_do_screen_shake()
+	_do_post_parry_slowmo()
+	_do_shockwave_vfx()
+
+func _do_post_parry_slowmo() -> void:
+	# Enable God Mode Time Dilation
+	Engine.time_scale = post_parry_slowmo_scale
+	if _slowmo_tween: _slowmo_tween.kill()
+	_slowmo_tween = create_tween()
+	_slowmo_tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	_slowmo_tween.tween_interval(post_parry_slowmo_duration)
+	# Slowly ramp back to full speed so it feels seamless
+	_slowmo_tween.tween_property(Engine, "time_scale", 1.0, 0.4).set_trans(Tween.TRANS_SINE)
 
 func _start_parry_zoom() -> void:
 	var cam = get_viewport().get_camera_2d()
 	if not cam: return
-	if _parry_zoom_tween:
-		_parry_zoom_tween.kill()
+	if _parry_zoom_tween: _parry_zoom_tween.kill()
 	_parry_zoom_tween = create_tween()
 	_parry_zoom_tween.tween_property(cam, "zoom", Vector2.ONE * 1.15, 0.1).set_trans(Tween.TRANS_SINE)
 
 func _end_parry_window() -> void:
-	is_parrying = false
 	var cam = get_viewport().get_camera_2d()
-	if cam:
-		if _parry_zoom_tween:
-			_parry_zoom_tween.kill()
-		_parry_zoom_tween = create_tween()
-		_parry_zoom_tween.tween_property(cam, "zoom", Vector2.ONE, 0.2).set_trans(Tween.TRANS_SINE)
-
-func execute_parry_launch() -> void:
-	is_parrying = false
-	_parry_timer = 0.0
-	velocity.y = -parry_launch_force
-	_coyote_timer = 0.0
-	
-	_do_hit_freeze()
-	_do_success_zoom()
-	_do_screen_shake()
-	_do_screen_flash()
+	if not cam: return
+	if _parry_zoom_tween: _parry_zoom_tween.kill()
+	_parry_zoom_tween = create_tween()
+	_parry_zoom_tween.tween_property(cam, "zoom", Vector2.ONE, 0.2).set_trans(Tween.TRANS_SINE)
 
 func _do_hit_freeze() -> void:
 	get_tree().paused = true
@@ -119,8 +186,7 @@ func _do_hit_freeze() -> void:
 func _do_success_zoom() -> void:
 	var cam = get_viewport().get_camera_2d()
 	if not cam: return
-	if _parry_zoom_tween:
-		_parry_zoom_tween.kill()
+	if _parry_zoom_tween: _parry_zoom_tween.kill()
 	
 	var punch_zoom = Vector2.ONE * (1.0 / parry_zoom_amount)
 	_parry_zoom_tween = create_tween()
@@ -131,26 +197,19 @@ func _do_success_zoom() -> void:
 func _do_screen_shake() -> void:
 	var cam = get_viewport().get_camera_2d()
 	if not cam: return
-	
 	var shake_tw = create_tween()
 	shake_tw.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	for i in range(5):
 		shake_tw.tween_property(cam, "offset", Vector2(randf_range(-12, 12), randf_range(-12, 12)), 0.03)
 	shake_tw.tween_property(cam, "offset", Vector2.ZERO, 0.05)
 
-func _do_screen_flash() -> void:
-	var flash_layer = CanvasLayer.new()
-	flash_layer.layer = 120
-	var rect = ColorRect.new()
-	rect.set_anchors_preset(Control.PRESET_FULL_RECT)
-	rect.color = Color(1.0, 1.0, 1.0, 0.8)
-	flash_layer.add_child(rect)
-	get_tree().current_scene.add_child(flash_layer)
+func _do_shockwave_vfx() -> void:
+	if not shockwave_scene: return
 	
-	var tw = rect.create_tween()
-	tw.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
-	tw.tween_property(rect, "color:a", 0.0, 0.2)
-	tw.tween_callback(flash_layer.queue_free)
+	var sw = shockwave_scene.instantiate()
+	sw.global_position = global_position
+	# Add to the current scene so the player doesn't carry it if they move instantly
+	get_tree().current_scene.call_deferred("add_child", sw)
 
 func _apply_gravity(delta: float) -> void:
 	if not is_on_floor():
@@ -195,9 +254,7 @@ func _try_dash() -> void:
 	_is_dashing = true
 	_dash_cooldown_timer = dash_cooldown
 	
-	if _dash_tween:
-		_dash_tween.kill()
-	
+	if _dash_tween: _dash_tween.kill()
 	_dash_tween = create_tween()
 	_dash_tween.tween_interval(dash_duration)
 	_dash_tween.tween_callback(_end_dash)

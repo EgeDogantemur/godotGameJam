@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7t1j6x7n2e4f"]
+
+[ext_resource type="Script" path="res://Scripts/VFX/Shockwave.gd" id="1_scr"]
+
+[node name="Shockwave" type="Node2D"]
+z_index = 50
+script = ExtResource("1_scr")
