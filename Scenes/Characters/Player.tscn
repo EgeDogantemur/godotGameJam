@@ -276,5 +276,5 @@ look_speed = 1.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=722614723]
 scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_player")
-animation = &"idle"
+animation = &"jump"
 autoplay = "idle"
