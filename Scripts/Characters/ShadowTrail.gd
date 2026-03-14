@@ -34,7 +34,7 @@ func _set_target_speed(spd: float) -> void:
 	_speed_tween = create_tween()
 	_speed_tween.tween_property(self, "_consumption_rate", spd, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if shadow_node == null: return
 	
 	var sprite = player.get_node_or_null("Sprite2D")

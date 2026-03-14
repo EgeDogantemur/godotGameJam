@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ni2unmv4voe" path="res://Scripts/Characters/Player.gd" id="1_a1b2c"]
 [ext_resource type="Texture2D" uid="uid://y514wmisvyuf" path="res://icon.svg" id="2_d3e4f"]
 [ext_resource type="Script" uid="uid://p4wfvsxi46oi" path="res://Scripts/Characters/ShadowTrail.gd" id="3_trail"]
+[ext_resource type="Script" path="res://Scripts/Characters/PlayerCamera.gd" id="4_cam"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o5en2"]
 size = Vector2(58, 60)
@@ -23,3 +24,10 @@ texture = ExtResource("2_d3e4f")
 script = ExtResource("3_trail")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1249836894]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("4_cam")
+smooth_speed = 8.0
+look_ahead_x = 130.0
+look_ahead_y = 60.0
+look_speed = 3.2

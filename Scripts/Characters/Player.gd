@@ -145,9 +145,9 @@ func _do_screen_flash() -> void:
 	rect.set_anchors_preset(Control.PRESET_FULL_RECT)
 	rect.color = Color(1.0, 1.0, 1.0, 0.8)
 	flash_layer.add_child(rect)
-	get_tree().current_scene.call_deferred("add_child", flash_layer)
+	get_tree().current_scene.add_child(flash_layer)
 	
-	var tw = create_tween()
+	var tw = rect.create_tween()
 	tw.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	tw.tween_property(rect, "color:a", 0.0, 0.2)
 	tw.tween_callback(flash_layer.queue_free)
