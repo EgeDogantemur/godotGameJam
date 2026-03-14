@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://d18txkp4nmwx5"]
+
+[ext_resource type="Script" uid="uid://eipduviruyu0" path="res://Scripts/Objects/BouncyMushroom.gd" id="1_scr"]
+[ext_resource type="Texture2D" uid="uid://dbbjg03xq5fcp" path="res://Assets/Sprites/Environment/bouncymushroom.png" id="2_tex"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w3u14"]
+radius = 40.9
+height = 190.74
+
+[node name="BouncyMushroom" type="Area2D" unique_id=991918113]
+collision_layer = 8
+script = ExtResource("1_scr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1809779458]
+position = Vector2(0, 8)
+shape = SubResource("CapsuleShape2D_w3u14")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1656921565]
+texture = ExtResource("2_tex")

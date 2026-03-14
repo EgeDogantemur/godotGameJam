@@ -12,6 +12,11 @@ var _occupants: int = 0
 signal button_pressed()
 signal button_released()
 
+func _play_audio(method_name: String) -> void:
+	var audio_manager := get_node_or_null("/root/AudioManager")
+	if audio_manager:
+		audio_manager.call(method_name)
+
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
@@ -56,6 +61,7 @@ func _add_occupant() -> void:
 	if _occupants == 1 and not _is_pressed:
 		_is_pressed = true
 		$Sprite2D.modulate = Color(0.5, 1.0, 0.5)
+		_play_audio("play_button_press")
 		button_pressed.emit()
 		
 		var gs = get_node_or_null("/root/GameState")
@@ -76,6 +82,7 @@ func _remove_occupant() -> void:
 		_occupants = 0
 		_is_pressed = false
 		$Sprite2D.modulate = Color(1.0, 1.0, 1.0)
+		_play_audio("play_button_release")
 		button_released.emit()
 		
 		var plat = get_node_or_null(target_platform)

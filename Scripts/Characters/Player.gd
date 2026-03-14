@@ -63,6 +63,11 @@ var shadow_instance: Node2D = null
 @onready var trail = $ShadowTrail
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+func _play_audio(method_name: String) -> void:
+	var audio_manager := get_node_or_null("/root/AudioManager")
+	if audio_manager:
+		audio_manager.call(method_name)
+
 func _ready() -> void:
 	collision_layer = 1
 	if animated_sprite:
@@ -137,11 +142,10 @@ func _update_parry_state_machine(delta: float) -> void:
 func execute_parry_launch() -> void:
 	if current_parry_state == ParryState.SUCCESS: return # Prevent double parry execution
 	
-	print("[PARRY] execute_parry_launch çağrıldı - başarılı parry!")
-	
 	current_parry_state = ParryState.SUCCESS
 	_parry_state_timer = 0.3 # Short internal float lock
 	_coyote_timer = 0.0
+	_play_audio("play_parry")
 	
 	# Parry animasyonunu hemen göster (sadece parry olduğu an)
 	if animated_sprite and animated_sprite.sprite_frames and animated_sprite.sprite_frames.has_animation(&"parry"):
@@ -272,6 +276,7 @@ func _try_jump() -> void:
 		velocity.y = -jump_force
 		_coyote_timer = 0.0
 		_jump_buffer = 0.0
+		_play_audio("play_jump")
 
 func _try_dash() -> void:
 	if not Input.is_action_just_pressed("dash"): return
@@ -291,6 +296,7 @@ func _try_dash() -> void:
 	# Consume dash charge
 	_has_dash_charge = false
 	dash_charge_changed.emit(false)
+	_play_audio("play_dash")
 	
 	if _dash_tween: _dash_tween.kill()
 	_dash_tween = create_tween()

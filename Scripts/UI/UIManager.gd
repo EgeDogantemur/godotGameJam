@@ -20,6 +20,11 @@ var _restart_tween: Tween
 var _pause_eye_tween: Tween
 var _settings_eye_tween: Tween
 
+func _play_audio(method_name: String, args: Array = []) -> void:
+	var audio_manager := get_node_or_null("/root/AudioManager")
+	if audio_manager:
+		audio_manager.callv(method_name, args)
+
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	pause_menu.hide()
@@ -66,7 +71,7 @@ func _process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if in_main_menu: return
 	if restart_panel.visible:
-		if event is InputEventKey and event.pressed and not event.echo and event.physical_keycode == KEY_SPACE:
+		if event.is_action_pressed("jump"):
 			_restart_level()
 			get_viewport().set_input_as_handled()
 		return
@@ -87,9 +92,15 @@ func _connect_ui_signals() -> void:
 	main_menu_btn.pressed.connect(_on_main_menu_pressed)
 	
 	for btn in [resume_btn, settings_btn, main_menu_btn]:
-		btn.mouse_entered.connect(_refresh_pause_eye_state)
+		btn.mouse_entered.connect(func() -> void:
+			_play_audio("play_ui_hover")
+			_refresh_pause_eye_state()
+		)
 		btn.mouse_exited.connect(_refresh_pause_eye_state)
-		btn.focus_entered.connect(_refresh_pause_eye_state)
+		btn.focus_entered.connect(func() -> void:
+			_play_audio("play_ui_hover")
+			_refresh_pause_eye_state()
+		)
 		btn.focus_exited.connect(_refresh_pause_eye_state)
 	
 	var close_btn: Button = $SettingsMenu/Card/Margin/VBox/CloseBtn
@@ -101,9 +112,15 @@ func _connect_ui_signals() -> void:
 	glitch_slider.value_changed.connect(_on_scanline_changed)
 	
 	for control in [close_btn, master_slider, glitch_slider]:
-		control.mouse_entered.connect(_refresh_settings_eye_state)
+		control.mouse_entered.connect(func() -> void:
+			_play_audio("play_ui_hover")
+			_refresh_settings_eye_state()
+		)
 		control.mouse_exited.connect(_refresh_settings_eye_state)
-		control.focus_entered.connect(_refresh_settings_eye_state)
+		control.focus_entered.connect(func() -> void:
+			_play_audio("play_ui_hover")
+			_refresh_settings_eye_state()
+		)
 		control.focus_exited.connect(_refresh_settings_eye_state)
 	
 	$GameHUD/RestartPanel/Card/Margin/VBox/RestartBtn.pressed.connect(_on_restart_pressed)
@@ -153,9 +170,11 @@ func _on_player_died() -> void:
 	pause_menu.hide()
 	settings_menu.hide()
 	_show_restart_panel()
+	_play_audio("play_death")
 	get_tree().paused = true
 
 func _on_restart_pressed() -> void:
+	_play_audio("play_ui_click")
 	_restart_level()
 
 func _restart_level() -> void:
@@ -244,27 +263,32 @@ func _set_settings_eye_open(is_open: bool) -> void:
 
 func _toggle_pause() -> void:
 	is_paused = not is_paused
+	_play_audio("play_pause_toggle", [is_paused])
 	get_tree().paused = is_paused
 	pause_menu.visible = is_paused
 	if not is_paused:
 		_set_pause_eye_open(false)
 
 func _on_resume_pressed() -> void:
+	_play_audio("play_ui_click")
 	_toggle_pause()
 
 func _on_pause_settings_pressed() -> void:
+	_play_audio("play_ui_click")
 	pause_menu.hide()
 	settings_menu.show()
 	_set_pause_eye_open(false)
 	_set_settings_eye_open(false)
 
 func _close_settings() -> void:
+	_play_audio("play_ui_click")
 	settings_menu.hide()
 	_set_settings_eye_open(false)
 	if not in_main_menu:
 		pause_menu.show()
 
 func _on_main_menu_pressed() -> void:
+	_play_audio("play_ui_click")
 	_toggle_pause()
 	load_main_menu()
 
@@ -274,6 +298,7 @@ func show_settings_from_main() -> void:
 
 func load_main_menu() -> void:
 	in_main_menu = true
+	_play_audio("play_menu_music")
 	get_tree().paused = false
 	pause_menu.hide()
 	settings_menu.hide()
@@ -282,6 +307,7 @@ func load_main_menu() -> void:
 
 func load_game(level_path: String = "res://Scenes/emirantestscene.tscn") -> void:
 	in_main_menu = false
+	_play_audio("play_game_music")
 	get_tree().paused = false
 	pause_menu.hide()
 	settings_menu.hide()

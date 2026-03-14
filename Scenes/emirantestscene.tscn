@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b1qncsyl42ixy" path="res://Scenes/Objects/ParrySpike.tscn" id="7_spk1"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/KillZone.tscn" id="8_6lpcv"]
 [ext_resource type="PackedScene" uid="uid://cj2pbvfmn3ut8" path="res://Scenes/Objects/TutorialTrigger.tscn" id="8_tut1"]
+[ext_resource type="PackedScene" uid="uid://d18txkp4nmwx5" path="res://Scenes/Objects/BouncyMushroom.tscn" id="10_0hgo1"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/MovingPlatform.tscn" id="10_blt3r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_flr1"]
@@ -57,8 +58,6 @@ position = Vector2(360, 480)
 
 [node name="ParrySpike1" parent="." unique_id=461023746 instance=ExtResource("7_spk1")]
 position = Vector2(711, 425)
-pulse_speed = 2.21
-pulse_scale = 5.885
 
 [node name="ParrySpike2" parent="." unique_id=629148731 instance=ExtResource("7_spk1")]
 position = Vector2(889, 352)
@@ -84,3 +83,13 @@ scale = Vector2(3.8622904, 0.4050832)
 marker_a = NodePath("../Marker2D")
 marker_b = NodePath("../Marker2D2")
 move_speed = 200.0
+
+[node name="BouncyMushroom" parent="." unique_id=991918113 instance=ExtResource("10_0hgo1")]
+position = Vector2(-403, 528)
+scale = Vector2(0.6963106, 0.61589307)
+
+[node name="BouncyMushroom2" parent="." unique_id=1278888555 instance=ExtResource("10_0hgo1")]
+position = Vector2(-238, 528)
+rotation = 1.5707964
+scale = Vector2(0.6963106, 0.61589307)
+bounce_force = 2000.0
