@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://jtmxnvc1aahi" path="res://Scripts/Objects/LevelGoal.gd" id="1_gl1"]
 [ext_resource type="Texture2D" uid="uid://rhpvv6uwqih4" path="res://Assets/Sprites/Environment/ground4/kapi.png" id="2_saweb"]
 [ext_resource type="Texture2D" uid="uid://bp8m2g30w6wuu" path="res://Assets/Sprites/Environment/ground4/goz1.png" id="3_175fv"]
+[ext_resource type="Texture2D" uid="uid://2wckprthb2jb" path="res://Assets/Sprites/Environment/ground4/goz2.png" id="4_175fv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gl"]
 size = Vector2(71, 150)
@@ -24,3 +25,8 @@ texture = ExtResource("2_saweb")
 position = Vector2(8, -14)
 scale = Vector2(0.075, 0.075)
 texture = ExtResource("3_175fv")
+
+[node name="Goz2" type="Sprite2D" parent="." unique_id=94241913]
+position = Vector2(8, -13)
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("4_175fv")

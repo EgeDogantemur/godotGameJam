@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://lqtxlbhwhhue" path="res://Assets/Sprites/Environment/ground4/ground4.png" id="9_1t3c5"]
 [ext_resource type="Texture2D" uid="uid://cram50oqv42ly" path="res://Assets/Sprites/Environment/ground4/yerduz3 (1).png" id="10_crucb"]
 [ext_resource type="Texture2D" uid="uid://d251uixwkyacu" path="res://Assets/Sprites/Environment/ground4/muntar.png" id="11_0qarp"]
+[ext_resource type="Texture2D" uid="uid://6irrmxvnkkuc" path="res://Assets/Sprites/Environment/bgschool (1).png" id="12_4d6ur"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_awm3f"]
 size = Vector2(1122.3344, 50)
@@ -37,7 +38,6 @@ next_level_path = "res://Scenes/3 level .tscn"
 position = Vector2(813, 792)
 
 [node name="Collider" type="StaticBody2D" parent="." unique_id=440373656]
-show_behind_parent = true
 position = Vector2(859, 863)
 scale = Vector2(1.0400031, 1)
 collision_layer = 4
@@ -287,18 +287,21 @@ scale = Vector2(0.39162546, 0.35092595)
 texture = ExtResource("7_utdmy")
 
 [node name="Muntar" type="Sprite2D" parent="Collider" unique_id=1740274140]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
 show_behind_parent = true
 position = Vector2(-267.72037, -52.124992)
 scale = Vector2(0.44057408, 0.38114747)
 texture = ExtResource("11_0qarp")
 
 [node name="Muntar2" type="Sprite2D" parent="Collider" unique_id=2033360709]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
 show_behind_parent = true
 position = Vector2(69.23053, -51.999992)
 scale = Vector2(0.44057408, 0.38114747)
 texture = ExtResource("11_0qarp")
 
 [node name="Muntar4" type="Sprite2D" parent="Collider" unique_id=370400433]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
 show_behind_parent = true
 position = Vector2(-434.6141, -267)
 rotation = 1.3089969
@@ -306,6 +309,7 @@ scale = Vector2(0.44057408, 0.38114747)
 texture = ExtResource("11_0qarp")
 
 [node name="Muntar3" type="Sprite2D" parent="Collider" unique_id=205298747]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
 show_behind_parent = true
 position = Vector2(-133.65347, -334.00003)
 rotation = 2.7337384
@@ -347,3 +351,9 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collider4" unique_id=2008998027]
 position = Vector2(-238.5, 0)
 shape = SubResource("RectangleShape2D_r43wj")
+
+[node name="Bgschool(1)3" type="Sprite2D" parent="." unique_id=1237806501]
+show_behind_parent = true
+position = Vector2(748, 680)
+scale = Vector2(0.21709403, 0.2)
+texture = ExtResource("12_4d6ur")
