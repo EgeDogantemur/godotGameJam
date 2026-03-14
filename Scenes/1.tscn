@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dbvkttexd5iv1"]
+[gd_scene format=3 uid="uid://55pl4leyp8ig"]
 
 [ext_resource type="Texture2D" uid="uid://y514wmisvyuf" path="res://icon.svg" id="1_jghel"]
 [ext_resource type="PackedScene" uid="uid://7p3ovn45sywp" path="res://Scenes/Characters/Player.tscn" id="2_slnnj"]
@@ -6,80 +6,50 @@
 [ext_resource type="PackedScene" path="res://Scenes/Objects/LevelGoal.tscn" id="4_ysn8j"]
 [ext_resource type="PackedScene" uid="uid://cj2pbvfmn3ut8" path="res://Scenes/Objects/TutorialTrigger.tscn" id="5_kjfpe"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ll4n"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3w2qy"]
 size = Vector2(1000, 50)
 
-[node name="Node2D" type="Node2D" unique_id=961704240]
+[node name="Node2D" type="Node2D" unique_id=306883463]
 
-[node name="Floor5" type="StaticBody2D" parent="." unique_id=108439243]
-position = Vector2(390, 530)
-rotation = 1.5707963
-scale = Vector2(0.36000547, 1)
-collision_layer = 4
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor5" unique_id=266859887]
-shape = SubResource("RectangleShape2D_6ll4n")
-
-[node name="Sprite2D" type="Sprite2D" parent="Floor5" unique_id=1517515344]
-modulate = Color(0.2, 0.2, 0.2, 1)
-scale = Vector2(8, 0.4)
-texture = ExtResource("1_jghel")
-
-[node name="Floor4" type="StaticBody2D" parent="." unique_id=2015886167]
-position = Vector2(1323, 332.00003)
+[node name="Floor2" type="StaticBody2D" parent="." unique_id=597727165]
+position = Vector2(1277, 535)
 rotation = -1.5707964
-scale = Vector2(0.6000012, 1)
+scale = Vector2(0.16111113, -1.1274469)
 collision_layer = 4
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor4" unique_id=16656742]
-shape = SubResource("RectangleShape2D_6ll4n")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2" unique_id=305273469]
+shape = SubResource("RectangleShape2D_3w2qy")
 
-[node name="Sprite2D" type="Sprite2D" parent="Floor4" unique_id=331675485]
+[node name="Sprite2D" type="Sprite2D" parent="Floor2" unique_id=1477178152]
 modulate = Color(0.2, 0.2, 0.2, 1)
 scale = Vector2(8, 0.4)
 texture = ExtResource("1_jghel")
 
-[node name="Floor3" type="StaticBody2D" parent="." unique_id=315124940]
-position = Vector2(734, 56)
-scale = Vector2(1.1316679, 1)
-collision_layer = 4
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor3" unique_id=937229029]
-shape = SubResource("RectangleShape2D_6ll4n")
-
-[node name="Sprite2D" type="Sprite2D" parent="Floor3" unique_id=1913365418]
-modulate = Color(0.2, 0.2, 0.2, 1)
-scale = Vector2(8, 0.4)
-texture = ExtResource("1_jghel")
-
-[node name="Floor" type="StaticBody2D" parent="." unique_id=410915885]
-position = Vector2(894, 613)
+[node name="Floor" type="StaticBody2D" parent="." unique_id=1827812461]
+position = Vector2(783, 613)
 scale = Vector2(1.0400031, 1)
 collision_layer = 4
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=322533716]
-shape = SubResource("RectangleShape2D_6ll4n")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=582501100]
+shape = SubResource("RectangleShape2D_3w2qy")
 
-[node name="Sprite2D" type="Sprite2D" parent="Floor" unique_id=820298967]
+[node name="Sprite2D" type="Sprite2D" parent="Floor" unique_id=843665755]
 modulate = Color(0.2, 0.2, 0.2, 1)
 scale = Vector2(8, 0.4)
 texture = ExtResource("1_jghel")
 
-[node name="Floor2" type="StaticBody2D" parent="." unique_id=1922460211]
-position = Vector2(240.00002, 370)
-rotation = 3.1415925
-scale = Vector2(0.3367451, 1.0130382)
+[node name="Floor" type="StaticBody2D" parent="Floor" unique_id=792878889]
+position = Vector2(604.80585, -136)
+scale = Vector2(0.309236, 1)
 collision_layer = 4
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2" unique_id=1820823201]
-shape = SubResource("RectangleShape2D_6ll4n")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Floor" unique_id=123131552]
+shape = SubResource("RectangleShape2D_3w2qy")
 
-[node name="Sprite2D" type="Sprite2D" parent="Floor2" unique_id=868661754]
+[node name="Sprite2D" type="Sprite2D" parent="Floor/Floor" unique_id=964387728]
 modulate = Color(0.2, 0.2, 0.2, 1)
 scale = Vector2(8, 0.4)
 texture = ExtResource("1_jghel")
@@ -91,12 +61,12 @@ parry_launch_force_y = 620.0
 parry_cooldown = 0.1
 parry_buffer_time = 0.6
 
-[node name="Button_Both" parent="." unique_id=1893823669 instance=ExtResource("3_t3or0")]
-position = Vector2(353, 334)
+[node name="Button_Both" parent="." unique_id=473259016 instance=ExtResource("3_t3or0")]
+position = Vector2(1382, 446)
 
-[node name="LevelGoal" parent="." unique_id=308012023 instance=ExtResource("4_ysn8j")]
-position = Vector2(124, 280)
-next_level_path = "res://Scenes/2.tscn"
+[node name="LevelGoal" parent="." unique_id=690645273 instance=ExtResource("4_ysn8j")]
+position = Vector2(717, 520)
+next_level_path = "res://Scenes/1.tscn"
 
-[node name="TutorialTrigger" parent="." unique_id=1818415721 instance=ExtResource("5_kjfpe")]
-position = Vector2(755, 484)
+[node name="TutorialTrigger" parent="." unique_id=2046584768 instance=ExtResource("5_kjfpe")]
+position = Vector2(1145, 484)
