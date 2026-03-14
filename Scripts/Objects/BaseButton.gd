@@ -4,6 +4,7 @@ class_name BasePressurePlate
 enum AcceptedType { BOTH, PLAYER_ONLY, SHADOW_ONLY }
 
 @export var accepted_type: AcceptedType = AcceptedType.BOTH
+@export var target_platform: NodePath
 
 var _is_pressed: bool = false
 var _occupants: int = 0
@@ -56,10 +57,18 @@ func _add_occupant() -> void:
 		_is_pressed = true
 		$Sprite2D.modulate = Color(0.5, 1.0, 0.5)
 		button_pressed.emit()
+		
 		var gs = get_node_or_null("/root/GameState")
+		var plat = get_node_or_null(target_platform)
+		
+		if plat and "is_active" in plat:
+			plat.is_active = true
+		elif gs:
+			# Only trigger gate if this button is NOT a platform trigger
+			gs.trigger_gate_unlock()
+			
 		if gs:
 			gs.trigger_button(name)
-			gs.trigger_gate_unlock()
 
 func _remove_occupant() -> void:
 	_occupants -= 1
@@ -68,3 +77,7 @@ func _remove_occupant() -> void:
 		_is_pressed = false
 		$Sprite2D.modulate = Color(1.0, 1.0, 1.0)
 		button_released.emit()
+		
+		var plat = get_node_or_null(target_platform)
+		if plat and "is_active" in plat:
+			plat.is_active = false

@@ -167,25 +167,12 @@ layout_mode = 1
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 230.0
-offset_bottom = 100.0
+offset_bottom = 60.0
 theme_override_constants/separation = 6
-
-[node name="SyncLabel" type="Label" parent="GameHUD/TopLeft"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.0, 1.0, 0.8, 0.7)
-theme_override_font_sizes/font_size = 12
-text = "SYNC LEVEL"
-
-[node name="SyncBar" type="ProgressBar" parent="GameHUD/TopLeft"]
-custom_minimum_size = Vector2(0, 14)
-layout_mode = 2
-max_value = 100.0
-value = 100.0
-show_percentage = false
 
 [node name="DashLabel" type="Label" parent="GameHUD/TopLeft"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 18
 text = "DASH: —"
 modulate = Color(0.5, 0.5, 0.5, 0.5)
 

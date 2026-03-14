@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" path="res://Scenes/Objects/ParrySpike.tscn" id="7_spk1"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/KillZone.tscn" id="8_6lpcv"]
 [ext_resource type="PackedScene" uid="uid://cj2pbvfmn3ut8" path="res://Scenes/Objects/TutorialTrigger.tscn" id="8_tut1"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/MovingPlatform.tscn" id="10_blt3r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_flr1"]
 size = Vector2(1000, 50)
@@ -16,6 +17,7 @@ size = Vector2(1000, 50)
 
 [node name="Floor" type="StaticBody2D" parent="." unique_id=367465628]
 position = Vector2(500, 600)
+scale = Vector2(3.04, 1)
 collision_layer = 4
 collision_mask = 4
 
@@ -32,7 +34,8 @@ position = Vector2(500, 400)
 parry_cooldown = 1.0
 
 [node name="Button_Both" parent="." unique_id=1461333545 instance=ExtResource("3_btn1")]
-position = Vector2(586, 576)
+position = Vector2(370, 573)
+target_platform = NodePath("../MovingPlatform")
 
 [node name="Button_PlayerOnly" parent="." unique_id=2127347203 instance=ExtResource("3_btn1")]
 position = Vector2(500, 576)
@@ -66,3 +69,16 @@ position = Vector2(218, 484)
 
 [node name="KillZone" parent="." unique_id=1206075691 instance=ExtResource("8_6lpcv")]
 position = Vector2(492, 672)
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=737502446]
+position = Vector2(-250, 400)
+
+[node name="Marker2D2" type="Marker2D" parent="." unique_id=627381277]
+position = Vector2(211, 400)
+
+[node name="MovingPlatform" parent="." unique_id=921293916 node_paths=PackedStringArray("marker_a", "marker_b") instance=ExtResource("10_blt3r")]
+position = Vector2(-6, 397)
+scale = Vector2(3.8622904, 0.4050832)
+marker_a = NodePath("../Marker2D")
+marker_b = NodePath("../Marker2D2")
+move_speed = 200.0

@@ -2,7 +2,6 @@ extends CanvasLayer
 
 @onready var pause_menu: Control = $PauseMenu
 @onready var settings_menu: Control = $SettingsMenu
-@onready var sync_bar: ProgressBar = $GameHUD/TopLeft/SyncBar
 @onready var dash_label: Label = $GameHUD/TopLeft/DashLabel
 @onready var restart_panel: Control = $GameHUD/RestartPanel
 @onready var proximity_overlay: ColorRect = $ProximityOverlay
@@ -25,9 +24,10 @@ func _ready() -> void:
 		gs.player_died.connect(_on_player_died)
 		gs.dash_unlocked_changed.connect(_on_dash_unlocked_changed)
 		
-		# Auto-unlock dash if we are beyond level 6
+		# Auto-unlock dash if we are at or beyond level 6
 		var path = get_tree().current_scene.scene_file_path
-		if path.get_file().to_int() > 6:
+		var level_num = path.get_file().to_int()
+		if level_num >= 6:
 			gs.dash_unlocked = true
 			
 		dash_label.visible = gs.dash_unlocked
@@ -48,16 +48,6 @@ func _process(delta: float) -> void:
 	$GameHUD.show()
 	proximity_overlay.show()
 	
-	var gs = get_node_or_null("/root/GameState")
-	if gs:
-		sync_bar.value = (gs.desync_energy / gs.desync_energy_max) * 100.0
-		
-		# Pulse bar when low
-		if sync_bar.value < 25.0:
-			sync_bar.modulate = Color(1.0, 0.3, 0.3, 0.7 + 0.3 * sin(Time.get_ticks_msec() * 0.01))
-		else:
-			sync_bar.modulate = Color.WHITE
-
 	_update_proximity_visuals(delta)
 
 func _input(event: InputEvent) -> void:
