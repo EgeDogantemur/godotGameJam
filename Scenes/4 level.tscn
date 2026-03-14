@@ -438,6 +438,18 @@ rotation = 3.1415925
 scale = Vector2(1.5492692, 3.4255123)
 texture = ExtResource("8_v5cyw")
 
+[node name="Yerduz3(1)30" type="Sprite2D" parent="Floor6" unique_id=591563981]
+position = Vector2(-944.22797, 1290)
+rotation = 3.1415925
+scale = Vector2(1.5492692, 3.4255123)
+texture = ExtResource("8_v5cyw")
+
+[node name="Yerduz3(1)31" type="Sprite2D" parent="Floor6" unique_id=768190359]
+position = Vector2(1463.4573, 1330)
+rotation = 3.1415925
+scale = Vector2(1.5492692, 3.4255123)
+texture = ExtResource("8_v5cyw")
+
 [node name="Ground29" type="Sprite2D" parent="Floor6" unique_id=959424798]
 position = Vector2(-473.2727, -86.22342)
 rotation = -4.712389
