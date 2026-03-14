@@ -1,0 +1,22 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/Objects/ParrySpike.gd" id="1_scr"]
+[ext_resource type="Texture2D" uid="uid://y514wmisvyuf" path="res://icon.svg" id="2_tex"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_spk"]
+size = Vector2(56, 56)
+
+[node name="ParrySpike" type="Area2D" groups=["hazard"]]
+collision_layer = 4
+collision_mask = 1
+script = ExtResource("1_scr")
+pulse_speed = 1.2
+pulse_scale = 1.05
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.4, 0.4, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_tex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_spk")

@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" path="res://Scenes/Objects/BaseButton.tscn" id="3_btn1"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/LevelGoal.tscn" id="5_goal1"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/EnergyCell.tscn" id="6_ec1"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/ParrySpike.tscn" id="7_spk1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_flr1"]
 size = Vector2(1000, 50)
@@ -49,3 +50,12 @@ position = Vector2(300, 480)
 
 [node name="EnergyCell2" parent="." unique_id=1477432932 instance=ExtResource("6_ec1")]
 position = Vector2(360, 480)
+
+[node name="ParrySpike1" parent="." unique_id=461023746 instance=ExtResource("7_spk1")]
+position = Vector2(711, 425)
+
+[node name="ParrySpike2" parent="." unique_id=629148731 instance=ExtResource("7_spk1")]
+position = Vector2(889, 352)
+
+[node name="ParrySpike3" parent="." unique_id=881237402 instance=ExtResource("7_spk1")]
+position = Vector2(1051, 307)
