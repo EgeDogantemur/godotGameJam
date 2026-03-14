@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://lqtxlbhwhhue" path="res://Assets/Sprites/Environment/ground4/ground4.png" id="12_puktg"]
 [ext_resource type="Texture2D" uid="uid://cram50oqv42ly" path="res://Assets/Sprites/Environment/ground4/yerduz3 (1).png" id="13_rblbs"]
 [ext_resource type="Texture2D" uid="uid://d251uixwkyacu" path="res://Assets/Sprites/Environment/ground4/muntar.png" id="14_40l3w"]
-[ext_resource type="Texture2D" uid="uid://syqtr4smptgh" path="res://Assets/Sprites/Environment/ground4/Ground/bgclock.png" id="14_ni14q"]
+[ext_resource type="Texture2D" uid="uid://c735c5ecls81y" path="res://Assets/Sprites/Environment/ground4/Ground/bgkid.png" id="14_ni14q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yrvgx"]
 size = Vector2(1459.486, 50)
@@ -493,6 +493,6 @@ texture = ExtResource("14_40l3w")
 
 [node name="Bgclock" type="Sprite2D" parent="Node2D" unique_id=300687774]
 show_behind_parent = true
-position = Vector2(3020, 366.75003)
-scale = Vector2(0.7052083, 0.9412038)
+position = Vector2(2931.9998, 253)
+scale = Vector2(0.4926838, 0.6329572)
 texture = ExtResource("14_ni14q")
