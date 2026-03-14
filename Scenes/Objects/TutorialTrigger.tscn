@@ -1,14 +1,15 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://cj2pbvfmn3ut8"]
 
-[ext_resource type="Script" path="res://Scripts/UI/TutorialTrigger.gd" id="1_scr"]
+[ext_resource type="Script" uid="uid://c56on3lgohiw0" path="res://Scripts/UI/TutorialTrigger.gd" id="1_scr"]
+[ext_resource type="VideoStream" uid="uid://ba7h43i0utyc0" path="res://WhatsApp-Video-2026-03-14-at-06.03.10.ogv" id="2_s6wau"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tut"]
 size = Vector2(200, 200)
 
-[node name="TutorialTrigger" type="Area2D"]
+[node name="TutorialTrigger" type="Area2D" unique_id=2046584768]
 collision_layer = 4
-collision_mask = 1
 script = ExtResource("1_scr")
+tutorial_video = ExtResource("2_s6wau")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1925673727]
 shape = SubResource("RectangleShape2D_tut")

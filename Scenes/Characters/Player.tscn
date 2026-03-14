@@ -12,6 +12,7 @@ size = Vector2(58, 60)
 collision_mask = 4
 script = ExtResource("1_a1b2c")
 speed = 250.0
+parry_cooldown = 0.2
 parry_freeze_duration = 0.08
 parry_zoom_amount = 0.8
 parry_zoom_duration = 0.1
