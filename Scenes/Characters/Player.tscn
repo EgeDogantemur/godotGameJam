@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://7p3ovn45sywp"]
 
 [ext_resource type="Script" uid="uid://ni2unmv4voe" path="res://Scripts/Characters/Player.gd" id="1_a1b2c"]
-[ext_resource type="Texture2D" uid="uid://y514wmisvyuf" path="res://icon.svg" id="2_d3e4f"]
+[ext_resource type="SpriteFrames" path="res://Assets/Sprites/Characters/geik/idle_frames.tres" id="2_idle"]
 [ext_resource type="Script" uid="uid://p4wfvsxi46oi" path="res://Scripts/Characters/ShadowTrail.gd" id="3_trail"]
 [ext_resource type="Script" uid="uid://bfy6tatsh8lh4" path="res://Scripts/Characters/PlayerCamera.gd" id="4_cam"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o5en2"]
-size = Vector2(58, 60)
+size = Vector2(14, 87)
 
 [node name="Player" type="CharacterBody2D" unique_id=1389075244 groups=["player"]]
 collision_mask = 4
@@ -22,11 +22,16 @@ post_parry_slowmo_scale = 0.9
 post_parry_slowmo_duration = 0.75
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=782364925]
+position = Vector2(0, 5.5)
 shape = SubResource("RectangleShape2D_o5en2")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=456496261]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_d3e4f")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=456496261]
+position = Vector2(12.000001, 0)
+scale = Vector2(0.1, 0.1)
+sprite_frames = ExtResource("2_idle")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.68660986
 
 [node name="ShadowTrail" type="Node" parent="." unique_id=198756207]
 script = ExtResource("3_trail")

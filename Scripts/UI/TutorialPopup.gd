@@ -14,6 +14,11 @@ func _ready() -> void:
 	var tw = create_tween()
 	tw.tween_property($ColorRect, "modulate:a", 1.0, 0.3)
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and event.physical_keycode == KEY_SPACE:
+		get_viewport().set_input_as_handled()
+		_close_popup()
+
 func play_video(stream: VideoStream) -> void:
 	if not stream:
 		_close_popup()

@@ -252,12 +252,14 @@ func _end_dash() -> void:
 	velocity.x = _dash_direction * speed * 0.5
 
 func _update_animation() -> void:
-	var anim = get_node_or_null("AnimationPlayer")
-	if not anim: return
+	var anim_sprite = get_node_or_null("AnimatedSprite2D")
+	if not anim_sprite: return
 	
-	if anim.has_animation("jump") and not is_on_floor():
-		anim.play("jump" if velocity.y < 0 else "fall")
-	elif anim.has_animation("run") and abs(velocity.x) > 10:
-		anim.play("run")
-	elif anim.has_animation("idle"):
-		anim.play("idle")
+	# Flip sprite based on movement direction
+	var dir = Input.get_axis("move_left", "move_right")
+	if dir != 0:
+		anim_sprite.flip_h = dir < 0
+	
+	# Play idle (only animation available for now)
+	if not anim_sprite.is_playing() or anim_sprite.animation != &"idle":
+		anim_sprite.play(&"idle")
