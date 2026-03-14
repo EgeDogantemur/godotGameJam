@@ -6,7 +6,7 @@ extends CanvasLayer
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS # Allows UI to process while game is paused
 	
-	video_player.finished.connect(_close_popup)
+	video_player.finished.connect(func(): video_player.play())
 	skip_btn.pressed.connect(_close_popup)
 	
 	# Start hidden, fade in
