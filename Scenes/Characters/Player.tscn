@@ -11,9 +11,10 @@ size = Vector2(58, 60)
 [node name="Player" type="CharacterBody2D" unique_id=1389075244 groups=["player"]]
 collision_mask = 4
 script = ExtResource("1_a1b2c")
+speed = 250.0
 parry_freeze_duration = 0.08
 parry_zoom_amount = 0.8
-parry_zoom_duration = 0.2
+parry_zoom_duration = 0.1
 post_parry_slowmo_scale = 0.9
 post_parry_slowmo_duration = 0.75
 
@@ -26,6 +27,7 @@ texture = ExtResource("2_d3e4f")
 
 [node name="ShadowTrail" type="Node" parent="." unique_id=198756207]
 script = ExtResource("3_trail")
+follow_delay_frames = 100
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1249836894]
 

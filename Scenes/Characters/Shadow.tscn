@@ -9,6 +9,7 @@ size = Vector2(60, 62)
 [node name="Shadow" type="Area2D" unique_id=1581785216 groups=["shadow"]]
 collision_layer = 2
 script = ExtResource("1_a1b2c")
+spawn_immunity = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1131167185]
 shape = SubResource("RectangleShape2D_ytw1o")

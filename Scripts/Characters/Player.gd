@@ -24,6 +24,7 @@ extends CharacterBody2D
 @export var parry_freeze_duration: float = 0.12
 @export var parry_zoom_amount: float = 0.65
 @export var parry_zoom_duration: float = 0.35
+@export var parry_shake_intensity: float = 8.0
 @export var post_parry_slowmo_scale: float = 0.3
 @export var post_parry_slowmo_duration: float = 0.25
 
@@ -195,12 +196,16 @@ func _do_success_zoom() -> void:
 	_parry_zoom_tween.tween_property(cam, "zoom", Vector2.ONE, parry_zoom_duration * 0.8).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 func _do_screen_shake() -> void:
+	if parry_shake_intensity <= 0.0: return
+	
 	var cam = get_viewport().get_camera_2d()
 	if not cam: return
 	var shake_tw = create_tween()
 	shake_tw.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	for i in range(5):
-		shake_tw.tween_property(cam, "offset", Vector2(randf_range(-12, 12), randf_range(-12, 12)), 0.03)
+		var offset_x = randf_range(-parry_shake_intensity, parry_shake_intensity)
+		var offset_y = randf_range(-parry_shake_intensity, parry_shake_intensity)
+		shake_tw.tween_property(cam, "offset", Vector2(offset_x, offset_y), 0.03)
 	shake_tw.tween_property(cam, "offset", Vector2.ZERO, 0.05)
 
 func _do_shockwave_vfx() -> void:
