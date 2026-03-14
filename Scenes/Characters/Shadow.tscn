@@ -37,7 +37,7 @@
 [ext_resource type="Texture2D" uid="uid://pdeprf1bdgxk" path="res://Assets/Sprites/Characters/shadowgeik/yurumekgolge/Timeline 1_0010.png" id="35_walk10"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ytw1o"]
-size = Vector2(54, 57)
+size = Vector2(54, 65)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_shadow"]
 animations = [{
@@ -160,11 +160,11 @@ script = ExtResource("1_a1b2c")
 spawn_immunity = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1738473211]
-position = Vector2(1, -0.5)
+position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_ytw1o")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1253195818]
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_shadow")
 animation = &"idle"
 autoplay = "idle"

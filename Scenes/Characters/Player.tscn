@@ -258,7 +258,6 @@ post_parry_slowmo_scale = 0.9
 post_parry_slowmo_duration = 0.75
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=603475128]
-position = Vector2(1, -0.5)
 shape = SubResource("RectangleShape2D_o5en2")
 
 [node name="ShadowTrail" type="Node" parent="." unique_id=194434624]
@@ -275,7 +274,7 @@ look_ahead_y = 60.0
 look_speed = 1.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=722614723]
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_player")
 animation = &"idle"
 autoplay = "idle"
