@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" path="res://Scenes/Objects/BaseButton.tscn" id="3_t3or0"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/LevelGoal.tscn" id="4_ysn8j"]
 [ext_resource type="PackedScene" uid="uid://cj2pbvfmn3ut8" path="res://Scenes/Objects/TutorialTrigger.tscn" id="5_kjfpe"]
+[ext_resource type="VideoStream" uid="uid://dqmoqdxqnpi48" path="res://w as d tutorail.ogv" id="6_b2yne"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3w2qy"]
 size = Vector2(1000, 50)
@@ -65,8 +66,9 @@ parry_buffer_time = 0.6
 position = Vector2(1382, 446)
 
 [node name="LevelGoal" parent="." unique_id=690645273 instance=ExtResource("4_ysn8j")]
-position = Vector2(717, 520)
-next_level_path = "res://Scenes/1.tscn"
+position = Vector2(717, 509)
+next_level_path = "res://Scenes/2.tscn"
 
 [node name="TutorialTrigger" parent="." unique_id=2046584768 instance=ExtResource("5_kjfpe")]
-position = Vector2(1145, 484)
+position = Vector2(1144, 484)
+tutorial_video = ExtResource("6_b2yne")

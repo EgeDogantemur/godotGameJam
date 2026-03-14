@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://cjssb36dnkftv"]
 
-[ext_resource type="Texture2D" uid="uid://y514wmisvyuf" path="res://icon.svg" id="1_3a318"]
-[ext_resource type="PackedScene" uid="uid://7p3ovn45sywp" path="res://Scenes/Characters/Player.tscn" id="2_icg8j"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/BaseButton.tscn" id="3_clukl"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/ParrySpike.tscn" id="4_6rejg"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/LevelGoal.tscn" id="5_6otce"]
+[ext_resource type="Texture2D" uid="uid://y514wmisvyuf" path="res://icon.svg" id="1_7wkmf"]
+[ext_resource type="PackedScene" uid="uid://7p3ovn45sywp" path="res://Scenes/Characters/Player.tscn" id="2_1214l"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/BaseButton.tscn" id="3_ahfju"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/ParrySpike.tscn" id="4_u12oc"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/LevelGoal.tscn" id="5_ahm7k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_he1eu"]
 size = Vector2(1000, 50)
@@ -15,7 +15,7 @@ size = Vector2(1000, 50)
 [node name="Node2D" type="Node2D" unique_id=1810248405]
 
 [node name="Floor2" type="StaticBody2D" parent="." unique_id=805015592]
-position = Vector2(748, 445)
+position = Vector2(781, 540)
 rotation = 3.1415925
 scale = Vector2(0.53674567, 1.0130382)
 collision_layer = 4
@@ -27,17 +27,17 @@ shape = SubResource("RectangleShape2D_he1eu")
 [node name="Sprite2D" type="Sprite2D" parent="Floor2" unique_id=1759164512]
 modulate = Color(0.2, 0.2, 0.2, 1)
 scale = Vector2(8, 0.4)
-texture = ExtResource("1_3a318")
+texture = ExtResource("1_7wkmf")
 
-[node name="Player" parent="." unique_id=1389075244 instance=ExtResource("2_icg8j")]
-position = Vector2(965, 386)
+[node name="Player" parent="." unique_id=1389075244 instance=ExtResource("2_1214l")]
+position = Vector2(965, 480)
 speed = 300.0
 parry_launch_force_y = 620.0
 parry_cooldown = 0.1
 parry_buffer_time = 0.6
 
 [node name="Floor3" type="StaticBody2D" parent="." unique_id=1654929065]
-position = Vector2(648.00006, -38)
+position = Vector2(21, -198)
 rotation = 3.1415925
 scale = Vector2(0.3367451, 1.0130382)
 collision_layer = 4
@@ -49,17 +49,44 @@ shape = SubResource("RectangleShape2D_212su")
 [node name="Sprite2D" type="Sprite2D" parent="Floor3" unique_id=1278741995]
 modulate = Color(0.2, 0.2, 0.2, 1)
 scale = Vector2(8, 0.4)
-texture = ExtResource("1_3a318")
+texture = ExtResource("1_7wkmf")
 
-[node name="Button_Both" parent="." unique_id=64765436 instance=ExtResource("3_clukl")]
+[node name="Button_Both" parent="." unique_id=64765436 instance=ExtResource("3_ahfju")]
 position = Vector2(10, 205)
 
-[node name="ParrySpike1" parent="." unique_id=519675406 instance=ExtResource("4_6rejg")]
-position = Vector2(348, 234)
+[node name="ParrySpike1" parent="." unique_id=519675406 instance=ExtResource("4_u12oc")]
+position = Vector2(662, 28)
 
-[node name="LevelGoal" parent="." unique_id=2009203713 instance=ExtResource("5_6otce")]
-position = Vector2(749, -131)
+[node name="LevelGoal" parent="." unique_id=2009203713 instance=ExtResource("5_ahm7k")]
+position = Vector2(121.99994, -291)
 next_level_path = "res://Scenes/EgeTestScene.tscn"
 
-[node name="ParrySpike2" parent="." unique_id=1023941422 instance=ExtResource("4_6rejg")]
-position = Vector2(5, 238)
+[node name="Floor4" type="StaticBody2D" parent="." unique_id=1183643622]
+position = Vector2(100.00001, 297)
+rotation = 3.1415925
+scale = Vector2(0.53674567, 1.0130382)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor4" unique_id=1315737882]
+shape = SubResource("RectangleShape2D_he1eu")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor4" unique_id=2041999643]
+modulate = Color(0.2, 0.2, 0.2, 1)
+scale = Vector2(8, 0.4)
+texture = ExtResource("1_7wkmf")
+
+[node name="Floor5" type="StaticBody2D" parent="." unique_id=1986755186]
+position = Vector2(888, 25)
+rotation = 3.1415925
+scale = Vector2(0.53674567, 1.0130382)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor5" unique_id=1116666684]
+shape = SubResource("RectangleShape2D_he1eu")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor5" unique_id=1980245626]
+modulate = Color(0.2, 0.2, 0.2, 1)
+scale = Vector2(8, 0.4)
+texture = ExtResource("1_7wkmf")

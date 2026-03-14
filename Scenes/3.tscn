@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://4pp500j3e8lq"]
 
-[ext_resource type="Texture2D" uid="uid://y514wmisvyuf" path="res://icon.svg" id="1_ea3mx"]
-[ext_resource type="PackedScene" uid="uid://7p3ovn45sywp" path="res://Scenes/Characters/Player.tscn" id="2_172vo"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/BaseButton.tscn" id="3_sajd4"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/LevelGoal.tscn" id="4_gxbpw"]
+[ext_resource type="Texture2D" uid="uid://y514wmisvyuf" path="res://icon.svg" id="1_6cylb"]
+[ext_resource type="PackedScene" uid="uid://7p3ovn45sywp" path="res://Scenes/Characters/Player.tscn" id="2_p33bi"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/BaseButton.tscn" id="3_esi7c"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/LevelGoal.tscn" id="4_2u1eb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sragj"]
 size = Vector2(1000, 50)
@@ -25,7 +25,7 @@ shape = SubResource("RectangleShape2D_sragj")
 [node name="Sprite2D" type="Sprite2D" parent="Floor4" unique_id=842467342]
 modulate = Color(0.2, 0.2, 0.2, 1)
 scale = Vector2(8, 0.4)
-texture = ExtResource("1_ea3mx")
+texture = ExtResource("1_6cylb")
 
 [node name="Floor2" type="StaticBody2D" parent="." unique_id=1259787972]
 position = Vector2(674, 444.99997)
@@ -40,9 +40,9 @@ shape = SubResource("RectangleShape2D_sragj")
 [node name="Sprite2D" type="Sprite2D" parent="Floor2" unique_id=1234152790]
 modulate = Color(0.2, 0.2, 0.2, 1)
 scale = Vector2(8, 0.4)
-texture = ExtResource("1_ea3mx")
+texture = ExtResource("1_6cylb")
 
-[node name="Player" parent="." unique_id=1389075244 instance=ExtResource("2_172vo")]
+[node name="Player" parent="." unique_id=1389075244 instance=ExtResource("2_p33bi")]
 position = Vector2(854, 390)
 speed = 300.0
 
@@ -59,11 +59,11 @@ shape = SubResource("RectangleShape2D_ea3mx")
 [node name="Sprite2D" type="Sprite2D" parent="Floor3" unique_id=2071368465]
 modulate = Color(0.2, 0.2, 0.2, 1)
 scale = Vector2(8, 0.4)
-texture = ExtResource("1_ea3mx")
+texture = ExtResource("1_6cylb")
 
-[node name="Button_Both" parent="." unique_id=354769900 instance=ExtResource("3_sajd4")]
+[node name="Button_Both" parent="." unique_id=354769900 instance=ExtResource("3_esi7c")]
 position = Vector2(168, 419)
 
-[node name="LevelGoal" parent="." unique_id=1189049130 instance=ExtResource("4_gxbpw")]
+[node name="LevelGoal" parent="." unique_id=1189049130 instance=ExtResource("4_2u1eb")]
 position = Vector2(829, 155)
-next_level_path = "res://3.tscn"
+next_level_path = "res://Scenes/4.tscn"

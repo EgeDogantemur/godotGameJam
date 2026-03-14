@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dbvkttexd5iv1"]
 
-[ext_resource type="Texture2D" uid="uid://y514wmisvyuf" path="res://icon.svg" id="1_jghel"]
-[ext_resource type="PackedScene" uid="uid://7p3ovn45sywp" path="res://Scenes/Characters/Player.tscn" id="2_slnnj"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/BaseButton.tscn" id="3_t3or0"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/LevelGoal.tscn" id="4_ysn8j"]
-[ext_resource type="PackedScene" uid="uid://cj2pbvfmn3ut8" path="res://Scenes/Objects/TutorialTrigger.tscn" id="5_kjfpe"]
+[ext_resource type="Texture2D" uid="uid://y514wmisvyuf" path="res://icon.svg" id="1_ea3mx"]
+[ext_resource type="PackedScene" uid="uid://7p3ovn45sywp" path="res://Scenes/Characters/Player.tscn" id="2_172vo"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/BaseButton.tscn" id="3_sajd4"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/LevelGoal.tscn" id="4_gxbpw"]
+[ext_resource type="PackedScene" uid="uid://cj2pbvfmn3ut8" path="res://Scenes/Objects/TutorialTrigger.tscn" id="5_goqd5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ll4n"]
 size = Vector2(1000, 50)
@@ -24,7 +24,7 @@ shape = SubResource("RectangleShape2D_6ll4n")
 [node name="Sprite2D" type="Sprite2D" parent="Floor5" unique_id=1517515344]
 modulate = Color(0.2, 0.2, 0.2, 1)
 scale = Vector2(8, 0.4)
-texture = ExtResource("1_jghel")
+texture = ExtResource("1_ea3mx")
 
 [node name="Floor4" type="StaticBody2D" parent="." unique_id=2015886167]
 position = Vector2(1323, 332.00003)
@@ -39,7 +39,7 @@ shape = SubResource("RectangleShape2D_6ll4n")
 [node name="Sprite2D" type="Sprite2D" parent="Floor4" unique_id=331675485]
 modulate = Color(0.2, 0.2, 0.2, 1)
 scale = Vector2(8, 0.4)
-texture = ExtResource("1_jghel")
+texture = ExtResource("1_ea3mx")
 
 [node name="Floor3" type="StaticBody2D" parent="." unique_id=315124940]
 position = Vector2(734, 56)
@@ -53,7 +53,7 @@ shape = SubResource("RectangleShape2D_6ll4n")
 [node name="Sprite2D" type="Sprite2D" parent="Floor3" unique_id=1913365418]
 modulate = Color(0.2, 0.2, 0.2, 1)
 scale = Vector2(8, 0.4)
-texture = ExtResource("1_jghel")
+texture = ExtResource("1_ea3mx")
 
 [node name="Floor" type="StaticBody2D" parent="." unique_id=410915885]
 position = Vector2(894, 613)
@@ -67,7 +67,7 @@ shape = SubResource("RectangleShape2D_6ll4n")
 [node name="Sprite2D" type="Sprite2D" parent="Floor" unique_id=820298967]
 modulate = Color(0.2, 0.2, 0.2, 1)
 scale = Vector2(8, 0.4)
-texture = ExtResource("1_jghel")
+texture = ExtResource("1_ea3mx")
 
 [node name="Floor2" type="StaticBody2D" parent="." unique_id=1922460211]
 position = Vector2(240.00002, 370)
@@ -82,21 +82,21 @@ shape = SubResource("RectangleShape2D_6ll4n")
 [node name="Sprite2D" type="Sprite2D" parent="Floor2" unique_id=868661754]
 modulate = Color(0.2, 0.2, 0.2, 1)
 scale = Vector2(8, 0.4)
-texture = ExtResource("1_jghel")
+texture = ExtResource("1_ea3mx")
 
-[node name="Player" parent="." unique_id=1389075244 instance=ExtResource("2_slnnj")]
+[node name="Player" parent="." unique_id=1389075244 instance=ExtResource("2_172vo")]
 position = Vector2(1202, 549)
 speed = 300.0
 parry_launch_force_y = 620.0
 parry_cooldown = 0.1
 parry_buffer_time = 0.6
 
-[node name="Button_Both" parent="." unique_id=1893823669 instance=ExtResource("3_t3or0")]
+[node name="Button_Both" parent="." unique_id=1893823669 instance=ExtResource("3_sajd4")]
 position = Vector2(353, 334)
 
-[node name="LevelGoal" parent="." unique_id=308012023 instance=ExtResource("4_ysn8j")]
+[node name="LevelGoal" parent="." unique_id=308012023 instance=ExtResource("4_gxbpw")]
 position = Vector2(124, 280)
-next_level_path = "res://Scenes/2.tscn"
+next_level_path = "res://Scenes/3.tscn"
 
-[node name="TutorialTrigger" parent="." unique_id=1818415721 instance=ExtResource("5_kjfpe")]
+[node name="TutorialTrigger" parent="." unique_id=1818415721 instance=ExtResource("5_goqd5")]
 position = Vector2(755, 484)
