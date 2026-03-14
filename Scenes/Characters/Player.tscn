@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://ni2unmv4voe" path="res://Scripts/Characters/Player.gd" id="1_a1b2c"]
 [ext_resource type="Script" uid="uid://p4wfvsxi46oi" path="res://Scripts/Characters/ShadowTrail.gd" id="3_trail"]
 [ext_resource type="Script" uid="uid://bfy6tatsh8lh4" path="res://Scripts/Characters/PlayerCamera.gd" id="4_cam"]
-[ext_resource type="Texture2D" uid="uid://dlxn7r2fvy5dp" path="res://Assets/Sprites/Characters/geik1.png" id="5_7qdam"]
+[ext_resource type="Texture2D" uid="uid://dlxn7r2fvy5dp" path="res://Assets/Sprites/Characters/geik/geik1.png" id="5_7qdam"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o5en2"]
 size = Vector2(56, 57)
