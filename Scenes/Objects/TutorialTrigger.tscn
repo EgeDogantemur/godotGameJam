@@ -1,0 +1,14 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/UI/TutorialTrigger.gd" id="1_scr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tut"]
+size = Vector2(200, 200)
+
+[node name="TutorialTrigger" type="Area2D"]
+collision_layer = 4
+collision_mask = 1
+script = ExtResource("1_scr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tut")
