@@ -46,7 +46,9 @@ func _physics_process(delta: float) -> void:
 	var target_size = max(1, follow_delay_frames)
 	var data: Dictionary = {}
 	
-	if history.size() > target_size + 5:
+	if player.get("is_parrying"):
+		_set_target_speed(0.15)
+	elif history.size() > target_size + 5:
 		_set_target_speed(catchup_speed)
 	else:
 		_set_target_speed(1.0)

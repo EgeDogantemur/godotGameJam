@@ -10,8 +10,7 @@ size = Vector2(58, 60)
 [node name="Player" type="CharacterBody2D" unique_id=1389075244 groups=["player"]]
 collision_mask = 4
 script = ExtResource("1_a1b2c")
-parry_window = 1.0
-parry_cooldown = 1.0
+parry_launch_force = 600.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=782364925]
 shape = SubResource("RectangleShape2D_o5en2")
