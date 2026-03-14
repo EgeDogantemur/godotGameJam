@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" path="res://Scenes/Objects/LevelGoal.tscn" id="5_goal1"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/EnergyCell.tscn" id="6_ec1"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/ParrySpike.tscn" id="7_spk1"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/KillZone.tscn" id="8_6lpcv"]
 [ext_resource type="PackedScene" uid="uid://cj2pbvfmn3ut8" path="res://Scenes/Objects/TutorialTrigger.tscn" id="8_tut1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_flr1"]
@@ -62,3 +63,6 @@ position = Vector2(1051, 307)
 
 [node name="TutorialTrigger" parent="." unique_id=987123985 instance=ExtResource("8_tut1")]
 position = Vector2(218, 484)
+
+[node name="KillZone" parent="." unique_id=1206075691 instance=ExtResource("8_6lpcv")]
+position = Vector2(492, 672)
