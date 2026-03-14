@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://7p3ovn45sywp" path="res://Scenes/Characters/Player.tscn" id="2_p33bi"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/BaseButton.tscn" id="3_esi7c"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/LevelGoal.tscn" id="4_2u1eb"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/KillZone.tscn" id="5_p33bi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sragj"]
 size = Vector2(1000, 50)
@@ -67,3 +68,6 @@ position = Vector2(168, 419)
 [node name="LevelGoal" parent="." unique_id=1189049130 instance=ExtResource("4_2u1eb")]
 position = Vector2(829, 155)
 next_level_path = "res://Scenes/4.tscn"
+
+[node name="KillZone" parent="." unique_id=347552820 instance=ExtResource("5_p33bi")]
+position = Vector2(359, 577)

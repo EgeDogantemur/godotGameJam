@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" path="res://Scenes/Objects/BaseButton.tscn" id="3_wjkcg"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/ParrySpike.tscn" id="4_f3pbe"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/LevelGoal.tscn" id="5_absfc"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/KillZone.tscn" id="6_5nqxw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7l3dv"]
 size = Vector2(1000, 50)
@@ -63,3 +64,6 @@ next_level_path = "res://Scenes/6.tscn"
 
 [node name="ParrySpike2" parent="." unique_id=1708251701 instance=ExtResource("4_f3pbe")]
 position = Vector2(5, 238)
+
+[node name="KillZone" parent="." unique_id=565985643 instance=ExtResource("6_5nqxw")]
+position = Vector2(533, 529)

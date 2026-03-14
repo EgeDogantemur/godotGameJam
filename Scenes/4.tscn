@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" path="res://Scenes/Objects/LevelGoal.tscn" id="5_plnhu"]
 [ext_resource type="PackedScene" uid="uid://cj2pbvfmn3ut8" path="res://Scenes/Objects/TutorialTrigger.tscn" id="6_6jh8y"]
 [ext_resource type="VideoStream" uid="uid://g00kbpukyer3" path="res://jumptutorial.ogv" id="7_fbq48"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/KillZone.tscn" id="8_3nmo4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yrvgx"]
 size = Vector2(1000, 50)
@@ -66,3 +67,6 @@ next_level_path = "res://Scenes/5.tscn"
 [node name="TutorialTrigger" parent="." unique_id=2046584768 instance=ExtResource("6_6jh8y")]
 position = Vector2(646, 369)
 tutorial_video = ExtResource("7_fbq48")
+
+[node name="KillZone" parent="." unique_id=1861763500 instance=ExtResource("8_3nmo4")]
+position = Vector2(631, 525)
