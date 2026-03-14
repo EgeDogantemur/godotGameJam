@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bfriv27y3lh5c"]
 
 [ext_resource type="Script" uid="uid://cx4jitso0biu7" path="res://Scripts/UI/MainMenu.gd" id="1_mm1"]
-[ext_resource type="Shader" path="res://Assets/Shaders/scanline.gdshader" id="2_scan"]
+[ext_resource type="Shader" uid="uid://bf21mo16bd0xe" path="res://Assets/Shaders/scanline.gdshader" id="2_scan"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_scan"]
 shader = ExtResource("2_scan")
@@ -25,7 +25,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.015, 0.015, 0.015, 1)
 
 [node name="Scanline" type="ColorRect" parent="." unique_id=123]
 material = SubResource("ShaderMaterial_scan")
@@ -89,7 +88,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "[ TERMINATE SESSION ]"
 
-[node name="Footer" type="Label" parent="."]
+[node name="Footer" type="Label" parent="." unique_id=317362152]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
