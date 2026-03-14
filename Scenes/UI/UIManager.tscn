@@ -299,13 +299,13 @@ horizontal_alignment = 1
 
 [node name="Goz1" type="Sprite2D" parent="SettingsMenu" unique_id=1497622735]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(592, 100.000015)
-scale = Vector2(0.1, 0.1)
+position = Vector2(986, 248)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("4_gozopen")
 
 [node name="Goz2" type="Sprite2D" parent="SettingsMenu" unique_id=1143141198]
-position = Vector2(592, 100.000015)
-scale = Vector2(0.1, 0.1)
+position = Vector2(986, 248)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("5_gozclosed")
 
 [node name="Card" type="PanelContainer" parent="SettingsMenu" unique_id=2024210740]

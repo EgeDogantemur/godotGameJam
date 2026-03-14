@@ -1,21 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://button_base_1"]
+[gd_scene format=3 uid="uid://ce4im7wnup582"]
 
-[ext_resource type="Script" path="res://Scripts/Objects/BaseButton.gd" id="1_btn1"]
-[ext_resource type="Texture2D" uid="uid://y514wmisvyuf" path="res://icon.svg" id="2_img1"]
+[ext_resource type="Script" uid="uid://d1odcff6fb8cw" path="res://Scripts/Objects/BaseButton.gd" id="1_btn1"]
+[ext_resource type="Texture2D" uid="uid://cx4x7g0ba5dgv" path="res://Assets/Sprites/Environment/closed_lever.png" id="3_3cdst"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_btn"]
-size = Vector2(32, 16)
+size = Vector2(32, 48)
 
-[node name="BaseButton" type="Area2D"]
+[node name="BaseButton" type="Area2D" unique_id=924759577]
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_btn1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -8)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=94323925]
+position = Vector2(-0.625, -23.625)
 shape = SubResource("RectangleShape2D_btn")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -8)
-scale = Vector2(0.25, 0.125)
-texture = ExtResource("2_img1")
+[node name="ClosedLever" type="Sprite2D" parent="." unique_id=1344581447]
+position = Vector2(2.375, -27.625)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_3cdst")

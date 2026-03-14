@@ -69,9 +69,9 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.01, 0, 0.01, 1)
 
-[node name="Bgschool(1)" type="Sprite2D" parent="." unique_id=1413992302]
-position = Vector2(589, 342.49997)
-scale = Vector2(0.33732197, 0.3331731)
+[node name="Bgschool(1)" type="Sprite2D" parent="Background" unique_id=1413992302]
+position = Vector2(960, 540)
+scale = Vector2(0.54643875, 0.52307695)
 texture = ExtResource("2_jex3y")
 
 [node name="TopAccent" type="ColorRect" parent="." unique_id=190744194]
@@ -196,16 +196,16 @@ horizontal_alignment = 1
 
 [node name="Goz1" type="Sprite2D" parent="." unique_id=805942122]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(591, 216)
-scale = Vector2(0.1, 0.1)
+position = Vector2(984, 338)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_t6w0q")
 
 [node name="Goz2" type="Sprite2D" parent="." unique_id=1878366448]
-position = Vector2(591, 216)
-scale = Vector2(0.1, 0.1)
+position = Vector2(984, 338)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("4_k8um8")
 
 [node name="Echo" type="Sprite2D" parent="." unique_id=534646044]
-position = Vector2(576, 162)
-scale = Vector2(0.3, 0.3)
+position = Vector2(965, 246)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_k8um8")

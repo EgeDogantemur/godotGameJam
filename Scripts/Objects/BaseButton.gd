@@ -17,6 +17,17 @@ func _play_audio(method_name: String) -> void:
 	if audio_manager:
 		audio_manager.call(method_name)
 
+func _get_visual_sprite() -> Sprite2D:
+	var sprite := get_node_or_null("Sprite2D") as Sprite2D
+	if sprite:
+		return sprite
+	
+	for child in get_children():
+		if child is Sprite2D:
+			return child as Sprite2D
+	
+	return null
+
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
@@ -60,7 +71,9 @@ func _add_occupant() -> void:
 	_occupants += 1
 	if _occupants == 1 and not _is_pressed:
 		_is_pressed = true
-		$Sprite2D.modulate = Color(0.5, 1.0, 0.5)
+		var sprite := _get_visual_sprite()
+		if sprite:
+			sprite.modulate = Color(0.5, 1.0, 0.5)
 		_play_audio("play_button_press")
 		button_pressed.emit()
 		
@@ -81,7 +94,9 @@ func _remove_occupant() -> void:
 	if _occupants <= 0 and _is_pressed:
 		_occupants = 0
 		_is_pressed = false
-		$Sprite2D.modulate = Color(1.0, 1.0, 1.0)
+		var sprite := _get_visual_sprite()
+		if sprite:
+			sprite.modulate = Color(1.0, 1.0, 1.0)
 		_play_audio("play_button_release")
 		button_released.emit()
 		
