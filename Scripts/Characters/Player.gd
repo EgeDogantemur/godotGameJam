@@ -14,6 +14,11 @@ extends CharacterBody2D
 @export var dash_duration: float = 0.15
 @export var dash_cooldown: float = 0.5
 
+@export_category("Proximity Glow")
+@export var glow_detect_radius: float = 150.0
+@export var glow_color: Color = Color(1.0, 1.0, 0.6, 0.35)
+@export var glow_radius: float = 45.0
+
 @export_category("Advanced Parry")
 @export var parry_startup_frames: int = 2
 @export var parry_active_window: float = 0.15 # Tighter, professional window
@@ -44,6 +49,12 @@ var _is_dashing: bool = false
 var _dash_cooldown_timer: float = 0.0
 var _dash_direction: float = 0.0
 var _dash_tween: Tween
+var _has_dash_charge: bool = false
+
+var _near_hazard: bool = false
+var _glow_alpha: float = 0.0
+
+signal dash_charge_changed(has_charge: bool)
 
 var shadow_scene = preload("res://Scenes/Characters/Shadow.tscn")
 var shockwave_scene = preload("res://Scenes/VFX/Shockwave.tscn")
@@ -61,6 +72,7 @@ func _physics_process(delta: float) -> void:
 	_dash_cooldown_timer -= delta
 	
 	_update_parry_state_machine(delta)
+	_update_proximity_glow(delta)
 	
 	if _is_dashing:
 		velocity.x = _dash_direction * dash_speed
@@ -126,8 +138,12 @@ func execute_parry_launch() -> void:
 	_parry_state_timer = 0.3 # Short internal float lock
 	_coyote_timer = 0.0
 	
-	# Pure vertical launch requested by the user
+	# Pure vertical launch
 	velocity.y = -parry_launch_force_y
+	
+	# Grant dash charge on successful parry
+	_has_dash_charge = true
+	dash_charge_changed.emit(true)
 	
 	_do_hit_freeze()
 	_do_success_zoom()
@@ -231,16 +247,22 @@ func _try_jump() -> void:
 
 func _try_dash() -> void:
 	if not Input.is_action_just_pressed("dash"): return
+	if is_on_floor(): return # Air-only dash
+	if not _has_dash_charge: return # Must parry first to earn dash
 	if _dash_cooldown_timer > 0.0: return
 	
 	var dir = Input.get_axis("move_left", "move_right")
 	if dir == 0.0:
-		var sprite = get_node_or_null("Sprite2D")
+		var sprite = get_node_or_null("AnimatedSprite2D")
 		dir = -1.0 if (sprite and sprite.flip_h) else 1.0
 	
 	_dash_direction = dir
 	_is_dashing = true
 	_dash_cooldown_timer = dash_cooldown
+	
+	# Consume dash charge
+	_has_dash_charge = false
+	dash_charge_changed.emit(false)
 	
 	if _dash_tween: _dash_tween.kill()
 	_dash_tween = create_tween()
@@ -250,6 +272,33 @@ func _try_dash() -> void:
 func _end_dash() -> void:
 	_is_dashing = false
 	velocity.x = _dash_direction * speed * 0.5
+
+func _update_proximity_glow(delta: float) -> void:
+	# Check if any hazard (shadow or spike) is within glow_detect_radius
+	var found_hazard = false
+	var hazards = get_tree().get_nodes_in_group("hazard")
+	for h in hazards:
+		if is_instance_valid(h) and global_position.distance_to(h.global_position) <= glow_detect_radius:
+			found_hazard = true
+			break
+	
+	_near_hazard = found_hazard
+	
+	# Smoothly animate glow alpha
+	var target_alpha = glow_color.a if _near_hazard else 0.0
+	_glow_alpha = move_toward(_glow_alpha, target_alpha, delta * 4.0)
+	
+	queue_redraw()
+
+func _draw() -> void:
+	if _glow_alpha > 0.01:
+		var c = glow_color
+		c.a = _glow_alpha * (0.7 + 0.3 * sin(Time.get_ticks_msec() * 0.006)) # Subtle pulse
+		draw_circle(Vector2.ZERO, glow_radius, c)
+		# Outer ring
+		var outer_c = c
+		outer_c.a *= 0.3
+		draw_arc(Vector2.ZERO, glow_radius * 1.4, 0, TAU, 48, outer_c, 3.0, true)
 
 func _update_animation() -> void:
 	var anim_sprite = get_node_or_null("AnimatedSprite2D")

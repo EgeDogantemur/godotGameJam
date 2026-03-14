@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://x2p7v4lajnrm"]
 
 [ext_resource type="Script" uid="uid://bq53rn502w3jv" path="res://Scripts/Characters/Shadow.gd" id="1_a1b2c"]
-[ext_resource type="Texture2D" uid="uid://cwlqdmtgobxg2" path="res://Assets/Sprites/Characters/geikgolge.png" id="3_43aaq"]
+[ext_resource type="Texture2D" uid="uid://4hvxuu4h0kq8" path="res://Assets/Sprites/Characters/evilgeik.png" id="3_2dj6p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ytw1o"]
-size = Vector2(13, 87)
+size = Vector2(54, 57)
 
 [node name="Shadow" type="Area2D" unique_id=1581785216 groups=["shadow"]]
 collision_layer = 2
@@ -12,10 +12,10 @@ script = ExtResource("1_a1b2c")
 spawn_immunity = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1131167185]
-position = Vector2(-0.5, 7.5)
+position = Vector2(1, -0.5)
 shape = SubResource("RectangleShape2D_ytw1o")
 
-[node name="Geikgolge" type="Sprite2D" parent="." unique_id=980563290]
-position = Vector2(9.536743e-07, -1.9073486e-06)
+[node name="Evilgeik" type="Sprite2D" parent="." unique_id=55018454]
+position = Vector2(37.999996, -1.0000038)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("3_43aaq")
+texture = ExtResource("3_2dj6p")

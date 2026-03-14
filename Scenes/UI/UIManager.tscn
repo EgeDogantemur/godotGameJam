@@ -1,10 +1,43 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=6 format=3]
 
 [ext_resource type="Script" path="res://Scripts/UI/UIManager.gd" id="1_uim1"]
+[ext_resource type="Shader" path="res://Assets/Shaders/scanline.gdshader" id="2_scan"]
+[ext_resource type="Shader" path="res://Assets/Shaders/danger_pulse.gdshader" id="3_danger"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_scan"]
+shader = ExtResource("2_scan")
+shader_parameter/line_count = 200.0
+shader_parameter/opacity = 0.06
+shader_parameter/scroll_speed = 0.25
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_danger"]
+shader = ExtResource("3_danger")
+shader_parameter/proximity = 0.0
+shader_parameter/danger_color = Color(1.0, 0.05, 0.05, 1.0)
 
 [node name="UIManager" type="CanvasLayer"]
 layer = 100
 script = ExtResource("1_uim1")
+
+[node name="ProximityOverlay" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+material = SubResource("ShaderMaterial_danger")
+color = Color(1, 1, 1, 1)
+
+[node name="ScanlineOverlay" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+material = SubResource("ShaderMaterial_scan")
+color = Color(1, 1, 1, 1)
 
 [node name="PauseMenu" type="ColorRect" parent="."]
 visible = false
@@ -13,7 +46,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.701961)
+color = Color(0.02, 0.02, 0.02, 0.92)
 
 [node name="VBox" type="VBoxContainer" parent="PauseMenu"]
 layout_mode = 1
@@ -22,25 +55,42 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -68.0
-offset_right = 100.0
-offset_bottom = 68.0
+offset_left = -120.0
+offset_top = -90.0
+offset_right = 120.0
+offset_bottom = 90.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 15
+theme_override_constants/separation = 12
+
+[node name="TitleLabel" type="Label" parent="PauseMenu/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1.0, 0.1, 0.1, 1.0)
+theme_override_font_sizes/font_size = 32
+text = "// PAUSED"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="PauseMenu/VBox"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
 
 [node name="ResumeBtn" type="Button" parent="PauseMenu/VBox"]
+custom_minimum_size = Vector2(0, 42)
 layout_mode = 2
-text = "RESUME"
+theme_override_font_sizes/font_size = 16
+text = "[ RESUME ]"
 
 [node name="SettingsBtn" type="Button" parent="PauseMenu/VBox"]
+custom_minimum_size = Vector2(0, 42)
 layout_mode = 2
-text = "SETTINGS"
+theme_override_font_sizes/font_size = 16
+text = "[ SYSTEM CONFIG ]"
 
 [node name="MainMenuBtn" type="Button" parent="PauseMenu/VBox"]
+custom_minimum_size = Vector2(0, 42)
 layout_mode = 2
-text = "RETURN TO MENU"
+theme_override_font_sizes/font_size = 16
+text = "[ DISCONNECT ]"
 
 [node name="SettingsMenu" type="ColorRect" parent="."]
 visible = false
@@ -49,7 +99,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0.0509804, 0.101961, 0.901961)
+color = Color(0.02, 0.03, 0.06, 0.94)
 
 [node name="VBox" type="VBoxContainer" parent="SettingsMenu"]
 layout_mode = 1
@@ -58,23 +108,25 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -80.0
-offset_right = 150.0
-offset_bottom = 80.0
+offset_left = -160.0
+offset_top = -100.0
+offset_right = 160.0
+offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 15
+theme_override_constants/separation = 12
 
 [node name="Label" type="Label" parent="SettingsMenu/VBox"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 1, 1, 1)
-text = "-- SYSTEM CONFIG --"
+theme_override_colors/font_color = Color(0.0, 1.0, 0.8, 1.0)
+theme_override_font_sizes/font_size = 22
+text = "// SYSTEM CONFIG"
 horizontal_alignment = 1
 
 [node name="MasterVolLabel" type="Label" parent="SettingsMenu/VBox"]
 layout_mode = 2
-text = "Master Audio"
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+text = "MASTER AUDIO"
 
 [node name="MasterVolSlider" type="HSlider" parent="SettingsMenu/VBox"]
 layout_mode = 2
@@ -84,7 +136,8 @@ value = 1.0
 
 [node name="GlitchLabel" type="Label" parent="SettingsMenu/VBox"]
 layout_mode = 2
-text = "Glitch Intensity"
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+text = "SCANLINE INTENSITY"
 
 [node name="GlitchSlider" type="HSlider" parent="SettingsMenu/VBox"]
 layout_mode = 2
@@ -92,13 +145,14 @@ max_value = 1.0
 step = 0.05
 value = 1.0
 
-[node name="Control" type="Control" parent="SettingsMenu/VBox"]
-custom_minimum_size = Vector2(0, 20)
+[node name="Spacer" type="Control" parent="SettingsMenu/VBox"]
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
 [node name="CloseBtn" type="Button" parent="SettingsMenu/VBox"]
+custom_minimum_size = Vector2(0, 42)
 layout_mode = 2
-text = "CLOSE"
+text = "[ CLOSE ]"
 
 [node name="GameHUD" type="Control" parent="."]
 anchors_preset = 15
@@ -106,32 +160,44 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
-[node name="SyncBar" type="ProgressBar" parent="GameHUD"]
+[node name="TopLeft" type="VBoxContainer" parent="GameHUD"]
 layout_mode = 1
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 210.0
-offset_bottom = 30.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 230.0
+offset_bottom = 100.0
+theme_override_constants/separation = 6
+
+[node name="SyncLabel" type="Label" parent="GameHUD/TopLeft"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0, 1.0, 0.8, 0.7)
+theme_override_font_sizes/font_size = 12
+text = "SYNC LEVEL"
+
+[node name="SyncBar" type="ProgressBar" parent="GameHUD/TopLeft"]
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 2
 max_value = 100.0
 value = 100.0
 show_percentage = false
 
+[node name="DashLabel" type="Label" parent="GameHUD/TopLeft"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "DASH: —"
+modulate = Color(0.5, 0.5, 0.5, 0.5)
+
 [node name="RestartPanel" type="ColorRect" parent="GameHUD"]
 visible = false
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -80.0
-offset_right = 150.0
-offset_bottom = 80.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.6, 0, 0, 0.85)
+color = Color(0.0, 0.0, 0.0, 0.88)
 
 [node name="VBox" type="VBoxContainer" parent="GameHUD/RestartPanel"]
 layout_mode = 1
@@ -140,21 +206,23 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -80.0
-offset_top = -40.0
-offset_right = 80.0
-offset_bottom = 40.0
+offset_left = -120.0
+offset_top = -60.0
+offset_right = 120.0
+offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 15
+theme_override_constants/separation = 18
 
 [node name="Label" type="Label" parent="GameHUD/RestartPanel/VBox"]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_font_sizes/font_size = 24
+theme_override_colors/font_color = Color(1.0, 0.08, 0.08, 1.0)
+theme_override_font_sizes/font_size = 36
 text = "SYNC LOST"
 horizontal_alignment = 1
 
 [node name="RestartBtn" type="Button" parent="GameHUD/RestartPanel/VBox"]
+custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
-text = "REINITIALIZE"
+theme_override_font_sizes/font_size = 16
+text = "[ REINITIALIZE ]"

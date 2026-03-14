@@ -37,6 +37,12 @@ layout_mode = 2
 value = 100.0
 show_percentage = false
 
+[node name="DashLabel" type="Label" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "DASH: —"
+modulate = Color(0.5, 0.5, 0.5, 0.5)
+
 [node name="RestartPanel" type="ColorRect" parent="Control"]
 visible = false
 layout_mode = 1

@@ -11,6 +11,7 @@ func _ready() -> void:
 	_immunity_timer = spawn_immunity
 	monitoring = true
 	monitorable = true
+	add_to_group("hazard")
 
 func _physics_process(delta: float) -> void:
 	if _immunity_timer > 0.0:

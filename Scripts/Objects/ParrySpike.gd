@@ -10,6 +10,7 @@ func _ready() -> void:
 	collision_layer = 4
 	collision_mask = 1 
 	monitoring = true
+	add_to_group("hazard")
 	
 	_start_pulse_animation()
 

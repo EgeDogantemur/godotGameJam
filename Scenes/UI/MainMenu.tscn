@@ -1,6 +1,13 @@
 [gd_scene format=3 uid="uid://bfriv27y3lh5c"]
 
 [ext_resource type="Script" uid="uid://cx4jitso0biu7" path="res://Scripts/UI/MainMenu.gd" id="1_mm1"]
+[ext_resource type="Shader" path="res://Assets/Shaders/scanline.gdshader" id="2_scan"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_scan"]
+shader = ExtResource("2_scan")
+shader_parameter/line_count = 180.0
+shader_parameter/opacity = 0.08
+shader_parameter/scroll_speed = 0.2
 
 [node name="MainMenu" type="Control" unique_id=171074987]
 layout_mode = 3
@@ -11,16 +18,26 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mm1")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1965913241]
+[node name="Background" type="ColorRect" parent="." unique_id=1965913241]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+color = Color(0.015, 0.015, 0.015, 1)
 
-[node name="Label" type="Label" parent="." unique_id=1780363300]
+[node name="Scanline" type="ColorRect" parent="." unique_id=123]
+material = SubResource("ShaderMaterial_scan")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Title" type="Label" parent="." unique_id=1780363300]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -28,13 +45,13 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -200.0
-offset_top = -150.0
+offset_top = -180.0
 offset_right = 200.0
-offset_bottom = -50.0
+offset_bottom = -80.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 1, 1, 1)
-theme_override_font_sizes/font_size = 64
+theme_override_colors/font_color = Color(1, 0.1, 0.1, 1)
+theme_override_font_sizes/font_size = 84
 text = "ECHO"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -46,25 +63,43 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -100.0
+offset_left = -150.0
 offset_top = -20.0
-offset_right = 100.0
-offset_bottom = 150.0
+offset_right = 150.0
+offset_bottom = 180.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 15
+theme_override_constants/separation = 12
 
 [node name="PlayBtn" type="Button" parent="VBoxContainer" unique_id=1180451660]
-custom_minimum_size = Vector2(0, 40)
+custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
-text = "INITIALIZE (PLAY)"
+theme_override_font_sizes/font_size = 18
+text = "[ INITIALIZE SESSION ]"
 
 [node name="SettingsBtn" type="Button" parent="VBoxContainer" unique_id=1612475121]
-custom_minimum_size = Vector2(0, 40)
+custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
-text = "SYSTEM CONFIG"
+theme_override_font_sizes/font_size = 18
+text = "[ SYSTEM CONFIG ]"
 
 [node name="QuitBtn" type="Button" parent="VBoxContainer" unique_id=258504052]
-custom_minimum_size = Vector2(0, 40)
+custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
-text = "TERMINATE (QUIT)"
+theme_override_font_sizes/font_size = 18
+text = "[ TERMINATE SESSION ]"
+
+[node name="Footer" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.3, 0.3, 0.3, 1)
+theme_override_font_sizes/font_size = 12
+text = "V 4.6.1 // DYSTOPIAN ENGINE"
+horizontal_alignment = 1
