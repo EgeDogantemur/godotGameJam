@@ -5,11 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://cram50oqv42ly" path="res://Assets/Sprites/Environment/ground4/yerduz3 (1).png" id="3_87get"]
 [ext_resource type="Texture2D" uid="uid://lqtxlbhwhhue" path="res://Assets/Sprites/Environment/ground4/ground4.png" id="3_b3jqs"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/BaseButton.tscn" id="3_t3or0"]
-[ext_resource type="Texture2D" uid="uid://6irrmxvnkkuc" path="res://Assets/Sprites/Environment/bgschool (1).png" id="4_yeg0n"]
+[ext_resource type="Texture2D" uid="uid://bapda32hbe4ox" path="res://Assets/Sprites/Environment/ground4/Ground/wallredcorner.png" id="4_hxxcf"]
 [ext_resource type="PackedScene" uid="uid://brlqcsil5mfbq" path="res://Scenes/Objects/LevelGoal.tscn" id="4_ysn8j"]
 [ext_resource type="Texture2D" uid="uid://d251uixwkyacu" path="res://Assets/Sprites/Environment/ground4/muntar.png" id="5_b3jqs"]
 [ext_resource type="PackedScene" uid="uid://cj2pbvfmn3ut8" path="res://Scenes/Objects/TutorialTrigger.tscn" id="5_kjfpe"]
-[ext_resource type="VideoStream" path="res://w as d tutorail.ogv" id="6_b2yne"]
+[ext_resource type="VideoStream" uid="uid://dqmoqdxqnpi48" path="res://w as d tutorail.ogv" id="6_b2yne"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3w2qy"]
 size = Vector2(835.17224, 45.400024)
@@ -277,6 +277,18 @@ rotation = 3.1415925
 scale = Vector2(2.5786412, 1.1435611)
 texture = ExtResource("3_87get")
 
+[node name="Yerduz3(1)21" type="Sprite2D" parent="Floor" unique_id=1326978657]
+position = Vector2(109.61505, -466)
+rotation = 3.1415925
+scale = Vector2(2.5786412, 1.1435611)
+texture = ExtResource("3_87get")
+
+[node name="Yerduz3(1)22" type="Sprite2D" parent="Floor" unique_id=283044546]
+position = Vector2(131.73038, 598)
+rotation = 3.1415925
+scale = Vector2(2.5786412, 1.1435611)
+texture = ExtResource("3_87get")
+
 [node name="Yerduz3(1)13" type="Sprite2D" parent="Floor" unique_id=567889022]
 position = Vector2(1384.6115, 320)
 rotation = 3.1415925
@@ -354,15 +366,15 @@ texture = ExtResource("3_87get")
 
 [node name="Bgschool(1)2" type="Sprite2D" parent="Floor" unique_id=1801426595]
 show_behind_parent = true
-position = Vector2(556.7291, -175.00003)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("4_yeg0n")
+position = Vector2(552.88306, -196.00002)
+scale = Vector2(0.82273126, 1.1688124)
+texture = ExtResource("4_hxxcf")
 
 [node name="Bgschool(1)3" type="Sprite2D" parent="Floor" unique_id=373577186]
 show_behind_parent = true
-position = Vector2(-127.884254, -175.00003)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("4_yeg0n")
+position = Vector2(-130.76886, -180.99998)
+scale = Vector2(0.80590653, 1.0271817)
+texture = ExtResource("4_hxxcf")
 
 [node name="Muntar" type="Sprite2D" parent="Floor" unique_id=1276303676]
 show_behind_parent = true

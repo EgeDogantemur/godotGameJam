@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b1qncsyl42ixy" path="res://Scenes/Objects/ParrySpike.tscn" id="4_u12oc"]
 [ext_resource type="PackedScene" uid="uid://brlqcsil5mfbq" path="res://Scenes/Objects/LevelGoal.tscn" id="5_ahm7k"]
 [ext_resource type="PackedScene" uid="uid://cj2pbvfmn3ut8" path="res://Scenes/Objects/TutorialTrigger.tscn" id="7_ahm7k"]
-[ext_resource type="VideoStream" path="res://dash.ogv" id="8_judu4"]
+[ext_resource type="VideoStream" uid="uid://dtopuhck2sdib" path="res://dash.ogv" id="8_judu4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mqqcq"]
 size = Vector2(1000, 50)
@@ -44,7 +44,7 @@ parry_cooldown = 0.1
 parry_buffer_time = 0.6
 
 [node name="Floor4" type="StaticBody2D" parent="." unique_id=886171548]
-position = Vector2(617.00006, 231.00002)
+position = Vector2(509.00006, 231.00002)
 rotation = 3.1415925
 scale = Vector2(0.3367451, 1.0130382)
 collision_layer = 4
@@ -59,13 +59,13 @@ scale = Vector2(8, 0.4)
 texture = ExtResource("1_7wkmf")
 
 [node name="Button_Both" parent="." unique_id=1082698990 instance=ExtResource("3_ahfju")]
-position = Vector2(688, 185)
+position = Vector2(580, 185)
 
 [node name="ParrySpike2" parent="." unique_id=1176566563 instance=ExtResource("4_u12oc")]
 position = Vector2(1236, 267)
 
 [node name="LevelGoal" parent="." unique_id=93781290 instance=ExtResource("5_ahm7k")]
-position = Vector2(484, 136)
+position = Vector2(376, 136)
 next_level_path = "res://Scenes/6 level.tscn"
 
 [node name="TutorialTrigger" parent="." unique_id=2046584768 instance=ExtResource("7_ahm7k")]

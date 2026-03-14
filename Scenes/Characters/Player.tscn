@@ -330,11 +330,13 @@ animations = [{
 collision_mask = 4
 script = ExtResource("1_a1b2c")
 speed = 250.0
+gravity_force = 830.0
 dash_speed = 700.0
 dash_duration = 0.2
 glow_detect_radius = 100.0
 glow_color = Color(1, 1, 0.6, 1)
 glow_radius = 15.0
+parry_launch_force_y = 550.0
 parry_cooldown = 0.2
 parry_freeze_duration = 0.08
 parry_zoom_amount = 0.8
@@ -348,6 +350,7 @@ shape = SubResource("RectangleShape2D_o5en2")
 [node name="ShadowTrail" type="Node" parent="." unique_id=194434624]
 script = ExtResource("3_trail")
 follow_delay_frames = 100
+shadow_follow_smoothness = 0.3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1172662119]
 

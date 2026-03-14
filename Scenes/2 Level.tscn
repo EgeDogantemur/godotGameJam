@@ -6,9 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://cj8a4u1w4pwqm" path="res://Assets/Sprites/Environment/ground4/ground1.png" id="7_dfqmh"]
 [ext_resource type="Texture2D" uid="uid://bevgh562utaks" path="res://Assets/Sprites/Environment/ground4/bgyesil.png" id="7_utdmy"]
 [ext_resource type="Texture2D" uid="uid://lqtxlbhwhhue" path="res://Assets/Sprites/Environment/ground4/ground4.png" id="9_1t3c5"]
+[ext_resource type="Texture2D" uid="uid://syqtr4smptgh" path="res://Assets/Sprites/Environment/ground4/Ground/bgclock.png" id="9_bkugm"]
 [ext_resource type="Texture2D" uid="uid://cram50oqv42ly" path="res://Assets/Sprites/Environment/ground4/yerduz3 (1).png" id="10_crucb"]
 [ext_resource type="Texture2D" uid="uid://d251uixwkyacu" path="res://Assets/Sprites/Environment/ground4/muntar.png" id="11_0qarp"]
-[ext_resource type="Texture2D" uid="uid://6irrmxvnkkuc" path="res://Assets/Sprites/Environment/bgschool (1).png" id="12_4d6ur"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_awm3f"]
 size = Vector2(1122.3344, 50)
@@ -198,6 +198,12 @@ rotation = 3.1415925
 scale = Vector2(2.5786412, 1.1435611)
 texture = ExtResource("10_crucb")
 
+[node name="Yerduz3(1)13" type="Sprite2D" parent="Collider" unique_id=2143463546]
+position = Vector2(68.26901, -472)
+rotation = 3.1415925
+scale = Vector2(2.5786412, 1.1435611)
+texture = ExtResource("10_crucb")
+
 [node name="Yerduz3(1)16" type="Sprite2D" parent="Collider" unique_id=1111154411]
 position = Vector2(-988.4586, 301)
 rotation = 3.1415925
@@ -354,6 +360,6 @@ shape = SubResource("RectangleShape2D_r43wj")
 
 [node name="Bgschool(1)3" type="Sprite2D" parent="." unique_id=1237806501]
 show_behind_parent = true
-position = Vector2(748, 680)
-scale = Vector2(0.21709403, 0.2)
-texture = ExtResource("12_4d6ur")
+position = Vector2(745.50006, 662.5)
+scale = Vector2(0.40260422, 0.375)
+texture = ExtResource("9_bkugm")
