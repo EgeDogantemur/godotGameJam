@@ -96,7 +96,7 @@ position = Vector2(353, 334)
 
 [node name="LevelGoal" parent="." unique_id=308012023 instance=ExtResource("4_gxbpw")]
 position = Vector2(124, 280)
-next_level_path = "res://Scenes/3.tscn"
+next_level_path = "res://2.zıplama.tscn"
 
 [node name="TutorialTrigger" parent="." unique_id=1818415721 instance=ExtResource("5_goqd5")]
 position = Vector2(755, 484)
