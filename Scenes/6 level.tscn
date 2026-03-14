@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://beixx4qgwr2c4"]
 
-[ext_resource type="Texture2D" uid="uid://y514wmisvyuf" path="res://icon.svg" id="1_js85i"]
-[ext_resource type="PackedScene" uid="uid://7p3ovn45sywp" path="res://Scenes/Characters/Player.tscn" id="2_fbq48"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/BaseButton.tscn" id="3_3nmo4"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/ParrySpike.tscn" id="4_n0qh8"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/LevelGoal.tscn" id="5_plnhu"]
-[ext_resource type="PackedScene" uid="uid://cj2pbvfmn3ut8" path="res://Scenes/Objects/TutorialTrigger.tscn" id="6_6jh8y"]
-[ext_resource type="VideoStream" uid="uid://g00kbpukyer3" path="res://jumptutorial.ogv" id="7_fbq48"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/KillZone.tscn" id="8_3nmo4"]
+[ext_resource type="Texture2D" uid="uid://y514wmisvyuf" path="res://icon.svg" id="1_58glp"]
+[ext_resource type="PackedScene" uid="uid://7p3ovn45sywp" path="res://Scenes/Characters/Player.tscn" id="2_esnis"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/BaseButton.tscn" id="3_1srmt"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/ParrySpike.tscn" id="4_r2jp8"]
+[ext_resource type="PackedScene" uid="uid://brlqcsil5mfbq" path="res://Scenes/Objects/LevelGoal.tscn" id="5_833c3"]
+[ext_resource type="PackedScene" uid="uid://cj2pbvfmn3ut8" path="res://Scenes/Objects/TutorialTrigger.tscn" id="6_a71k1"]
+[ext_resource type="VideoStream" uid="uid://g00kbpukyer3" path="res://jumptutorial.ogv" id="7_ni14q"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/KillZone.tscn" id="8_m1gc6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yrvgx"]
 size = Vector2(1000, 50)
@@ -30,9 +30,9 @@ shape = SubResource("RectangleShape2D_yrvgx")
 [node name="Sprite2D" type="Sprite2D" parent="Floor2" unique_id=945425847]
 modulate = Color(0.2, 0.2, 0.2, 1)
 scale = Vector2(8, 0.4)
-texture = ExtResource("1_js85i")
+texture = ExtResource("1_58glp")
 
-[node name="Player" parent="." unique_id=1389075244 instance=ExtResource("2_fbq48")]
+[node name="Player" parent="." unique_id=1389075244 instance=ExtResource("2_esnis")]
 position = Vector2(965, 386)
 speed = 300.0
 parry_launch_force_y = 620.0
@@ -52,21 +52,21 @@ shape = SubResource("RectangleShape2D_qytyj")
 [node name="Sprite2D" type="Sprite2D" parent="Floor3" unique_id=861374057]
 modulate = Color(0.2, 0.2, 0.2, 1)
 scale = Vector2(8, 0.4)
-texture = ExtResource("1_js85i")
+texture = ExtResource("1_58glp")
 
-[node name="Button_Both" parent="." unique_id=1064031472 instance=ExtResource("3_3nmo4")]
+[node name="Button_Both" parent="." unique_id=1064031472 instance=ExtResource("3_1srmt")]
 position = Vector2(361, 194)
 
-[node name="ParrySpike1" parent="." unique_id=1113083216 instance=ExtResource("4_n0qh8")]
+[node name="ParrySpike1" parent="." unique_id=1113083216 instance=ExtResource("4_r2jp8")]
 position = Vector2(349, 230)
 
-[node name="LevelGoal" parent="." unique_id=2079729435 instance=ExtResource("5_plnhu")]
+[node name="LevelGoal" parent="." unique_id=2079729435 instance=ExtResource("5_833c3")]
 position = Vector2(975, 39)
-next_level_path = "res://Scenes/5.tscn"
+next_level_path = "res://Scenes/7 level.tscn"
 
-[node name="TutorialTrigger" parent="." unique_id=2046584768 instance=ExtResource("6_6jh8y")]
+[node name="TutorialTrigger" parent="." unique_id=2046584768 instance=ExtResource("6_a71k1")]
 position = Vector2(646, 369)
-tutorial_video = ExtResource("7_fbq48")
+tutorial_video = ExtResource("7_ni14q")
 
-[node name="KillZone" parent="." unique_id=1861763500 instance=ExtResource("8_3nmo4")]
+[node name="KillZone" parent="." unique_id=1861763500 instance=ExtResource("8_m1gc6")]
 position = Vector2(631, 525)

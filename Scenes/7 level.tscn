@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://k4swplyiiyj3"]
 
-[ext_resource type="Texture2D" uid="uid://y514wmisvyuf" path="res://icon.svg" id="1_17bj5"]
-[ext_resource type="PackedScene" uid="uid://7p3ovn45sywp" path="res://Scenes/Characters/Player.tscn" id="2_5nqxw"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/BaseButton.tscn" id="3_wjkcg"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/ParrySpike.tscn" id="4_f3pbe"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/LevelGoal.tscn" id="5_absfc"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/KillZone.tscn" id="6_5nqxw"]
+[ext_resource type="Texture2D" uid="uid://y514wmisvyuf" path="res://icon.svg" id="1_astr4"]
+[ext_resource type="PackedScene" uid="uid://7p3ovn45sywp" path="res://Scenes/Characters/Player.tscn" id="2_4ib62"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/BaseButton.tscn" id="3_f0jvj"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/ParrySpike.tscn" id="4_hfuh8"]
+[ext_resource type="PackedScene" uid="uid://brlqcsil5mfbq" path="res://Scenes/Objects/LevelGoal.tscn" id="5_qxgcj"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/KillZone.tscn" id="6_dab2n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7l3dv"]
 size = Vector2(1000, 50)
@@ -28,9 +28,9 @@ shape = SubResource("RectangleShape2D_7l3dv")
 [node name="Sprite2D" type="Sprite2D" parent="Floor2" unique_id=1148600107]
 modulate = Color(0.2, 0.2, 0.2, 1)
 scale = Vector2(8, 0.4)
-texture = ExtResource("1_17bj5")
+texture = ExtResource("1_astr4")
 
-[node name="Player" parent="." unique_id=1389075244 instance=ExtResource("2_5nqxw")]
+[node name="Player" parent="." unique_id=1389075244 instance=ExtResource("2_4ib62")]
 position = Vector2(965, 386)
 speed = 300.0
 parry_launch_force_y = 620.0
@@ -50,20 +50,20 @@ shape = SubResource("RectangleShape2D_hjjyv")
 [node name="Sprite2D" type="Sprite2D" parent="Floor3" unique_id=995903216]
 modulate = Color(0.2, 0.2, 0.2, 1)
 scale = Vector2(8, 0.4)
-texture = ExtResource("1_17bj5")
+texture = ExtResource("1_astr4")
 
-[node name="Button_Both" parent="." unique_id=1345765093 instance=ExtResource("3_wjkcg")]
+[node name="Button_Both" parent="." unique_id=1345765093 instance=ExtResource("3_f0jvj")]
 position = Vector2(10, 205)
 
-[node name="ParrySpike1" parent="." unique_id=1198702700 instance=ExtResource("4_f3pbe")]
+[node name="ParrySpike1" parent="." unique_id=1198702700 instance=ExtResource("4_hfuh8")]
 position = Vector2(348, 234)
 
-[node name="LevelGoal" parent="." unique_id=795437911 instance=ExtResource("5_absfc")]
+[node name="LevelGoal" parent="." unique_id=795437911 instance=ExtResource("5_qxgcj")]
 position = Vector2(749, -131)
-next_level_path = "res://Scenes/6.tscn"
+next_level_path = "res://Scenes/8 level.tscn"
 
-[node name="ParrySpike2" parent="." unique_id=1708251701 instance=ExtResource("4_f3pbe")]
+[node name="ParrySpike2" parent="." unique_id=1708251701 instance=ExtResource("4_hfuh8")]
 position = Vector2(5, 238)
 
-[node name="KillZone" parent="." unique_id=565985643 instance=ExtResource("6_5nqxw")]
+[node name="KillZone" parent="." unique_id=565985643 instance=ExtResource("6_dab2n")]
 position = Vector2(533, 529)

@@ -1,20 +1,26 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene format=3 uid="uid://brlqcsil5mfbq"]
 
-[ext_resource type="Script" path="res://Scripts/Objects/LevelGoal.gd" id="1_gl1"]
-[ext_resource type="Texture2D" uid="uid://y514wmisvyuf" path="res://icon.svg" id="2_img1"]
+[ext_resource type="Script" uid="uid://jtmxnvc1aahi" path="res://Scripts/Objects/LevelGoal.gd" id="1_gl1"]
+[ext_resource type="Texture2D" uid="uid://rhpvv6uwqih4" path="res://Assets/Sprites/Environment/ground4/kapi.png" id="2_saweb"]
+[ext_resource type="Texture2D" uid="uid://bp8m2g30w6wuu" path="res://Assets/Sprites/Environment/ground4/goz1.png" id="3_175fv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gl"]
-size = Vector2(64, 128)
+size = Vector2(71, 150)
 
-[node name="LevelGoal" type="Area2D"]
+[node name="LevelGoal" type="Area2D" unique_id=1506957731]
 collision_layer = 0
-collision_mask = 1
 script = ExtResource("1_gl1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1864787175]
+position = Vector2(-3.5, -11)
 shape = SubResource("RectangleShape2D_gl")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 0.8, 0.2, 0.5)
-scale = Vector2(0.5, 1.0)
-texture = ExtResource("2_img1")
+[node name="Kapi" type="Sprite2D" parent="." unique_id=807674771]
+position = Vector2(-7, -9)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_saweb")
+
+[node name="Goz1" type="Sprite2D" parent="." unique_id=1994398625]
+position = Vector2(8, -14)
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("3_175fv")

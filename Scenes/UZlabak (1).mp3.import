@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b45dl78wbad6l"
+path="res://.godot/imported/UZlabak (1).mp3-c6a43e7a9d116698707304cfb902d7ad.mp3str"
+
+[deps]
+
+source_file="res://Scenes/UZlabak (1).mp3"
+dest_files=["res://.godot/imported/UZlabak (1).mp3-c6a43e7a9d116698707304cfb902d7ad.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
