@@ -36,7 +36,7 @@ func _physics_process(delta: float) -> void:
 				
 	if player_touching:
 		_coyote_death_timer += delta
-		if _coyote_death_timer >= 0.1: # 0.1s Coyote Tolerance
+		if _coyote_death_timer >= 0.1:
 			_coyote_death_timer = 0.0
 			var gs = get_node_or_null("/root/GameState")
 			if gs:
