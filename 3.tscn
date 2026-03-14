@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://beixx4qgwr2c4"]
+
+[ext_resource type="Texture2D" uid="uid://y514wmisvyuf" path="res://icon.svg" id="1_b5q75"]
+[ext_resource type="PackedScene" uid="uid://7p3ovn45sywp" path="res://Scenes/Characters/Player.tscn" id="2_eukqi"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/BaseButton.tscn" id="3_133ip"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/ParrySpike.tscn" id="4_eukqi"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/LevelGoal.tscn" id="4_pxfmd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yrvgx"]
+size = Vector2(1000, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qytyj"]
+size = Vector2(1000, 50)
+
+[node name="Node2D" type="Node2D" unique_id=906398635]
+
+[node name="Floor4" type="StaticBody2D" parent="." unique_id=297737607]
+position = Vector2(133, 447)
+scale = Vector2(0.22193667, 1.0262463)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor4" unique_id=228670370]
+shape = SubResource("RectangleShape2D_yrvgx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor4" unique_id=1612814861]
+modulate = Color(0.2, 0.2, 0.2, 1)
+scale = Vector2(8, 0.4)
+texture = ExtResource("1_b5q75")
+
+[node name="Floor2" type="StaticBody2D" parent="." unique_id=1323840413]
+position = Vector2(674, 444.99997)
+rotation = 3.1415925
+scale = Vector2(0.4167469, 1.0130382)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2" unique_id=587852276]
+shape = SubResource("RectangleShape2D_yrvgx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor2" unique_id=945425847]
+modulate = Color(0.2, 0.2, 0.2, 1)
+scale = Vector2(8, 0.4)
+texture = ExtResource("1_b5q75")
+
+[node name="Player" parent="." unique_id=1389075244 instance=ExtResource("2_eukqi")]
+position = Vector2(854, 390)
+speed = 300.0
+parry_launch_force = 800.0
+
+[node name="Floor3" type="StaticBody2D" parent="." unique_id=479988278]
+position = Vector2(1158, 46.000015)
+rotation = 3.1415925
+scale = Vector2(0.3367451, 1.0130382)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor3" unique_id=1456617864]
+shape = SubResource("RectangleShape2D_qytyj")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor3" unique_id=861374057]
+modulate = Color(0.2, 0.2, 0.2, 1)
+scale = Vector2(8, 0.4)
+texture = ExtResource("1_b5q75")
+
+[node name="Button_Both" parent="." unique_id=1064031472 instance=ExtResource("3_133ip")]
+position = Vector2(653, 112)
+
+[node name="ParrySpike1" parent="." unique_id=1113083216 instance=ExtResource("4_eukqi")]
+position = Vector2(643, 144)
+
+[node name="LevelGoal" parent="." unique_id=2079729435 instance=ExtResource("4_pxfmd")]
+position = Vector2(1299.9999, -43)
+next_level_path = "res://Scenes/EgeTestScene.tscn"

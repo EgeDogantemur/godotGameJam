@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dkr1sgiye5hxu"]
+[gd_scene format=3 uid="uid://dllm468bs580f"]
 
 [ext_resource type="Texture2D" uid="uid://y514wmisvyuf" path="res://icon.svg" id="1_vfvc6"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/BaseButton.tscn" id="2_2pks0"]
@@ -11,17 +11,16 @@ size = Vector2(1000, 50)
 [node name="Node2D" type="Node2D" unique_id=370984591]
 position = Vector2(264, -3)
 
-[node name="Floor5" type="StaticBody2D" parent="." unique_id=383499349]
-position = Vector2(584, 564)
-rotation = 1.5707963
-scale = Vector2(0.12000057, 1)
+[node name="Floor6" type="StaticBody2D" parent="." unique_id=1652577214]
+position = Vector2(654.99994, 609)
+scale = Vector2(0.36000288, 1)
 collision_layer = 4
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor5" unique_id=22704932]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor6" unique_id=1592280714]
 shape = SubResource("RectangleShape2D_qih2i")
 
-[node name="Sprite2D" type="Sprite2D" parent="Floor5" unique_id=1839367433]
+[node name="Sprite2D" type="Sprite2D" parent="Floor6" unique_id=1522692746]
 modulate = Color(0.2, 0.2, 0.2, 1)
 scale = Vector2(8, 0.4)
 texture = ExtResource("1_vfvc6")
@@ -42,7 +41,7 @@ scale = Vector2(8, 0.4)
 texture = ExtResource("1_vfvc6")
 
 [node name="Floor" type="StaticBody2D" parent="." unique_id=1392559753]
-position = Vector2(304, 611)
+position = Vector2(-5, 611)
 scale = Vector2(0.6000024, 1)
 collision_layer = 4
 collision_mask = 4
@@ -55,22 +54,22 @@ modulate = Color(0.2, 0.2, 0.2, 1)
 scale = Vector2(8, 0.4)
 texture = ExtResource("1_vfvc6")
 
-[node name="Floor3" type="StaticBody2D" parent="." unique_id=1177341409]
-position = Vector2(655, 496.00003)
+[node name="Floor3" type="StaticBody2D" parent="." unique_id=814828643]
+position = Vector2(624, 309)
 scale = Vector2(0.18712671, 1.0262463)
 collision_layer = 4
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor3" unique_id=777878873]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor3" unique_id=1659464988]
 shape = SubResource("RectangleShape2D_qih2i")
 
-[node name="Sprite2D" type="Sprite2D" parent="Floor3" unique_id=1350208820]
+[node name="Sprite2D" type="Sprite2D" parent="Floor3" unique_id=299533137]
 modulate = Color(0.2, 0.2, 0.2, 1)
 scale = Vector2(8, 0.4)
 texture = ExtResource("1_vfvc6")
 
 [node name="Floor2" type="StaticBody2D" parent="." unique_id=1094806477]
-position = Vector2(2, 370)
+position = Vector2(5, 376)
 rotation = 3.1415925
 scale = Vector2(0.43258145, 1.0130382)
 collision_layer = 4
@@ -85,12 +84,12 @@ scale = Vector2(8, 0.4)
 texture = ExtResource("1_vfvc6")
 
 [node name="Button_Both" parent="." unique_id=438102245 instance=ExtResource("2_2pks0")]
-position = Vector2(437, 581)
+position = Vector2(261, 581)
 
 [node name="Player" parent="." unique_id=1389075244 instance=ExtResource("4_ijgdv")]
 position = Vector2(88, 309)
 scale = Vector2(0.9973469, 1)
 
 [node name="LevelGoal" parent="." unique_id=1141741754 instance=ExtResource("3_yerdr")]
-position = Vector2(-101, 282)
+position = Vector2(644, 206)
 next_level_path = "res://Scenes/EgeTestScene.tscn"

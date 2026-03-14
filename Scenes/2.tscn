@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://4pp500j3e8lq"]
+
+[ext_resource type="Texture2D" uid="uid://y514wmisvyuf" path="res://icon.svg" id="1_ea3mx"]
+[ext_resource type="PackedScene" uid="uid://7p3ovn45sywp" path="res://Scenes/Characters/Player.tscn" id="2_172vo"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/BaseButton.tscn" id="3_sajd4"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/LevelGoal.tscn" id="4_gxbpw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sragj"]
+size = Vector2(1000, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ea3mx"]
+size = Vector2(1000, 50)
+
+[node name="Node2D" type="Node2D" unique_id=1009821582]
+
+[node name="Floor4" type="StaticBody2D" parent="." unique_id=776689834]
+position = Vector2(133, 447)
+scale = Vector2(0.22193667, 1.0262463)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor4" unique_id=199376939]
+shape = SubResource("RectangleShape2D_sragj")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor4" unique_id=842467342]
+modulate = Color(0.2, 0.2, 0.2, 1)
+scale = Vector2(8, 0.4)
+texture = ExtResource("1_ea3mx")
+
+[node name="Floor2" type="StaticBody2D" parent="." unique_id=1259787972]
+position = Vector2(674, 444.99997)
+rotation = 3.1415925
+scale = Vector2(0.4167469, 1.0130382)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2" unique_id=1549463871]
+shape = SubResource("RectangleShape2D_sragj")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor2" unique_id=1234152790]
+modulate = Color(0.2, 0.2, 0.2, 1)
+scale = Vector2(8, 0.4)
+texture = ExtResource("1_ea3mx")
+
+[node name="Player" parent="." unique_id=1389075244 instance=ExtResource("2_172vo")]
+position = Vector2(854, 390)
+speed = 300.0
+parry_launch_force = 800.0
+
+[node name="Floor3" type="StaticBody2D" parent="." unique_id=1150328656]
+position = Vector2(699, 244)
+rotation = 3.1415925
+scale = Vector2(0.3367451, 1.0130382)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor3" unique_id=194354078]
+shape = SubResource("RectangleShape2D_ea3mx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor3" unique_id=2071368465]
+modulate = Color(0.2, 0.2, 0.2, 1)
+scale = Vector2(8, 0.4)
+texture = ExtResource("1_ea3mx")
+
+[node name="Button_Both" parent="." unique_id=354769900 instance=ExtResource("3_sajd4")]
+position = Vector2(168, 419)
+
+[node name="LevelGoal" parent="." unique_id=1189049130 instance=ExtResource("4_gxbpw")]
+position = Vector2(829, 155)
+next_level_path = "res://Scenes/EgeTestScene.tscn"
