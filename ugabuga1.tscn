@@ -28,8 +28,8 @@ texture = ExtResource("1_b30hy")
 position = Vector2(1066, 835)
 
 [node name="LevelGoal" parent="." unique_id=1343984169 instance=ExtResource("3_a0eow")]
-position = Vector2(455, 771)
-next_level_path = "res://ugabuga2.tscn"
+position = Vector2(447, 771)
+next_level_path = "res://Scenes/1.tscn"
 
 [node name="Player2" parent="." unique_id=1389075244 instance=ExtResource("4_b80cf")]
 position = Vector2(813, 792)
