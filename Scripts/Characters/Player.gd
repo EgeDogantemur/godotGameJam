@@ -18,7 +18,6 @@ extends CharacterBody2D
 @export var parry_startup_frames: int = 2
 @export var parry_active_window: float = 0.15 # Tighter, professional window
 @export var parry_launch_force_y: float = 750.0 
-@export var parry_launch_force_x: float = 650.0 # Directional thrust
 @export var parry_cooldown: float = 0.4
 @export var parry_buffer_time: float = 0.12 # Input buffer tolerance (press slightly early)
 @export var parry_freeze_duration: float = 0.12
@@ -127,25 +126,9 @@ func execute_parry_launch() -> void:
 	_parry_state_timer = 0.3 # Short internal float lock
 	_coyote_timer = 0.0
 	
-	# Directional Momentum Logic
-	var dir_x = Input.get_axis("move_left", "move_right")
-	var dir_y = 0.0
-	if Input.is_action_pressed("jump"): # Try to parry UP specifically
-		dir_y = -1.0
-	elif Input.get_vector("move_left", "move_right", "ui_up", "ui_down").y > 0.5: # pressing down
-		dir_y = 1.0
-		
-	# If pushing left/right, heavily favor horizontal thrust
-	if dir_x != 0:
-		velocity.x = dir_x * parry_launch_force_x
-		velocity.y = -parry_launch_force_y * 0.6 # Reduced vertical if side-dashing
-	elif dir_y > 0:
-		velocity.x = 0
-		velocity.y = parry_launch_force_y * 0.8 # Downward smash
-	else:
-		velocity.x = 0
-		velocity.y = -parry_launch_force_y # Pure vertical
-		
+	# Pure vertical launch requested by the user
+	velocity.y = -parry_launch_force_y
+	
 	_do_hit_freeze()
 	_do_success_zoom()
 	_do_screen_shake()
