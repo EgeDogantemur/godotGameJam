@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://55pl4leyp8ig"]
+[gd_scene format=3 uid="uid://b86607e2r5g7l"]
 
 [ext_resource type="PackedScene" uid="uid://7p3ovn45sywp" path="res://Scenes/Characters/Player.tscn" id="2_slnnj"]
 [ext_resource type="Texture2D" uid="uid://cj8a4u1w4pwqm" path="res://Assets/Sprites/Environment/ground4/ground1.png" id="2_yeg0n"]
@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" path="res://Scenes/Objects/LevelGoal.tscn" id="4_ysn8j"]
 [ext_resource type="Texture2D" uid="uid://d251uixwkyacu" path="res://Assets/Sprites/Environment/ground4/muntar.png" id="5_b3jqs"]
 [ext_resource type="PackedScene" uid="uid://cj2pbvfmn3ut8" path="res://Scenes/Objects/TutorialTrigger.tscn" id="5_kjfpe"]
-[ext_resource type="VideoStream" uid="uid://dqmoqdxqnpi48" path="res://w as d tutorail.ogv" id="6_b2yne"]
+[ext_resource type="VideoStream" path="res://w as d tutorail.ogv" id="6_b2yne"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3w2qy"]
 size = Vector2(1000, 50)

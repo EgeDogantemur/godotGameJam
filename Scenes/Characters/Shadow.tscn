@@ -1,21 +1,170 @@
 [gd_scene format=3 uid="uid://x2p7v4lajnrm"]
 
 [ext_resource type="Script" uid="uid://bq53rn502w3jv" path="res://Scripts/Characters/Shadow.gd" id="1_a1b2c"]
-[ext_resource type="Texture2D" uid="uid://4hvxuu4h0kq8" path="res://Assets/Sprites/Characters/shadowgeik/evilgeik.png" id="3_2dj6p"]
+[ext_resource type="Texture2D" uid="uid://bifond2mlvuu1" path="res://Assets/Sprites/Characters/shadowgeik/idlegolge/Timeline 1_0000.png" id="2_idle00"]
+[ext_resource type="Texture2D" uid="uid://dwn0ssg8ygbqd" path="res://Assets/Sprites/Characters/shadowgeik/idlegolge/Timeline 1_0001.png" id="3_idle01"]
+[ext_resource type="Texture2D" uid="uid://03s2slxo308f" path="res://Assets/Sprites/Characters/shadowgeik/idlegolge/Timeline 1_0002.png" id="4_idle02"]
+[ext_resource type="Texture2D" uid="uid://22oh2yc1m2kj" path="res://Assets/Sprites/Characters/shadowgeik/idlegolge/Timeline 1_0003.png" id="5_idle03"]
+[ext_resource type="Texture2D" uid="uid://c5idtds10ngji" path="res://Assets/Sprites/Characters/shadowgeik/idlegolge/Timeline 1_0004.png" id="6_idle04"]
+[ext_resource type="Texture2D" uid="uid://v0cexcjk1e6q" path="res://Assets/Sprites/Characters/shadowgeik/idlegolge/Timeline 1_0005.png" id="7_idle05"]
+[ext_resource type="Texture2D" uid="uid://dg33qnvm0l2dg" path="res://Assets/Sprites/Characters/shadowgeik/idlegolge/Timeline 1_0006.png" id="8_idle06"]
+[ext_resource type="Texture2D" uid="uid://bfswi4hp4f684" path="res://Assets/Sprites/Characters/shadowgeik/idlegolge/Timeline 1_0007.png" id="9_idle07"]
+[ext_resource type="Texture2D" uid="uid://r052strsfa36" path="res://Assets/Sprites/Characters/shadowgeik/idlegolge/Timeline 1_0008.png" id="10_idle08"]
+[ext_resource type="Texture2D" uid="uid://deg63toosyb6q" path="res://Assets/Sprites/Characters/shadowgeik/idlegolge/Timeline 1_0009.png" id="11_idle09"]
+[ext_resource type="Texture2D" uid="uid://dp41x5w4g8nig" path="res://Assets/Sprites/Characters/shadowgeik/idlegolge/Timeline 1_0010.png" id="12_idle10"]
+[ext_resource type="Texture2D" uid="uid://xxc5wvvp1vi1" path="res://Assets/Sprites/Characters/shadowgeik/idlegolge/Timeline 1_0011.png" id="13_idle11"]
+[ext_resource type="Texture2D" uid="uid://b0wrfccb6mvie" path="res://Assets/Sprites/Characters/shadowgeik/idlegolge/Timeline 1_0012.png" id="14_idle12"]
+[ext_resource type="Texture2D" uid="uid://cgn4jww0fpft5" path="res://Assets/Sprites/Characters/shadowgeik/idlegolge/Timeline 1_0013.png" id="15_idle13"]
+[ext_resource type="Texture2D" uid="uid://ci2gtmf2revt3" path="res://Assets/Sprites/Characters/shadowgeik/idlegolge/Timeline 1_0014.png" id="16_idle14"]
+[ext_resource type="Texture2D" uid="uid://p170q6tjbb61" path="res://Assets/Sprites/Characters/shadowgeik/idlegolge/Timeline 1_0015.png" id="17_idle15"]
+[ext_resource type="Texture2D" uid="uid://box6asu11u3up" path="res://Assets/Sprites/Characters/shadowgeik/idlegolge/Timeline 1_0016.png" id="18_idle16"]
+[ext_resource type="Texture2D" uid="uid://doiar2e63lu5w" path="res://Assets/Sprites/Characters/shadowgeik/idlegolge/Timeline 1_0017.png" id="19_idle17"]
+[ext_resource type="Texture2D" uid="uid://cr5l73uj32o71" path="res://Assets/Sprites/Characters/shadowgeik/idlegolge/Timeline 1_0018.png" id="20_idle18"]
+[ext_resource type="Texture2D" uid="uid://dvqihc3rphl04" path="res://Assets/Sprites/Characters/shadowgeik/idlegolge/Timeline 1_0019.png" id="21_idle19"]
+[ext_resource type="Texture2D" uid="uid://ui347nk583q" path="res://Assets/Sprites/Characters/shadowgeik/idlegolge/Timeline 1_0020.png" id="22_idle20"]
+[ext_resource type="Texture2D" uid="uid://bc8jm8u14wb5h" path="res://Assets/Sprites/Characters/shadowgeik/idlegolge/Timeline 1_0021.png" id="23_idle21"]
+[ext_resource type="Texture2D" uid="uid://cfiajdmyoog7f" path="res://Assets/Sprites/Characters/shadowgeik/idlegolge/Timeline 1_0022.png" id="24_idle22"]
+[ext_resource type="Texture2D" uid="uid://b30lx3qt5ruku" path="res://Assets/Sprites/Characters/shadowgeik/yurumekgolge/Timeline 1_0000.png" id="25_walk00"]
+[ext_resource type="Texture2D" uid="uid://mbdrchhkykfx" path="res://Assets/Sprites/Characters/shadowgeik/yurumekgolge/Timeline 1_0001.png" id="26_walk01"]
+[ext_resource type="Texture2D" uid="uid://benwxodif4xrk" path="res://Assets/Sprites/Characters/shadowgeik/yurumekgolge/Timeline 1_0002.png" id="27_walk02"]
+[ext_resource type="Texture2D" uid="uid://xoqplvbeyln1" path="res://Assets/Sprites/Characters/shadowgeik/yurumekgolge/Timeline 1_0003.png" id="28_walk03"]
+[ext_resource type="Texture2D" uid="uid://b6u6eps4qtink" path="res://Assets/Sprites/Characters/shadowgeik/yurumekgolge/Timeline 1_0004.png" id="29_walk04"]
+[ext_resource type="Texture2D" uid="uid://ddh0184t5bbv1" path="res://Assets/Sprites/Characters/shadowgeik/yurumekgolge/Timeline 1_0005.png" id="30_walk05"]
+[ext_resource type="Texture2D" uid="uid://bm5idcu1ivkrd" path="res://Assets/Sprites/Characters/shadowgeik/yurumekgolge/Timeline 1_0006.png" id="31_walk06"]
+[ext_resource type="Texture2D" uid="uid://b0crqbldm78fi" path="res://Assets/Sprites/Characters/shadowgeik/yurumekgolge/Timeline 1_0007.png" id="32_walk07"]
+[ext_resource type="Texture2D" uid="uid://dxiqxtaem4kbw" path="res://Assets/Sprites/Characters/shadowgeik/yurumekgolge/Timeline 1_0008.png" id="33_walk08"]
+[ext_resource type="Texture2D" uid="uid://b48lpa16vp7kv" path="res://Assets/Sprites/Characters/shadowgeik/yurumekgolge/Timeline 1_0009.png" id="34_walk09"]
+[ext_resource type="Texture2D" uid="uid://pdeprf1bdgxk" path="res://Assets/Sprites/Characters/shadowgeik/yurumekgolge/Timeline 1_0010.png" id="35_walk10"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ytw1o"]
 size = Vector2(54, 57)
 
-[node name="Shadow" type="Area2D" unique_id=1581785216 groups=["shadow"]]
+[sub_resource type="SpriteFrames" id="SpriteFrames_shadow"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_idle00")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_idle01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_idle02")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_idle03")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_idle04")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_idle05")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_idle06")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_idle07")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_idle08")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_idle09")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_idle10")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_idle11")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_idle12")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_idle13")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_idle14")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_idle15")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_idle16")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_idle17")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_idle18")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_idle19")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_idle20")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_idle21")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_idle22")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 18.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("25_walk00")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_walk01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_walk02")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_walk03")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_walk04")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_walk05")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_walk06")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_walk07")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_walk08")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_walk09")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_walk10")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 16.0
+}]
+
+[node name="Shadow" type="Area2D" unique_id=1655378228 groups=["shadow"]]
 collision_layer = 2
 script = ExtResource("1_a1b2c")
 spawn_immunity = 3.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1131167185]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1738473211]
 position = Vector2(1, -0.5)
 shape = SubResource("RectangleShape2D_ytw1o")
 
-[node name="Evilgeik" type="Sprite2D" parent="." unique_id=55018454]
-position = Vector2(37.999996, -1.0000038)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1253195818]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("3_2dj6p")
+sprite_frames = SubResource("SpriteFrames_shadow")
+animation = &"idle"
+autoplay = "idle"

@@ -304,11 +304,15 @@ func _update_animation() -> void:
 	var anim_sprite = get_node_or_null("AnimatedSprite2D")
 	if not anim_sprite: return
 	
-	# Flip sprite based on movement direction
-	var dir = Input.get_axis("move_left", "move_right")
-	if dir != 0:
-		anim_sprite.flip_h = dir < 0
+	# Keep the facing direction responsive even while slowing to a stop.
+	if abs(velocity.x) > 0.01:
+		anim_sprite.flip_h = velocity.x < 0.0
 	
-	# Play idle (only animation available for now)
-	if not anim_sprite.is_playing() or anim_sprite.animation != &"idle":
-		anim_sprite.play(&"idle")
+	var target_animation: StringName = &"idle"
+	if not is_on_floor():
+		target_animation = &"jump"
+	elif abs(velocity.x) > 15.0:
+		target_animation = &"walk"
+	
+	if anim_sprite.animation != target_animation or not anim_sprite.is_playing():
+		anim_sprite.play(target_animation)

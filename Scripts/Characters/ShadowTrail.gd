@@ -37,10 +37,11 @@ func _set_target_speed(spd: float) -> void:
 func _physics_process(_delta: float) -> void:
 	if shadow_node == null: return
 	
-	var sprite = player.get_node_or_null("Sprite2D")
+	var sprite = player.get_node_or_null("AnimatedSprite2D")
 	history.push_back({
 		"pos": player.global_position,
-		"flip": sprite.flip_h if sprite else false
+		"flip": sprite.flip_h if sprite else false,
+		"anim": sprite.animation if sprite else &"idle"
 	})
 	
 	var target_size = max(1, follow_delay_frames)
@@ -76,6 +77,11 @@ func _physics_process(_delta: float) -> void:
 		_pos_tween = create_tween()
 		_pos_tween.tween_property(shadow_node, "global_position", data["pos"], shadow_follow_smoothness).set_trans(Tween.TRANS_LINEAR)
 		
-		var shadow_sprite = shadow_node.get_node_or_null("Sprite2D")
+		var shadow_sprite = shadow_node.get_node_or_null("AnimatedSprite2D")
 		if shadow_sprite:
 			shadow_sprite.flip_h = data["flip"]
+			var target_anim: StringName = data.get("anim", &"idle")
+			if shadow_sprite.sprite_frames and not shadow_sprite.sprite_frames.has_animation(target_anim):
+				target_anim = &"idle"
+			if shadow_sprite.animation != target_anim or not shadow_sprite.is_playing():
+				shadow_sprite.play(target_anim)

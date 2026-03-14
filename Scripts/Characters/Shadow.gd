@@ -12,6 +12,9 @@ func _ready() -> void:
 	monitoring = true
 	monitorable = true
 	add_to_group("hazard")
+	var anim_sprite = get_node_or_null("AnimatedSprite2D")
+	if anim_sprite:
+		anim_sprite.play(&"idle")
 
 func _physics_process(delta: float) -> void:
 	if _immunity_timer > 0.0:

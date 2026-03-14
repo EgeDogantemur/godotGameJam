@@ -33,7 +33,7 @@ func _physics_process(delta: float) -> void:
 		target_x = dir * look_ahead_x
 	else:
 		# If standing still, default to the direction character is facing
-		var sprite = player.get_node_or_null("Sprite2D")
+		var sprite = player.get_node_or_null("AnimatedSprite2D")
 		if sprite:
 			target_x = -look_ahead_x if sprite.flip_h else look_ahead_x
 			

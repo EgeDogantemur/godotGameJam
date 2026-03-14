@@ -1,8 +1,15 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene format=3 uid="uid://pe2pugj1pl8r"]
 
-[ext_resource type="Script" path="res://Scripts/UI/UIManager.gd" id="1_uim1"]
-[ext_resource type="Shader" path="res://Assets/Shaders/scanline.gdshader" id="2_scan"]
-[ext_resource type="Shader" path="res://Assets/Shaders/danger_pulse.gdshader" id="3_danger"]
+[ext_resource type="Script" uid="uid://c7mvx281gynin" path="res://Scripts/UI/UIManager.gd" id="1_uim1"]
+[ext_resource type="Shader" uid="uid://bf21mo16bd0xe" path="res://Assets/Shaders/scanline.gdshader" id="2_scan"]
+[ext_resource type="Shader" uid="uid://bulkq5lprtsbq" path="res://Assets/Shaders/danger_pulse.gdshader" id="3_danger"]
+[ext_resource type="Texture2D" uid="uid://bp8m2g30w6wuu" path="res://Assets/Sprites/Environment/ground4/goz1.png" id="4_gozopen"]
+[ext_resource type="Texture2D" uid="uid://2wckprthb2jb" path="res://Assets/Sprites/Environment/ground4/goz2.png" id="5_gozclosed"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_danger"]
+shader = ExtResource("3_danger")
+shader_parameter/proximity = 0.0
+shader_parameter/danger_color = Color(1, 0.05, 0.05, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_scan"]
 shader = ExtResource("2_scan")
@@ -10,151 +17,421 @@ shader_parameter/line_count = 200.0
 shader_parameter/opacity = 0.06
 shader_parameter/scroll_speed = 0.25
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_danger"]
-shader = ExtResource("3_danger")
-shader_parameter/proximity = 0.0
-shader_parameter/danger_color = Color(1.0, 0.05, 0.05, 1.0)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pause_card"]
+bg_color = Color(0.03, 0.01, 0.02, 0.94)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.96, 0.12, 0.18, 0.95)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0.95, 0.06, 0.14, 0.22)
+shadow_size = 18
 
-[node name="UIManager" type="CanvasLayer"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pause_button"]
+bg_color = Color(0.12, 0.02, 0.04, 0.95)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.86, 0.14, 0.18, 0.95)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pause_button_hover"]
+bg_color = Color(0.22, 0.03, 0.06, 0.98)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 0.38, 0.45, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_restart_button"]
+bg_color = Color(0.12, 0.02, 0.04, 0.95)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.96, 0.16, 0.22, 0.95)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_restart_card"]
+bg_color = Color(0.05, 0.01, 0.02, 0.94)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.95, 0.12, 0.18, 0.95)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_color = Color(0.9, 0.05, 0.12, 0.2)
+shadow_size = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_restart_button_hover"]
+bg_color = Color(0.2, 0.03, 0.06, 0.98)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 0.35, 0.4, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="UIManager" type="CanvasLayer" unique_id=150784983]
 layer = 100
 script = ExtResource("1_uim1")
 
-[node name="ProximityOverlay" type="ColorRect" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
+[node name="ProximityOverlay" type="ColorRect" parent="." unique_id=243475665]
 material = SubResource("ShaderMaterial_danger")
-color = Color(1, 1, 1, 1)
-
-[node name="ScanlineOverlay" type="ColorRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-material = SubResource("ShaderMaterial_scan")
-color = Color(1, 1, 1, 1)
 
-[node name="PauseMenu" type="ColorRect" parent="."]
-visible = false
+[node name="ScanlineOverlay" type="ColorRect" parent="." unique_id=26988518]
+material = SubResource("ShaderMaterial_scan")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.02, 0.02, 0.02, 0.92)
+mouse_filter = 2
 
-[node name="VBox" type="VBoxContainer" parent="PauseMenu"]
+[node name="PauseMenu" type="ColorRect" parent="." unique_id=1059986678]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0.01, 0, 0.01, 0.9)
+
+[node name="TopAccent" type="ColorRect" parent="PauseMenu" unique_id=97226624]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 5.0
+grow_horizontal = 2
+color = Color(0.96, 0.08, 0.14, 0.95)
+
+[node name="BottomAccent" type="ColorRect" parent="PauseMenu" unique_id=790949964]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -3.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.18, 0.95, 0.86, 0.55)
+
+[node name="SignalText" type="Label" parent="PauseMenu" unique_id=1939787041]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 34.0
+offset_bottom = 60.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.86, 0.18, 0.22, 0.9)
+theme_override_font_sizes/font_size = 14
+text = "SESSION PAUSED"
+horizontal_alignment = 1
+
+[node name="Goz1" type="Sprite2D" parent="PauseMenu" unique_id=1631970905]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(591, 151)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_gozopen")
+
+[node name="Goz2" type="Sprite2D" parent="PauseMenu" unique_id=774101756]
+position = Vector2(591, 151)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_gozclosed")
+
+[node name="Card" type="PanelContainer" parent="PauseMenu" unique_id=1332610680]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -120.0
-offset_top = -90.0
-offset_right = 120.0
-offset_bottom = 90.0
+offset_left = -220.0
+offset_top = -70.0
+offset_right = 220.0
+offset_bottom = 180.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pause_card")
+
+[node name="Margin" type="MarginContainer" parent="PauseMenu/Card" unique_id=1944424192]
+layout_mode = 2
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 24
+
+[node name="VBox" type="VBoxContainer" parent="PauseMenu/Card/Margin" unique_id=1486716519]
+layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="TitleLabel" type="Label" parent="PauseMenu/VBox"]
+[node name="Overline" type="Label" parent="PauseMenu/Card/Margin/VBox" unique_id=1610967079]
 layout_mode = 2
-theme_override_colors/font_color = Color(1.0, 0.1, 0.1, 1.0)
-theme_override_font_sizes/font_size = 32
+theme_override_colors/font_color = Color(0.3, 0.95, 0.86, 0.95)
+theme_override_font_sizes/font_size = 13
+text = ">> ON HOLD"
+horizontal_alignment = 1
+
+[node name="TitleLabel" type="Label" parent="PauseMenu/Card/Margin/VBox" unique_id=899015536]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.12, 0.16, 1)
+theme_override_font_sizes/font_size = 38
 text = "// PAUSED"
 horizontal_alignment = 1
 
-[node name="Spacer" type="Control" parent="PauseMenu/VBox"]
-custom_minimum_size = Vector2(0, 8)
+[node name="Subtitle" type="Label" parent="PauseMenu/Card/Margin/VBox" unique_id=921473574]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.76, 0.78, 0.82, 0.95)
+theme_override_font_sizes/font_size = 14
+text = "Take a breath, then continue."
+horizontal_alignment = 1
+autowrap_mode = 3
 
-[node name="ResumeBtn" type="Button" parent="PauseMenu/VBox"]
-custom_minimum_size = Vector2(0, 42)
+[node name="ResumeBtn" type="Button" parent="PauseMenu/Card/Margin/VBox" unique_id=301517610]
+custom_minimum_size = Vector2(0, 46)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.94, 0.96, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_pause_button")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pause_button_hover")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pause_button_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_pause_button_hover")
 text = "[ RESUME ]"
 
-[node name="SettingsBtn" type="Button" parent="PauseMenu/VBox"]
-custom_minimum_size = Vector2(0, 42)
+[node name="SettingsBtn" type="Button" parent="PauseMenu/Card/Margin/VBox" unique_id=724498255]
+custom_minimum_size = Vector2(0, 46)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.94, 0.96, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_pause_button")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pause_button_hover")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pause_button_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_pause_button_hover")
 text = "[ SYSTEM CONFIG ]"
 
-[node name="MainMenuBtn" type="Button" parent="PauseMenu/VBox"]
-custom_minimum_size = Vector2(0, 42)
+[node name="MainMenuBtn" type="Button" parent="PauseMenu/Card/Margin/VBox" unique_id=1029668403]
+custom_minimum_size = Vector2(0, 46)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.94, 0.96, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_pause_button")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pause_button_hover")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pause_button_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_pause_button_hover")
 text = "[ DISCONNECT ]"
 
-[node name="SettingsMenu" type="ColorRect" parent="."]
-visible = false
+[node name="Hint" type="Label" parent="PauseMenu/Card/Margin/VBox" unique_id=558830532]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.62, 0.65, 0.69, 0.88)
+theme_override_font_sizes/font_size = 12
+text = "Hover to open the eye."
+horizontal_alignment = 1
+
+[node name="SettingsMenu" type="ColorRect" parent="." unique_id=2045053578]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.02, 0.03, 0.06, 0.94)
+mouse_filter = 1
+color = Color(0.01, 0, 0.02, 0.92)
 
-[node name="VBox" type="VBoxContainer" parent="SettingsMenu"]
+[node name="TopAccent" type="ColorRect" parent="SettingsMenu" unique_id=1957315644]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 5.0
+grow_horizontal = 2
+color = Color(0.96, 0.08, 0.14, 0.95)
+
+[node name="BottomAccent" type="ColorRect" parent="SettingsMenu" unique_id=534421714]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -3.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.18, 0.95, 0.86, 0.55)
+
+[node name="SignalText" type="Label" parent="SettingsMenu" unique_id=1579547254]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 34.0
+offset_bottom = 60.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.86, 0.18, 0.22, 0.9)
+theme_override_font_sizes/font_size = 14
+text = "SETTINGS"
+horizontal_alignment = 1
+
+[node name="Goz1" type="Sprite2D" parent="SettingsMenu" unique_id=1497622735]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(592, 100.000015)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_gozopen")
+
+[node name="Goz2" type="Sprite2D" parent="SettingsMenu" unique_id=1143141198]
+position = Vector2(592, 100.000015)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_gozclosed")
+
+[node name="Card" type="PanelContainer" parent="SettingsMenu" unique_id=2024210740]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -160.0
-offset_top = -100.0
-offset_right = 160.0
-offset_bottom = 100.0
+offset_left = -240.0
+offset_top = -115.0
+offset_right = 240.0
+offset_bottom = 165.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 12
+theme_override_styles/panel = SubResource("StyleBoxFlat_pause_card")
 
-[node name="Label" type="Label" parent="SettingsMenu/VBox"]
+[node name="Margin" type="MarginContainer" parent="SettingsMenu/Card" unique_id=1065615866]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.0, 1.0, 0.8, 1.0)
-theme_override_font_sizes/font_size = 22
-text = "// SYSTEM CONFIG"
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 24
+
+[node name="VBox" type="VBoxContainer" parent="SettingsMenu/Card/Margin" unique_id=336664726]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Overline" type="Label" parent="SettingsMenu/Card/Margin/VBox" unique_id=389848077]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3, 0.95, 0.86, 0.95)
+theme_override_font_sizes/font_size = 13
+text = ">> SETTINGS"
 horizontal_alignment = 1
 
-[node name="MasterVolLabel" type="Label" parent="SettingsMenu/VBox"]
+[node name="Label" type="Label" parent="SettingsMenu/Card/Margin/VBox" unique_id=776221685]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
-text = "MASTER AUDIO"
+theme_override_colors/font_color = Color(1, 0.12, 0.16, 1)
+theme_override_font_sizes/font_size = 36
+text = "SYSTEM"
+horizontal_alignment = 1
 
-[node name="MasterVolSlider" type="HSlider" parent="SettingsMenu/VBox"]
+[node name="Subtitle" type="Label" parent="SettingsMenu/Card/Margin/VBox" unique_id=1951849534]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.76, 0.78, 0.82, 0.95)
+theme_override_font_sizes/font_size = 14
+text = "Adjust the feel of the session."
+horizontal_alignment = 1
+
+[node name="MasterPanel" type="PanelContainer" parent="SettingsMenu/Card/Margin/VBox" unique_id=520602475]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_restart_button")
+
+[node name="Margin" type="MarginContainer" parent="SettingsMenu/Card/Margin/VBox/MasterPanel" unique_id=554323071]
+layout_mode = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 12
+
+[node name="VBox" type="VBoxContainer" parent="SettingsMenu/Card/Margin/VBox/MasterPanel/Margin" unique_id=1482037065]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="MasterVolLabel" type="Label" parent="SettingsMenu/Card/Margin/VBox/MasterPanel/Margin/VBox" unique_id=1386332128]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.88, 0.92, 1)
+theme_override_font_sizes/font_size = 14
+text = "Master Volume"
+
+[node name="MasterVolSlider" type="HSlider" parent="SettingsMenu/Card/Margin/VBox/MasterPanel/Margin/VBox" unique_id=16232579]
+layout_mode = 2
+size_flags_horizontal = 3
 max_value = 1.0
 step = 0.05
 value = 1.0
 
-[node name="GlitchLabel" type="Label" parent="SettingsMenu/VBox"]
+[node name="GlitchPanel" type="PanelContainer" parent="SettingsMenu/Card/Margin/VBox" unique_id=1499821325]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
-text = "SCANLINE INTENSITY"
+theme_override_styles/panel = SubResource("StyleBoxFlat_restart_button")
 
-[node name="GlitchSlider" type="HSlider" parent="SettingsMenu/VBox"]
+[node name="Margin" type="MarginContainer" parent="SettingsMenu/Card/Margin/VBox/GlitchPanel" unique_id=1671585753]
 layout_mode = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 12
+
+[node name="VBox" type="VBoxContainer" parent="SettingsMenu/Card/Margin/VBox/GlitchPanel/Margin" unique_id=816169237]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="GlitchLabel" type="Label" parent="SettingsMenu/Card/Margin/VBox/GlitchPanel/Margin/VBox" unique_id=155567852]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.88, 0.92, 1)
+theme_override_font_sizes/font_size = 14
+text = "Scanline"
+
+[node name="GlitchSlider" type="HSlider" parent="SettingsMenu/Card/Margin/VBox/GlitchPanel/Margin/VBox" unique_id=793351338]
+layout_mode = 2
+size_flags_horizontal = 3
 max_value = 1.0
 step = 0.05
 value = 1.0
 
-[node name="Spacer" type="Control" parent="SettingsMenu/VBox"]
-custom_minimum_size = Vector2(0, 10)
+[node name="Hint" type="Label" parent="SettingsMenu/Card/Margin/VBox" unique_id=577765858]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.62, 0.65, 0.69, 0.88)
+theme_override_font_sizes/font_size = 12
+text = "Hover to open the eye."
+horizontal_alignment = 1
 
-[node name="CloseBtn" type="Button" parent="SettingsMenu/VBox"]
-custom_minimum_size = Vector2(0, 42)
+[node name="CloseBtn" type="Button" parent="SettingsMenu/Card/Margin/VBox" unique_id=1742496670]
+custom_minimum_size = Vector2(0, 46)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.94, 0.96, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_pause_button")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pause_button_hover")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pause_button_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_pause_button_hover")
 text = "[ CLOSE ]"
 
-[node name="GameHUD" type="Control" parent="."]
+[node name="GameHUD" type="Control" parent="." unique_id=482110635]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -162,7 +439,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="TopLeft" type="VBoxContainer" parent="GameHUD"]
+[node name="TopLeft" type="VBoxContainer" parent="GameHUD" unique_id=478464813]
 layout_mode = 1
 offset_left = 16.0
 offset_top = 16.0
@@ -170,13 +447,13 @@ offset_right = 230.0
 offset_bottom = 60.0
 theme_override_constants/separation = 6
 
-[node name="DashLabel" type="Label" parent="GameHUD/TopLeft"]
+[node name="DashLabel" type="Label" parent="GameHUD/TopLeft" unique_id=1052850656]
+modulate = Color(0.5, 0.5, 0.5, 0.5)
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "DASH: —"
-modulate = Color(0.5, 0.5, 0.5, 0.5)
 
-[node name="RestartPanel" type="ColorRect" parent="GameHUD"]
+[node name="RestartPanel" type="ColorRect" parent="GameHUD" unique_id=1882042694]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -184,32 +461,122 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.0, 0.0, 0.0, 0.88)
+mouse_filter = 1
+color = Color(0.02, 0, 0.01, 0.9)
 
-[node name="VBox" type="VBoxContainer" parent="GameHUD/RestartPanel"]
+[node name="TopBar" type="ColorRect" parent="GameHUD/RestartPanel" unique_id=767355102]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 5.0
+grow_horizontal = 2
+color = Color(1, 0.08, 0.14, 0.95)
+
+[node name="BottomBar" type="ColorRect" parent="GameHUD/RestartPanel" unique_id=2122619798]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -3.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.15, 0.95, 0.85, 0.55)
+
+[node name="SignalText" type="Label" parent="GameHUD/RestartPanel" unique_id=472405276]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 34.0
+offset_bottom = 60.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.88, 0.16, 0.2, 0.9)
+theme_override_font_sizes/font_size = 14
+text = "RUN FAILED"
+horizontal_alignment = 1
+
+[node name="Card" type="PanelContainer" parent="GameHUD/RestartPanel" unique_id=203968863]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -120.0
-offset_top = -60.0
-offset_right = 120.0
-offset_bottom = 60.0
+offset_left = -240.0
+offset_top = -145.0
+offset_right = 240.0
+offset_bottom = 145.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 18
+theme_override_styles/panel = SubResource("StyleBoxFlat_restart_card")
 
-[node name="Label" type="Label" parent="GameHUD/RestartPanel/VBox"]
+[node name="Margin" type="MarginContainer" parent="GameHUD/RestartPanel/Card" unique_id=550242285]
 layout_mode = 2
-theme_override_colors/font_color = Color(1.0, 0.08, 0.08, 1.0)
-theme_override_font_sizes/font_size = 36
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 26
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 24
+
+[node name="VBox" type="VBoxContainer" parent="GameHUD/RestartPanel/Card/Margin" unique_id=1360120122]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Overline" type="Label" parent="GameHUD/RestartPanel/Card/Margin/VBox" unique_id=1143995732]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.25, 0.95, 0.85, 0.9)
+theme_override_font_sizes/font_size = 13
+text = ">> RESTART"
+horizontal_alignment = 1
+
+[node name="Title" type="Label" parent="GameHUD/RestartPanel/Card/Margin/VBox" unique_id=952368891]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.12, 0.16, 1)
+theme_override_font_sizes/font_size = 42
 text = "SYNC LOST"
 horizontal_alignment = 1
 
-[node name="RestartBtn" type="Button" parent="GameHUD/RestartPanel/VBox"]
-custom_minimum_size = Vector2(0, 48)
+[node name="Subtitle" type="Label" parent="GameHUD/RestartPanel/Card/Margin/VBox" unique_id=861471977]
 layout_mode = 2
-theme_override_font_sizes/font_size = 16
-text = "[ REINITIALIZE ]"
+theme_override_colors/font_color = Color(0.76, 0.78, 0.82, 0.95)
+theme_override_font_sizes/font_size = 15
+text = "Press space or use the button below."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Divider" type="ColorRect" parent="GameHUD/RestartPanel/Card/Margin/VBox" unique_id=2077760624]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+color = Color(1, 0.12, 0.16, 0.45)
+
+[node name="SpaceHint" type="Label" parent="GameHUD/RestartPanel/Card/Margin/VBox" unique_id=673124043]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9, 0.92, 0.98)
+theme_override_font_sizes/font_size = 18
+text = "PRESS [ SPACE ] TO RESTART"
+horizontal_alignment = 1
+
+[node name="MetaHint" type="Label" parent="GameHUD/RestartPanel/Card/Margin/VBox" unique_id=962399679]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.55, 0.58, 0.62, 0.9)
+theme_override_font_sizes/font_size = 12
+text = "or use the manual reboot control below"
+horizontal_alignment = 1
+
+[node name="RestartBtn" type="Button" parent="GameHUD/RestartPanel/Card/Margin/VBox" unique_id=1764746510]
+custom_minimum_size = Vector2(0, 54)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.92, 0.95, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_restart_button")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_restart_button_hover")
+theme_override_styles/hover = SubResource("StyleBoxFlat_restart_button_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_restart_button_hover")
+text = "[ REINITIALIZE RUN ]"
+
+[node name="Footer" type="Label" parent="GameHUD/RestartPanel/Card/Margin/VBox" unique_id=2113634275]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.32, 0.95, 0.86, 0.72)
+theme_override_font_sizes/font_size = 12
+text = "instant restart"
+horizontal_alignment = 1
