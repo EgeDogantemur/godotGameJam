@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-AudioManager="*res://Core/AudioManager.gd"
+AudioManager="*res://Core/AudioManager.tscn"
 GameState="*res://Core/GameState.gd"
 UIManager="*res://Scenes/UI/UIManager.tscn"
 

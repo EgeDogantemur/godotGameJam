@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bwq0a8couu6mh"]
+
+[ext_resource type="Script" uid="uid://bw1141jipvits" path="res://Core/AudioManager.gd" id="1_audio"]
+[ext_resource type="AudioStream" uid="uid://b45dl78wbad6l" path="res://Scenes/UZlabak (1).mp3" id="2_music"]
+
+[node name="AudioManager" type="Node" unique_id=1726115876]
+process_mode = 3
+script = ExtResource("1_audio")
+menu_music = ExtResource("2_music")
+game_music = ExtResource("2_music")
