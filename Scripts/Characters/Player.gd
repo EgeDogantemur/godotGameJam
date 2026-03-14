@@ -61,9 +61,12 @@ var shockwave_scene = preload("res://Scenes/VFX/Shockwave.tscn")
 var shadow_instance: Node2D = null
 
 @onready var trail = $ShadowTrail
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready() -> void:
 	collision_layer = 1
+	if animated_sprite:
+		animated_sprite.play(&"idle")
 	shadow_instance = shadow_scene.instantiate()
 	get_tree().current_scene.call_deferred("add_child", shadow_instance)
 	trail.call_deferred("set_shadow", shadow_instance)
@@ -134,9 +137,26 @@ func _update_parry_state_machine(delta: float) -> void:
 func execute_parry_launch() -> void:
 	if current_parry_state == ParryState.SUCCESS: return # Prevent double parry execution
 	
+	print("[PARRY] execute_parry_launch çağrıldı - başarılı parry!")
+	
 	current_parry_state = ParryState.SUCCESS
 	_parry_state_timer = 0.3 # Short internal float lock
 	_coyote_timer = 0.0
+	
+	# Parry animasyonunu hemen göster (sadece parry olduğu an)
+	if animated_sprite and animated_sprite.sprite_frames and animated_sprite.sprite_frames.has_animation(&"parry"):
+		animated_sprite.play(&"parry")
+		animated_sprite.set_frame_and_progress(0, 0.0)  # İlk frame'i zorla göster
+	
+	# Gölge trail history'sine parry ekle - gölge bu noktaya geldiğinde parry animasyonu oynatacak
+	if trail:
+		var flip_val = animated_sprite.flip_h if animated_sprite else false
+		for i in range(8):  # Birkaç frame parry göster (gölge takip gecikmesi için)
+			trail.history.push_back({
+				"pos": global_position,
+				"flip": flip_val,
+				"anim": &"parry"
+			})
 	
 	# Pure vertical launch
 	velocity.y = -parry_launch_force_y
@@ -145,6 +165,14 @@ func execute_parry_launch() -> void:
 	_has_dash_charge = true
 	dash_charge_changed.emit(true)
 	
+	# Bir frame bekle (parry'nin ekranda görünmesi için), sonra efektleri uygula
+	_do_parry_effects_after_frame()
+
+func _do_parry_effects_after_frame() -> void:
+	await get_tree().process_frame  # Parry frame'inin render edilmesini bekle
+	_do_parry_effects()
+
+func _do_parry_effects() -> void:
 	_do_hit_freeze()
 	_do_success_zoom()
 	_do_screen_shake()
@@ -301,18 +329,31 @@ func _draw() -> void:
 		draw_arc(Vector2.ZERO, glow_radius * 1.4, 0, TAU, 48, outer_c, 3.0, true)
 
 func _update_animation() -> void:
-	var anim_sprite = get_node_or_null("AnimatedSprite2D")
-	if not anim_sprite: return
+	if not animated_sprite:
+		return
 	
 	# Keep the facing direction responsive even while slowing to a stop.
 	if abs(velocity.x) > 0.01:
-		anim_sprite.flip_h = velocity.x < 0.0
+		animated_sprite.flip_h = velocity.x < 0.0
 	
 	var target_animation: StringName = &"idle"
-	if not is_on_floor():
+	# Parry animasyonu sadece başarılı parry anında (SUCCESS) gösterilir, süre boyunca değil
+	if current_parry_state == ParryState.SUCCESS:
+		target_animation = &"parry"
+	elif not is_on_floor():
 		target_animation = &"jump"
 	elif abs(velocity.x) > 15.0:
 		target_animation = &"walk"
 	
-	if anim_sprite.animation != target_animation or not anim_sprite.is_playing():
+	_play_animation_if_needed(animated_sprite, target_animation)
+
+func _play_animation_if_needed(anim_sprite: AnimatedSprite2D, target_animation: StringName) -> void:
+	if not anim_sprite.sprite_frames or not anim_sprite.sprite_frames.has_animation(target_animation):
+		return
+	
+	if anim_sprite.animation != target_animation:
+		anim_sprite.play(target_animation)
+		return
+	
+	if not anim_sprite.is_playing() and anim_sprite.sprite_frames.get_animation_loop(target_animation):
 		anim_sprite.play(target_animation)

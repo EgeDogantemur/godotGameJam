@@ -47,7 +47,7 @@ func _physics_process(_delta: float) -> void:
 	var target_size = max(1, follow_delay_frames)
 	var data: Dictionary = {}
 	
-	if player.get("is_parrying"):
+	if "current_parry_state" in player and player.current_parry_state != player.ParryState.NONE:
 		_set_target_speed(0.15)
 	elif history.size() > target_size + 5:
 		_set_target_speed(catchup_speed)
@@ -77,11 +77,14 @@ func _physics_process(_delta: float) -> void:
 		_pos_tween = create_tween()
 		_pos_tween.tween_property(shadow_node, "global_position", data["pos"], shadow_follow_smoothness).set_trans(Tween.TRANS_LINEAR)
 		
-		var shadow_sprite = shadow_node.get_node_or_null("AnimatedSprite2D")
-		if shadow_sprite:
-			shadow_sprite.flip_h = data["flip"]
-			var target_anim: StringName = data.get("anim", &"idle")
-			if shadow_sprite.sprite_frames and not shadow_sprite.sprite_frames.has_animation(target_anim):
-				target_anim = &"idle"
-			if shadow_sprite.animation != target_anim or not shadow_sprite.is_playing():
-				shadow_sprite.play(target_anim)
+		var target_anim: StringName = data.get("anim", &"idle")
+		if shadow_node.has_method("apply_follow_visual_state"):
+			shadow_node.apply_follow_visual_state(data["flip"], target_anim)
+		else:
+			var shadow_sprite = shadow_node.get_node_or_null("AnimatedSprite2D")
+			if shadow_sprite:
+				shadow_sprite.flip_h = data["flip"]
+				if shadow_sprite.sprite_frames and not shadow_sprite.sprite_frames.has_animation(target_anim):
+					target_anim = &"idle"
+				if shadow_sprite.animation != target_anim or not shadow_sprite.is_playing():
+					shadow_sprite.play(target_anim)

@@ -35,6 +35,66 @@
 [ext_resource type="Texture2D" uid="uid://dxiqxtaem4kbw" path="res://Assets/Sprites/Characters/shadowgeik/yurumekgolge/Timeline 1_0008.png" id="33_walk08"]
 [ext_resource type="Texture2D" uid="uid://b48lpa16vp7kv" path="res://Assets/Sprites/Characters/shadowgeik/yurumekgolge/Timeline 1_0009.png" id="34_walk09"]
 [ext_resource type="Texture2D" uid="uid://pdeprf1bdgxk" path="res://Assets/Sprites/Characters/shadowgeik/yurumekgolge/Timeline 1_0010.png" id="35_walk10"]
+[ext_resource type="Texture2D" uid="uid://dau74rragraoq" path="res://Assets/Sprites/Characters/shadowgeik/golgejump/Timeline 1_0000.png" id="36_jump00"]
+[ext_resource type="Texture2D" uid="uid://b8btjxk87f0v7" path="res://Assets/Sprites/Characters/shadowgeik/golgejump/Timeline 1_0001.png" id="37_jump01"]
+[ext_resource type="Texture2D" uid="uid://cypmbd2ypl4dx" path="res://Assets/Sprites/Characters/shadowgeik/golgejump/Timeline 1_0002.png" id="38_jump02"]
+[ext_resource type="Texture2D" uid="uid://b5tt8n1db3nca" path="res://Assets/Sprites/Characters/shadowgeik/golgejump/Timeline 1_0003.png" id="39_jump03"]
+[ext_resource type="Texture2D" uid="uid://cxhkqaxexbc2v" path="res://Assets/Sprites/Characters/shadowgeik/golgejump/Timeline 1_0004.png" id="40_jump04"]
+[ext_resource type="Texture2D" uid="uid://cbqhb8iqptv4j" path="res://Assets/Sprites/Characters/shadowgeik/golgejump/Timeline 1_0005.png" id="41_jump05"]
+[ext_resource type="Texture2D" uid="uid://cumkk6fv8kwet" path="res://Assets/Sprites/Characters/shadowgeik/golgejump/Timeline 1_0006.png" id="42_jump06"]
+[ext_resource type="Texture2D" uid="uid://j5wyspww1swd" path="res://Assets/Sprites/Characters/shadowgeik/golgejump/Timeline 1_0007.png" id="43_jump07"]
+[ext_resource type="Texture2D" uid="uid://dq7jw1imen7p" path="res://Assets/Sprites/Characters/shadowgeik/golgejump/Timeline 1_0008.png" id="44_jump08"]
+[ext_resource type="Texture2D" uid="uid://ceruw2vj1wv7q" path="res://Assets/Sprites/Characters/shadowgeik/golgejump/Timeline 1_0009.png" id="45_jump09"]
+[ext_resource type="Texture2D" uid="uid://dmr71fct3fnku" path="res://Assets/Sprites/Characters/shadowgeik/golgejump/Timeline 1_0010.png" id="46_jump10"]
+[ext_resource type="Texture2D" uid="uid://bo42k8ducq7q2" path="res://Assets/Sprites/Characters/shadowgeik/golgejump/Timeline 1_0011.png" id="47_jump11"]
+[ext_resource type="Texture2D" uid="uid://r8ytjl7kwcfk" path="res://Assets/Sprites/Characters/shadowgeik/golgejump/Timeline 1_0012.png" id="48_jump12"]
+[ext_resource type="Texture2D" uid="uid://3gi3ac4uje5a" path="res://Assets/Sprites/Characters/shadowgeik/golgejump/Timeline 1_0013.png" id="49_jump13"]
+[ext_resource type="Texture2D" uid="uid://b53xekhfo7e27" path="res://Assets/Sprites/Characters/shadowgeik/golgejump/Timeline 1_0014.png" id="50_jump14"]
+[ext_resource type="Texture2D" uid="uid://cfgvseoe583t2" path="res://Assets/Sprites/Characters/shadowgeik/golgejump/Timeline 1_0015.png" id="51_jump15"]
+[ext_resource type="Texture2D" uid="uid://dfw8krsccqakb" path="res://Assets/Sprites/Characters/shadowgeik/golgeparry/Timeline 1_0000.png" id="52_parry00"]
+[ext_resource type="Texture2D" uid="uid://hqju3wh45ghs" path="res://Assets/Sprites/Characters/shadowgeik/golgeparry/Timeline 1_0001.png" id="53_parry01"]
+[ext_resource type="Texture2D" uid="uid://beqj4u51hd5qt" path="res://Assets/Sprites/Characters/shadowgeik/golgeparry/Timeline 1_0002.png" id="54_parry02"]
+[ext_resource type="Texture2D" uid="uid://ccc5n1j7q2ido" path="res://Assets/Sprites/Characters/shadowgeik/golgeparry/Timeline 1_0003.png" id="55_parry03"]
+[ext_resource type="Texture2D" uid="uid://by0pvyemotni8" path="res://Assets/Sprites/Characters/shadowgeik/golgeparry/Timeline 1_0004.png" id="56_parry04"]
+[ext_resource type="Texture2D" uid="uid://cmrjl8fyp27bh" path="res://Assets/Sprites/Characters/shadowgeik/golgeparry/Timeline 1_0005.png" id="57_parry05"]
+[ext_resource type="Texture2D" uid="uid://dklkkqjmfnr1g" path="res://Assets/Sprites/Characters/shadowgeik/golgeparry/Timeline 1_0006.png" id="58_parry06"]
+[ext_resource type="Texture2D" uid="uid://bc4qhkpvqci5m" path="res://Assets/Sprites/Characters/shadowgeik/golgeparry/Timeline 1_0007.png" id="59_parry07"]
+[ext_resource type="Texture2D" uid="uid://7wqpmcpidido" path="res://Assets/Sprites/Characters/shadowgeik/golgeparry/Timeline 1_0008.png" id="60_parry08"]
+[ext_resource type="Texture2D" uid="uid://cw2w68ffx3mju" path="res://Assets/Sprites/Characters/shadowgeik/golgeparry/Timeline 1_0009.png" id="61_parry09"]
+[ext_resource type="Texture2D" uid="uid://ct61fsj8b0ee7" path="res://Assets/Sprites/Characters/shadowgeik/golgeparry/Timeline 1_0010.png" id="62_parry10"]
+[ext_resource type="Texture2D" uid="uid://bvr4f861wcfl2" path="res://Assets/Sprites/Characters/shadowgeik/golgeparry/Timeline 1_0011.png" id="63_parry11"]
+[ext_resource type="Texture2D" uid="uid://q6d35m7dnh8x" path="res://Assets/Sprites/Characters/shadowgeik/golgeparry/Timeline 1_0012.png" id="64_parry12"]
+[ext_resource type="Texture2D" uid="uid://cim0s0kmw67to" path="res://Assets/Sprites/Characters/shadowgeik/golgeparry/Timeline 1_0013.png" id="65_parry13"]
+[ext_resource type="Texture2D" uid="uid://c7x3woedyuxqs" path="res://Assets/Sprites/Characters/shadowgeik/golgeparry/Timeline 1_0014.png" id="66_parry14"]
+[ext_resource type="Texture2D" uid="uid://cdwoxwp6qfivh" path="res://Assets/Sprites/Characters/shadowgeik/golgeparry/Timeline 1_0015.png" id="67_parry15"]
+[ext_resource type="Texture2D" uid="uid://cyi40ysmeppje" path="res://Assets/Sprites/Characters/shadowgeik/golgeparry/Timeline 1_0016.png" id="68_parry16"]
+[ext_resource type="Texture2D" uid="uid://kn2xwu1cibpq" path="res://Assets/Sprites/Characters/shadowgeik/golgeparry/Timeline 1_0017.png" id="69_parry17"]
+[ext_resource type="Texture2D" uid="uid://bv5uemsxigpf3" path="res://Assets/Sprites/Characters/shadowgeik/golgeparry/Timeline 1_0018.png" id="70_parry18"]
+[ext_resource type="Texture2D" uid="uid://c2lihdn2nwtsa" path="res://Assets/Sprites/Characters/shadowgeik/golgeparry/Timeline 1_0019.png" id="71_parry19"]
+[ext_resource type="Texture2D" uid="uid://b254t4vrfmjdg" path="res://Assets/Sprites/Characters/shadowgeik/golgeparry/Timeline 1_0020.png" id="72_parry20"]
+[ext_resource type="Texture2D" uid="uid://btjuns7u3a81b" path="res://Assets/Sprites/Characters/shadowgeik/golgeparry/Timeline 1_0021.png" id="73_parry21"]
+[ext_resource type="Texture2D" uid="uid://cnre361rgp3fk" path="res://Assets/Sprites/Characters/shadowgeik/golgeparry/Timeline 1_0022.png" id="74_parry22"]
+[ext_resource type="Texture2D" uid="uid://buo6gomcviuun" path="res://Assets/Sprites/Characters/shadowgeik/golgeparry/Timeline 1_0023.png" id="75_parry23"]
+[ext_resource type="Texture2D" uid="uid://sohbtcdsv0v8" path="res://Assets/Sprites/Characters/shadowgeik/golgeparry/Timeline 1_0024.png" id="76_parry24"]
+[ext_resource type="Texture2D" uid="uid://ciw6c66871dx" path="res://Assets/Sprites/Characters/shadowgeik/golgeparry/Timeline 1_0025.png" id="77_parry25"]
+[ext_resource type="Texture2D" uid="uid://c5b2o72dmc5hg" path="res://Assets/Sprites/Characters/shadowgeik/golgeparry/Timeline 1_0026.png" id="78_parry26"]
+[ext_resource type="Texture2D" uid="uid://c1mmtjm7a3hhb" path="res://Assets/Sprites/Characters/shadowgeik/golgeparry/Timeline 1_0027.png" id="79_parry27"]
+[ext_resource type="Texture2D" uid="uid://cab8jgawnm6rp" path="res://Assets/Sprites/Characters/shadowgeik/golgeparry/Timeline 1_0028.png" id="80_parry28"]
+[ext_resource type="Texture2D" uid="uid://bryivu6e7mppn" path="res://Assets/Sprites/Characters/shadowgeik/golgeparry/Timeline 1_0029.png" id="81_parry29"]
+[ext_resource type="Texture2D" uid="uid://vm0ijr8cleyc" path="res://Assets/Sprites/Characters/shadowgeik/golgeparry/Timeline 1_0030.png" id="82_parry30"]
+[ext_resource type="Texture2D" uid="uid://bkqsd7vr71bap" path="res://Assets/Sprites/Characters/shadowgeik/golgeparry/Timeline 1_0031.png" id="83_parry31"]
+[ext_resource type="Texture2D" uid="uid://duq3bvqicha6k" path="res://Assets/Sprites/Characters/shadowgeik/golgewhenweparry/Timeline 1_0000.png" id="84_parried00"]
+[ext_resource type="Texture2D" uid="uid://bnlrqvwtaj7k1" path="res://Assets/Sprites/Characters/shadowgeik/golgewhenweparry/Timeline 1_0001.png" id="85_parried01"]
+[ext_resource type="Texture2D" uid="uid://ce8cdslduk5h7" path="res://Assets/Sprites/Characters/shadowgeik/golgewhenweparry/Timeline 1_0002.png" id="86_parried02"]
+[ext_resource type="Texture2D" uid="uid://bycu22a3ip4bg" path="res://Assets/Sprites/Characters/shadowgeik/golgewhenweparry/Timeline 1_0003.png" id="87_parried03"]
+[ext_resource type="Texture2D" uid="uid://b0v7ba8ge061" path="res://Assets/Sprites/Characters/shadowgeik/golgewhenweparry/Timeline 1_0004.png" id="88_parried04"]
+[ext_resource type="Texture2D" uid="uid://tgydrd87bvxc" path="res://Assets/Sprites/Characters/shadowgeik/golgewhenweparry/Timeline 1_0005.png" id="89_parried05"]
+[ext_resource type="Texture2D" uid="uid://5o5wigmvxplb" path="res://Assets/Sprites/Characters/shadowgeik/golgewhenweparry/Timeline 1_0006.png" id="90_parried06"]
+[ext_resource type="Texture2D" uid="uid://b84t7nrhoh2cb" path="res://Assets/Sprites/Characters/shadowgeik/golgewhenweparry/Timeline 1_0007.png" id="91_parried07"]
+[ext_resource type="Texture2D" uid="uid://dmfecicwhpsbc" path="res://Assets/Sprites/Characters/shadowgeik/golgewhenweparry/Timeline 1_0008.png" id="92_parried08"]
+[ext_resource type="Texture2D" uid="uid://bvql44f85p4iw" path="res://Assets/Sprites/Characters/shadowgeik/golgewhenweparry/Timeline 1_0009.png" id="93_parried09"]
+[ext_resource type="Texture2D" uid="uid://c2jqiu6xp6vv2" path="res://Assets/Sprites/Characters/shadowgeik/golgewhenweparry/Timeline 1_0010.png" id="94_parried10"]
+[ext_resource type="Texture2D" uid="uid://dcjdb1rkvuh65" path="res://Assets/Sprites/Characters/shadowgeik/golgewhenweparry/Timeline 1_0011.png" id="95_parried11"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ytw1o"]
 size = Vector2(54, 65)
@@ -152,6 +212,201 @@ animations = [{
 "loop": true,
 "name": &"walk",
 "speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("36_jump00")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_jump01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_jump02")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_jump03")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_jump04")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_jump05")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_jump06")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_jump07")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_jump08")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_jump09")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_jump10")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_jump11")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_jump12")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_jump13")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_jump14")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_jump15")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 18.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("52_parry00")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_parry01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_parry02")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_parry03")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_parry04")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_parry05")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_parry06")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_parry07")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_parry08")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_parry09")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_parry10")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_parry11")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_parry12")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_parry13")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_parry14")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_parry15")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_parry16")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_parry17")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_parry18")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71_parry19")
+}, {
+"duration": 1.0,
+"texture": ExtResource("72_parry20")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73_parry21")
+}, {
+"duration": 1.0,
+"texture": ExtResource("74_parry22")
+}, {
+"duration": 1.0,
+"texture": ExtResource("75_parry23")
+}, {
+"duration": 1.0,
+"texture": ExtResource("76_parry24")
+}, {
+"duration": 1.0,
+"texture": ExtResource("77_parry25")
+}, {
+"duration": 1.0,
+"texture": ExtResource("78_parry26")
+}, {
+"duration": 1.0,
+"texture": ExtResource("79_parry27")
+}, {
+"duration": 1.0,
+"texture": ExtResource("80_parry28")
+}, {
+"duration": 1.0,
+"texture": ExtResource("81_parry29")
+}, {
+"duration": 1.0,
+"texture": ExtResource("82_parry30")
+}, {
+"duration": 1.0,
+"texture": ExtResource("83_parry31")
+}],
+"loop": false,
+"name": &"parry",
+"speed": 22.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("84_parried00")
+}, {
+"duration": 1.0,
+"texture": ExtResource("85_parried01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("86_parried02")
+}, {
+"duration": 1.0,
+"texture": ExtResource("87_parried03")
+}, {
+"duration": 1.0,
+"texture": ExtResource("88_parried04")
+}, {
+"duration": 1.0,
+"texture": ExtResource("89_parried05")
+}, {
+"duration": 1.0,
+"texture": ExtResource("90_parried06")
+}, {
+"duration": 1.0,
+"texture": ExtResource("91_parried07")
+}, {
+"duration": 1.0,
+"texture": ExtResource("92_parried08")
+}, {
+"duration": 1.0,
+"texture": ExtResource("93_parried09")
+}, {
+"duration": 1.0,
+"texture": ExtResource("94_parried10")
+}, {
+"duration": 1.0,
+"texture": ExtResource("95_parried11")
+}],
+"loop": false,
+"name": &"parried",
+"speed": 18.0
 }]
 
 [node name="Shadow" type="Area2D" unique_id=1655378228 groups=["shadow"]]

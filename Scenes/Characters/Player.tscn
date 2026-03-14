@@ -57,6 +57,26 @@
 [ext_resource type="Texture2D" uid="uid://cxrrmvnaa4srp" path="res://Assets/Sprites/Characters/geik/jump/Timeline 1_0016.png" id="56_jump16"]
 [ext_resource type="Texture2D" uid="uid://1q05mygpc3xk" path="res://Assets/Sprites/Characters/geik/jump/Timeline 1_0017.png" id="57_jump17"]
 [ext_resource type="Texture2D" uid="uid://besbdlnm35ic2" path="res://Assets/Sprites/Characters/geik/jump/Timeline 1_0018.png" id="58_jump18"]
+[ext_resource type="Texture2D" uid="uid://bdkplk7nqisaw" path="res://Assets/Sprites/Characters/geik/parry/Timeline 1_0000.png" id="59_parry00"]
+[ext_resource type="Texture2D" uid="uid://ctcrpij6qjdxx" path="res://Assets/Sprites/Characters/geik/parry/Timeline 1_0001.png" id="60_parry01"]
+[ext_resource type="Texture2D" uid="uid://dqsbktteabjyp" path="res://Assets/Sprites/Characters/geik/parry/Timeline 1_0002.png" id="61_parry02"]
+[ext_resource type="Texture2D" uid="uid://dlqsaw5kxynho" path="res://Assets/Sprites/Characters/geik/parry/Timeline 1_0003.png" id="62_parry03"]
+[ext_resource type="Texture2D" uid="uid://c22m4lfgx7kxl" path="res://Assets/Sprites/Characters/geik/parry/Timeline 1_0004.png" id="63_parry04"]
+[ext_resource type="Texture2D" uid="uid://ccnjq07ggdg65" path="res://Assets/Sprites/Characters/geik/parry/Timeline 1_0005.png" id="64_parry05"]
+[ext_resource type="Texture2D" uid="uid://chhn3n4v7vs2b" path="res://Assets/Sprites/Characters/geik/parry/Timeline 1_0006.png" id="65_parry06"]
+[ext_resource type="Texture2D" uid="uid://djg1e5vjcp26n" path="res://Assets/Sprites/Characters/geik/parry/Timeline 1_0007.png" id="66_parry07"]
+[ext_resource type="Texture2D" uid="uid://vyur55bbnnl" path="res://Assets/Sprites/Characters/geik/parry/Timeline 1_0008.png" id="67_parry08"]
+[ext_resource type="Texture2D" uid="uid://ced31vldst5a4" path="res://Assets/Sprites/Characters/geik/parry/Timeline 1_0009.png" id="68_parry09"]
+[ext_resource type="Texture2D" uid="uid://buc22a62ybi0w" path="res://Assets/Sprites/Characters/geik/parry/Timeline 1_0010.png" id="69_parry10"]
+[ext_resource type="Texture2D" uid="uid://0bywh2qokmuj" path="res://Assets/Sprites/Characters/geik/parry/Timeline 1_0011.png" id="70_parry11"]
+[ext_resource type="Texture2D" uid="uid://cv3f8pvu6wyej" path="res://Assets/Sprites/Characters/geik/parry/Timeline 1_0012.png" id="71_parry12"]
+[ext_resource type="Texture2D" uid="uid://dr7ix86gplipr" path="res://Assets/Sprites/Characters/geik/parry/Timeline 1_0013.png" id="72_parry13"]
+[ext_resource type="Texture2D" uid="uid://b45th0tkyxcdc" path="res://Assets/Sprites/Characters/geik/parry/Timeline 1_0014.png" id="73_parry14"]
+[ext_resource type="Texture2D" uid="uid://bh1pqy0pevq01" path="res://Assets/Sprites/Characters/geik/parry/Timeline 1_0015.png" id="74_parry15"]
+[ext_resource type="Texture2D" uid="uid://l7ir2el3gv2k" path="res://Assets/Sprites/Characters/geik/parry/Timeline 1_0016.png" id="75_parry16"]
+[ext_resource type="Texture2D" uid="uid://ysb4grs7l34h" path="res://Assets/Sprites/Characters/geik/parry/Timeline 1_0017.png" id="76_parry17"]
+[ext_resource type="Texture2D" uid="uid://uy3ui7sn4pos" path="res://Assets/Sprites/Characters/geik/parry/Timeline 1_0018.png" id="77_parry18"]
+[ext_resource type="Texture2D" uid="uid://bl5huy08m2r4r" path="res://Assets/Sprites/Characters/geik/parry/Timeline 1_0019.png" id="78_parry19"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o5en2"]
 size = Vector2(56, 57)
@@ -207,6 +227,71 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("59_parry00")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_parry01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_parry02")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_parry03")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_parry04")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_parry05")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_parry06")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_parry07")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_parry08")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_parry09")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_parry10")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_parry11")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71_parry12")
+}, {
+"duration": 1.0,
+"texture": ExtResource("72_parry13")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73_parry14")
+}, {
+"duration": 1.0,
+"texture": ExtResource("74_parry15")
+}, {
+"duration": 1.0,
+"texture": ExtResource("75_parry16")
+}, {
+"duration": 1.0,
+"texture": ExtResource("76_parry17")
+}, {
+"duration": 1.0,
+"texture": ExtResource("77_parry18")
+}, {
+"duration": 1.0,
+"texture": ExtResource("78_parry19")
+}],
+"loop": false,
+"name": &"parry",
+"speed": 22.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("30_walk00")
 }, {
 "duration": 1.0,
@@ -276,5 +361,7 @@ look_speed = 1.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=722614723]
 scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_player")
-animation = &"jump"
+animation = &"parry"
 autoplay = "idle"
+frame = 19
+frame_progress = 1.0

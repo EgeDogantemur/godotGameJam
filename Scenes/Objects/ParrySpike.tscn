@@ -1,20 +1,20 @@
 [gd_scene format=3 uid="uid://b1qncsyl42ixy"]
 
 [ext_resource type="Script" uid="uid://c38lcfps6iobn" path="res://Scripts/Objects/ParrySpike.gd" id="1_scr"]
-[ext_resource type="Texture2D" uid="uid://y514wmisvyuf" path="res://icon.svg" id="2_tex"]
+[ext_resource type="Texture2D" uid="uid://cmpdtinyaxedb" path="res://Assets/Sprites/Environment/diken1 (1).png" id="2_tn28w"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_spk"]
-size = Vector2(56, 56)
+[sub_resource type="CircleShape2D" id="CircleShape2D_tn28w"]
+radius = 48.8
 
 [node name="ParrySpike" type="Area2D" unique_id=347142923 groups=["hazard"]]
 collision_layer = 4
 script = ExtResource("1_scr")
 pulse_speed = 1.2
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2126155711]
-modulate = Color(1, 0.4, 0.4, 1)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_tex")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1153711187]
-shape = SubResource("RectangleShape2D_spk")
+shape = SubResource("CircleShape2D_tn28w")
+
+[node name="Diken1(1)" type="Sprite2D" parent="." unique_id=888419988]
+position = Vector2(-26, 19)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_tn28w")
