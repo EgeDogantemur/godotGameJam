@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://tcaqc4dybb5p"]
+
+[ext_resource type="Texture2D" uid="uid://y514wmisvyuf" path="res://icon.svg" id="1_yb1ct"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/TutorialTrigger.tscn" id="2_ehuit"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5mrt3"]
+size = Vector2(1000, 50)
+
+[node name="Node2D" type="Node2D" unique_id=61786145]
+
+[node name="Floor4" type="StaticBody2D" parent="." unique_id=1370076740]
+position = Vector2(133, 447)
+scale = Vector2(0.55270904, 1.0262463)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor4" unique_id=615339806]
+shape = SubResource("RectangleShape2D_5mrt3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor4" unique_id=1057512522]
+modulate = Color(0.2, 0.2, 0.2, 1)
+scale = Vector2(8, 0.4)
+texture = ExtResource("1_yb1ct")
+
+[node name="TutorialTrigger" parent="." unique_id=784724274 instance=ExtResource("2_ehuit")]
+position = Vector2(190.00006, 322)
+scale = Vector2(3.4505978, 1)
+tutorial_text = "space ile doğru zamanda gölgeye basarsanız gölge sizi yukarı atıyor"
+show_once = true
+display_duration = 5.0

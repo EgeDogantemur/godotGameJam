@@ -45,7 +45,6 @@ texture = ExtResource("1_ea3mx")
 [node name="Player" parent="." unique_id=1389075244 instance=ExtResource("2_172vo")]
 position = Vector2(854, 390)
 speed = 300.0
-parry_launch_force = 800.0
 
 [node name="Floor3" type="StaticBody2D" parent="." unique_id=1150328656]
 position = Vector2(699, 244)
@@ -67,4 +66,4 @@ position = Vector2(168, 419)
 
 [node name="LevelGoal" parent="." unique_id=1189049130 instance=ExtResource("4_gxbpw")]
 position = Vector2(829, 155)
-next_level_path = "res://Scenes/EgeTestScene.tscn"
+next_level_path = "res://3.tscn"
