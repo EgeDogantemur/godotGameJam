@@ -23,10 +23,21 @@ func _ready() -> void:
 	var gs = get_node_or_null("/root/GameState")
 	if gs:
 		gs.player_died.connect(_on_player_died)
+		gs.dash_unlocked_changed.connect(_on_dash_unlocked_changed)
+		
+		# Auto-unlock dash if we are beyond level 6
+		var path = get_tree().current_scene.scene_file_path
+		if path.get_file().to_int() > 6:
+			gs.dash_unlocked = true
+			
+		dash_label.visible = gs.dash_unlocked
 	
 	_connect_ui_signals()
 	# Connect to player signals deferred to ensure player is in tree
 	call_deferred("_connect_player_signals")
+
+func _on_dash_unlocked_changed(is_unlocked: bool) -> void:
+	dash_label.visible = is_unlocked
 
 func _process(delta: float) -> void:
 	if in_main_menu:

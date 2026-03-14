@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cankw1qcbc1sr"]
+[gd_scene format=3 uid="uid://dcm317cq1p0wi"]
 
 [ext_resource type="Texture2D" uid="uid://y514wmisvyuf" path="res://icon.svg" id="1_7wkmf"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/KillZone.tscn" id="1_u12oc"]
@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" path="res://Scenes/Objects/ParrySpike.tscn" id="4_u12oc"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/LevelGoal.tscn" id="5_ahm7k"]
 [ext_resource type="PackedScene" uid="uid://cj2pbvfmn3ut8" path="res://Scenes/Objects/TutorialTrigger.tscn" id="7_ahm7k"]
-[ext_resource type="VideoStream" uid="uid://dtopuhck2sdib" path="res://dash.ogv" id="8_judu4"]
+[ext_resource type="VideoStream" path="res://dash.ogv" id="8_judu4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mqqcq"]
 size = Vector2(1000, 50)

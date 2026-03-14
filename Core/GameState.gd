@@ -12,6 +12,12 @@ signal player_died()
 signal resync_flash()
 signal gate_unlocked()
 signal button_activated(button_name: String)
+signal dash_unlocked_changed(is_unlocked: bool)
+
+var dash_unlocked: bool = false:
+	set(v):
+		dash_unlocked = v
+		dash_unlocked_changed.emit(v)
 
 const ENERGY_DRAIN_RATE = 1.0 / 4.0
 const ENERGY_REGEN_RATE = 1.0 / 4.0
