@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bng3yuv0mk4g4"]
 
 [ext_resource type="Script" uid="uid://ear44f1awopt" path="res://Scripts/UI/IntroCutscene.gd" id="1_intro"]
-[ext_resource type="VideoStream" path="res://dash.ogv" id="2_g8hii"]
+[ext_resource type="VideoStream" path="res://jumptutorial.ogv" id="2_g8hii"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_skip"]
 bg_color = Color(0.1, 0.03, 0.04, 0.92)

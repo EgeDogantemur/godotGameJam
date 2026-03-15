@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://g8v0nxe5ss8" path="res://Assets/Audio/SFX/parryxl.mp3" id="4_p0tle"]
 [ext_resource type="AudioStream" uid="uid://bk1eepiqqfe7i" path="res://Assets/Fonts/audley_fergine-ui-button-click-5-327756.mp3" id="5_o6t67"]
 [ext_resource type="AudioStream" uid="uid://ukf50xxxjpo6" path="res://Core/AuidoBerk/ButtonPress.mp3" id="5_p0tle"]
+[ext_resource type="AudioStream" uid="uid://ds66ykw54ueua" path="res://Assets/Audio/gate exist.mp3" id="9_o6t67"]
 
 [node name="AudioManager" type="Node" unique_id=1726115876]
 process_mode = 3
@@ -19,6 +20,7 @@ ui_click_sfx = ExtResource("5_o6t67")
 dash_sfx = ExtResource("3_27tv7")
 parry_sfx = ExtResource("4_p0tle")
 button_press_sfx = ExtResource("5_p0tle")
+gate_unlock_sfx = ExtResource("9_o6t67")
 music_volume_db = 0.0
 game_music_volume_db = 0.0
 ui_volume_boost_db = 0.0
