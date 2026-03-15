@@ -16,12 +16,12 @@ gradient = SubResource("Gradient_pollen")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pollen"]
 particle_flag_disable_z = true
 direction = Vector3(0, -1, 0)
-spread = 28.0
-initial_velocity_min = 18.0
-initial_velocity_max = 34.0
-gravity = Vector3(0, -10, 0)
-scale_min = 0.22
-scale_max = 0.4
+spread = 42.0
+initial_velocity_min = 28.0
+initial_velocity_max = 52.0
+gravity = Vector3(0, -14, 0)
+scale_min = 0.75
+scale_max = 1.25
 color_ramp = SubResource("GradientTexture1D_pollen")
 
 [node name="BaseButton" type="Area2D" unique_id=924759577]
@@ -39,12 +39,12 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_3cdst")
 
 [node name="PollenParticles" type="GPUParticles2D" parent="." unique_id=1499565464]
-position = Vector2(0, -43)
-amount = 34
-lifetime = 1.8
-preprocess = 1.8
-speed_scale = 1.15
-explosiveness = 0.18
-randomness = 0.55
-visibility_rect = Rect2(-34, -72, 68, 96)
+position = Vector2(1, -46)
+amount = 72
+lifetime = 2.4
+preprocess = 2.4
+speed_scale = 1.35
+explosiveness = 0.24
+randomness = 0.68
+visibility_rect = Rect2(-64, -104, 128, 140)
 process_material = SubResource("ParticleProcessMaterial_pollen")

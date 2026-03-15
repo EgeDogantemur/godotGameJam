@@ -123,6 +123,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 color = Color(0.01, 0, 0.01, 0.9)
+metadata/_edit_use_anchors_ = true
 
 [node name="TopAccent" type="ColorRect" parent="PauseMenu" unique_id=97226624]
 layout_mode = 1
@@ -157,12 +158,12 @@ horizontal_alignment = 1
 
 [node name="Goz1" type="Sprite2D" parent="PauseMenu" unique_id=1631970905]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(591, 151)
+position = Vector2(966, 193)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("4_gozopen")
 
 [node name="Goz2" type="Sprite2D" parent="PauseMenu" unique_id=774101756]
-position = Vector2(591, 151)
+position = Vector2(966, 193)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("5_gozclosed")
 
@@ -454,7 +455,6 @@ theme_override_font_sizes/font_size = 18
 text = "DASH: —"
 
 [node name="RestartPanel" type="ColorRect" parent="GameHUD" unique_id=1882042694]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -552,7 +552,7 @@ color = Color(1, 0.12, 0.16, 0.45)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.9, 0.92, 0.98)
 theme_override_font_sizes/font_size = 18
-text = "PRESS [ SPACE ] TO RESTART"
+text = "PRESS [ Z ] TO RESTART"
 horizontal_alignment = 1
 
 [node name="MetaHint" type="Label" parent="GameHUD/RestartPanel/Card/Margin/VBox" unique_id=962399679]

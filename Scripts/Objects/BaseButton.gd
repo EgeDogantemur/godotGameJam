@@ -9,6 +9,7 @@ enum AcceptedType { BOTH, PLAYER_ONLY, SHADOW_ONLY }
 var _is_pressed: bool = false
 var _occupants: int = 0
 var _pollen_tween: Tween
+var _flower_tween: Tween
 
 signal button_pressed()
 signal button_released()
@@ -32,6 +33,41 @@ func _get_visual_sprite() -> Sprite2D:
 func _get_pollen_particles() -> GPUParticles2D:
 	return get_node_or_null("PollenParticles") as GPUParticles2D
 
+func _get_heart_flower() -> Node2D:
+	return get_node_or_null("HeartFlower") as Node2D
+
+func _start_flower_idle() -> void:
+	var flower := _get_heart_flower()
+	if not flower:
+		return
+	
+	if _flower_tween:
+		_flower_tween.kill()
+	
+	flower.scale = Vector2.ONE * 1.0
+	flower.modulate = Color(1.0, 0.95, 0.78, 0.96)
+	_flower_tween = create_tween()
+	_flower_tween.set_loops()
+	_flower_tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	_flower_tween.tween_property(flower, "scale", Vector2.ONE * 1.12, 0.8)
+	_flower_tween.parallel().tween_property(flower, "modulate", Color(1.15, 1.0, 0.82, 1.0), 0.8)
+	_flower_tween.tween_property(flower, "scale", Vector2.ONE * 1.0, 0.8)
+	_flower_tween.parallel().tween_property(flower, "modulate", Color(1.0, 0.95, 0.78, 0.96), 0.8)
+
+func _set_flower_state(is_pressed: bool) -> void:
+	var flower := _get_heart_flower()
+	if not flower:
+		return
+	
+	if _flower_tween:
+		_flower_tween.kill()
+	
+	_flower_tween = create_tween()
+	_flower_tween.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	_flower_tween.tween_property(flower, "scale", Vector2.ONE * (0.92 if is_pressed else 1.08), 0.16)
+	_flower_tween.parallel().tween_property(flower, "modulate", Color(1.25, 1.0, 0.62, 1.0) if is_pressed else Color(1.08, 0.98, 0.8, 1.0), 0.16)
+	_flower_tween.tween_callback(_start_flower_idle)
+
 func _set_pollen_state(is_pressed: bool) -> void:
 	var pollen := _get_pollen_particles()
 	if not pollen:
@@ -43,14 +79,15 @@ func _set_pollen_state(is_pressed: bool) -> void:
 	# Idle'da soft akış, basılınca kısa bir yükselme boost'u.
 	_pollen_tween = create_tween()
 	_pollen_tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	_pollen_tween.tween_property(pollen, "amount_ratio", 0.35 if is_pressed else 1.0, 0.2)
-	_pollen_tween.parallel().tween_property(pollen, "speed_scale", 0.8 if is_pressed else 1.15, 0.2)
+	_pollen_tween.tween_property(pollen, "amount_ratio", 0.5 if is_pressed else 1.0, 0.2)
+	_pollen_tween.parallel().tween_property(pollen, "speed_scale", 0.9 if is_pressed else 1.28, 0.2)
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
 	area_entered.connect(_on_area_entered)
 	area_exited.connect(_on_area_exited)
+	_start_flower_idle()
 	
 	match accepted_type:
 		AcceptedType.BOTH:
@@ -93,6 +130,7 @@ func _add_occupant() -> void:
 		if sprite:
 			sprite.modulate = Color(0.5, 1.0, 0.5)
 		_set_pollen_state(true)
+		_set_flower_state(true)
 		_play_audio("play_button_press")
 		button_pressed.emit()
 		
@@ -117,6 +155,7 @@ func _remove_occupant() -> void:
 		if sprite:
 			sprite.modulate = Color(1.0, 1.0, 1.0)
 		_set_pollen_state(false)
+		_set_flower_state(false)
 		_play_audio("play_button_release")
 		button_released.emit()
 		
