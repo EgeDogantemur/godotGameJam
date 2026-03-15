@@ -6,124 +6,142 @@
 [ext_resource type="PackedScene" uid="uid://brlqcsil5mfbq" path="res://Scenes/Objects/LevelGoal.tscn" id="4_b3f2g"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/KillZone.tscn" id="5_dxj0s"]
 [ext_resource type="PackedScene" uid="uid://cj2pbvfmn3ut8" path="res://Scenes/Objects/TutorialTrigger.tscn" id="7_c3cqm"]
-[ext_resource type="VideoStream" path="res://dash.ogv" id="8_jvnrv"]
+[ext_resource type="VideoStream" uid="uid://dtopuhck2sdib" path="res://dash.ogv" id="8_jvnrv"]
 [ext_resource type="Texture2D" uid="uid://dffvckrwgiv0p" path="res://Assets/Sprites/Environment/ground4/Ground/dikenler.png" id="9_jvnrv"]
+[ext_resource type="Texture2D" uid="uid://cram50oqv42ly" path="res://Assets/Sprites/Environment/ground4/yerduz3 (1).png" id="10_hwvhe"]
+[ext_resource type="Texture2D" uid="uid://lqtxlbhwhhue" path="res://Assets/Sprites/Environment/ground4/ground4.png" id="11_pjngk"]
+[ext_resource type="Texture2D" uid="uid://cj8a4u1w4pwqm" path="res://Assets/Sprites/Environment/ground4/ground1.png" id="12_eaal5"]
 [ext_resource type="PackedScene" uid="uid://b1qncsyl42ixy" path="res://Scenes/Objects/ParrySpike.tscn" id="12_pjngk"]
+[ext_resource type="Texture2D" uid="uid://syqtr4smptgh" path="res://Assets/Sprites/Environment/ground4/Ground/bgclock.png" id="13_eaal5"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hwvhe"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pjngk"]
 size = Vector2(1000, 50)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sc0l0"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eaal5"]
 size = Vector2(1000, 50)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jvnrv"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_b3f2g"]
 load_path = "res://.godot/imported/dikenler.png-f57a269801c73ede1a3506b4e26b3b70.ctex"
 
 [node name="Node2D2" type="Node2D" unique_id=204629375]
 
-[node name="KillZone" parent="." unique_id=1251327091 instance=ExtResource("5_dxj0s")]
+[node name="KillZone" parent="." unique_id=1811653841 instance=ExtResource("5_dxj0s")]
 position = Vector2(2981, 1043)
 
-[node name="KillZone2" parent="." unique_id=23814377 instance=ExtResource("5_dxj0s")]
+[node name="KillZone2" parent="." unique_id=706789618 instance=ExtResource("5_dxj0s")]
 position = Vector2(2998, 512)
 scale = Vector2(0.12109389, 1)
 
-[node name="KillZone3" parent="." unique_id=83351441 instance=ExtResource("5_dxj0s")]
+[node name="KillZone3" parent="." unique_id=1324612816 instance=ExtResource("5_dxj0s")]
 position = Vector2(2888.0002, 714)
 scale = Vector2(0.020749757, -1.4419562)
 
-[node name="Floor2" type="StaticBody2D" parent="." unique_id=1208075491]
+[node name="Floor2" type="StaticBody2D" parent="." unique_id=1904861921]
 position = Vector2(2325, 432)
 rotation = 3.1415925
 scale = Vector2(0.45674816, 1.0130382)
 collision_layer = 4
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2" unique_id=1586002536]
-shape = SubResource("RectangleShape2D_hwvhe")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2" unique_id=1389852916]
+shape = SubResource("RectangleShape2D_pjngk")
 
-[node name="Sprite2D" type="Sprite2D" parent="Floor2" unique_id=267530921]
-modulate = Color(0.2, 0.2, 0.2, 1)
-scale = Vector2(8, 0.4)
-texture = ExtResource("1_sc0l0")
+[node name="Floor9" type="StaticBody2D" parent="." unique_id=447088263]
+position = Vector2(2715, 59.000004)
+rotation = 3.1415925
+scale = Vector2(2.416751, 1.0130382)
+collision_layer = 4
+collision_mask = 4
 
-[node name="Floor3" type="StaticBody2D" parent="." unique_id=1036297295]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor9" unique_id=1279510373]
+shape = SubResource("RectangleShape2D_pjngk")
+
+[node name="Floor10" type="StaticBody2D" parent="." unique_id=741230670]
+position = Vector2(3744, 107)
+rotation = 1.5707964
+scale = Vector2(2.416751, 1.0130382)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor10" unique_id=1991562711]
+shape = SubResource("RectangleShape2D_pjngk")
+
+[node name="Floor11" type="StaticBody2D" parent="." unique_id=1538332586]
+position = Vector2(2529, 959)
+rotation = 1.5707964
+scale = Vector2(1.0967497, 1.0130382)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor11" unique_id=1262054071]
+shape = SubResource("RectangleShape2D_pjngk")
+
+[node name="Floor3" type="StaticBody2D" parent="." unique_id=1977435392]
 position = Vector2(3016, 493)
 rotation = 3.1415925
 scale = Vector2(0.29674086, 1.0130382)
 collision_layer = 4
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor3" unique_id=712462787]
-shape = SubResource("RectangleShape2D_hwvhe")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor3" unique_id=10886203]
+shape = SubResource("RectangleShape2D_pjngk")
 
-[node name="Sprite2D" type="Sprite2D" parent="Floor3" unique_id=1832609391]
+[node name="Sprite2D" type="Sprite2D" parent="Floor3" unique_id=1014312878]
 modulate = Color(0.2, 0.2, 0.2, 1)
 scale = Vector2(8, 0.4)
 texture = ExtResource("1_sc0l0")
 
-[node name="Floor7" type="StaticBody2D" parent="." unique_id=1867095471]
+[node name="Floor7" type="StaticBody2D" parent="." unique_id=1873024406]
 position = Vector2(3602.0002, 824.99994)
 rotation = 3.1415925
 scale = Vector2(0.29674086, 1.0130382)
 collision_layer = 4
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor7" unique_id=755574218]
-shape = SubResource("RectangleShape2D_hwvhe")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor7" unique_id=663554676]
+shape = SubResource("RectangleShape2D_pjngk")
 
-[node name="Sprite2D" type="Sprite2D" parent="Floor7" unique_id=1552296418]
+[node name="Sprite2D" type="Sprite2D" parent="Floor7" unique_id=402065472]
 modulate = Color(0.2, 0.2, 0.2, 1)
 scale = Vector2(8, 0.4)
 texture = ExtResource("1_sc0l0")
 
-[node name="Floor5" type="StaticBody2D" parent="." unique_id=1206612773]
+[node name="Floor5" type="StaticBody2D" parent="." unique_id=1721288954]
 position = Vector2(2890, 335.00003)
 rotation = 1.5707964
 scale = Vector2(0.29674086, 1.0130382)
 collision_layer = 4
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor5" unique_id=1161220630]
-shape = SubResource("RectangleShape2D_hwvhe")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor5" unique_id=1048563945]
+shape = SubResource("RectangleShape2D_pjngk")
 
-[node name="Sprite2D" type="Sprite2D" parent="Floor5" unique_id=794330996]
+[node name="Sprite2D" type="Sprite2D" parent="Floor5" unique_id=1283683258]
 modulate = Color(0.2, 0.2, 0.2, 1)
 scale = Vector2(8, 0.4)
 texture = ExtResource("1_sc0l0")
 
-[node name="Floor8" type="StaticBody2D" parent="." unique_id=680739594]
+[node name="Floor8" type="StaticBody2D" parent="." unique_id=1934945545]
 position = Vector2(2109, 296.00003)
 rotation = 1.5707964
 scale = Vector2(0.29674086, 1.0130382)
 collision_layer = 4
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor8" unique_id=747731404]
-shape = SubResource("RectangleShape2D_hwvhe")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor8" unique_id=491290913]
+shape = SubResource("RectangleShape2D_pjngk")
 
-[node name="Sprite2D" type="Sprite2D" parent="Floor8" unique_id=1166948064]
-modulate = Color(0.2, 0.2, 0.2, 1)
-scale = Vector2(8, 0.4)
-texture = ExtResource("1_sc0l0")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Floor8" unique_id=668859687]
-modulate = Color(0.2, 0.2, 0.2, 1)
-position = Vector2(1457.0359, -421.50436)
-scale = Vector2(15.812063, 0.4)
-texture = ExtResource("1_sc0l0")
-
-[node name="Floor6" type="StaticBody2D" parent="." unique_id=259763360]
+[node name="Floor6" type="StaticBody2D" parent="." unique_id=1768981959]
 position = Vector2(2888, 850)
 rotation = 1.5707964
 scale = Vector2(0.29674086, 1.0130382)
 collision_layer = 4
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor6" unique_id=221098322]
-shape = SubResource("RectangleShape2D_hwvhe")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor6" unique_id=692922587]
+shape = SubResource("RectangleShape2D_pjngk")
 
-[node name="Sprite2D" type="Sprite2D" parent="Floor6" unique_id=234370710]
+[node name="Sprite2D" type="Sprite2D" parent="Floor6" unique_id=1963877375]
 modulate = Color(0.2, 0.2, 0.2, 1)
 scale = Vector2(8, 0.4)
 texture = ExtResource("1_sc0l0")
@@ -135,45 +153,356 @@ parry_launch_force_y = 620.0
 parry_cooldown = 0.1
 parry_buffer_time = 0.6
 
-[node name="Floor4" type="StaticBody2D" parent="." unique_id=1679975426]
+[node name="Floor4" type="StaticBody2D" parent="." unique_id=1975864432]
 position = Vector2(512.00006, 228.00002)
 rotation = 3.1415925
 scale = Vector2(0.3367451, 1.0130382)
 collision_layer = 4
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor4" unique_id=1650166839]
-shape = SubResource("RectangleShape2D_sc0l0")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor4" unique_id=1987947253]
+shape = SubResource("RectangleShape2D_eaal5")
 
-[node name="Sprite2D" type="Sprite2D" parent="Floor4" unique_id=1051728376]
+[node name="Sprite2D" type="Sprite2D" parent="Floor4" unique_id=1261220666]
 modulate = Color(0.2, 0.2, 0.2, 1)
 scale = Vector2(8, 0.4)
 texture = ExtResource("1_sc0l0")
 
-[node name="Button_Both" parent="." unique_id=1884901367 instance=ExtResource("3_eaal5")]
+[node name="Button_Both" parent="." unique_id=924759577 instance=ExtResource("3_eaal5")]
 position = Vector2(2961, 598)
 
 [node name="ParrySpike2" parent="." unique_id=347142923 instance=ExtResource("12_pjngk")]
 position = Vector2(2713, 872)
 
-[node name="ParrySpike3" parent="." unique_id=2119774528 instance=ExtResource("12_pjngk")]
+[node name="ParrySpike3" parent="." unique_id=757424868 instance=ExtResource("12_pjngk")]
 position = Vector2(3206, 953)
 
 [node name="LevelGoal" parent="." unique_id=1506957731 instance=ExtResource("4_b3f2g")]
 position = Vector2(2992, 398)
-next_level_path = "res://Scenes/6 level.tscn"
+next_level_path = "res://Scenes/10 level u.tscn"
 
 [node name="TutorialTrigger" parent="." unique_id=2046584768 instance=ExtResource("7_c3cqm")]
 position = Vector2(1745, 304)
 tutorial_video = ExtResource("8_jvnrv")
 
-[node name="Dikenler" type="Sprite2D" parent="." unique_id=1177621559]
+[node name="Dikenler" type="Sprite2D" parent="." unique_id=925692441]
 position = Vector2(2888, 678)
 scale = Vector2(0.1, 0.12802547)
-texture = SubResource("CompressedTexture2D_jvnrv")
+texture = SubResource("CompressedTexture2D_b3f2g")
 
-[node name="Dikenler2" type="Sprite2D" parent="." unique_id=1314632788]
+[node name="Dikenler2" type="Sprite2D" parent="." unique_id=827098839]
 position = Vector2(2965, 548)
 rotation = 3.1267009
 scale = Vector2(-0.33729315, 0.20723006)
 texture = ExtResource("9_jvnrv")
+
+[node name="Yerduz3(1)61" type="Sprite2D" parent="." unique_id=2146885736]
+position = Vector2(1993.0001, 1628)
+rotation = 3.1415925
+scale = Vector2(1.6112447, 3.4255123)
+texture = ExtResource("10_hwvhe")
+
+[node name="Yerduz3(1)62" type="Sprite2D" parent="." unique_id=722177241]
+position = Vector2(1563, 650)
+rotation = 3.1415925
+scale = Vector2(1.6112447, 3.4255123)
+texture = ExtResource("10_hwvhe")
+
+[node name="Yerduz3(1)63" type="Sprite2D" parent="." unique_id=1938624114]
+position = Vector2(2581, 40)
+rotation = 3.1415925
+scale = Vector2(1.6112447, 3.4255123)
+texture = ExtResource("10_hwvhe")
+
+[node name="Yerduz3(1)68" type="Sprite2D" parent="." unique_id=2118680810]
+position = Vector2(3714, 39.999996)
+rotation = 3.1415925
+scale = Vector2(1.6112447, 3.4255123)
+texture = ExtResource("10_hwvhe")
+
+[node name="Yerduz3(1)69" type="Sprite2D" parent="." unique_id=589426261]
+position = Vector2(4508, 53)
+rotation = 3.1415925
+scale = Vector2(1.6112447, 3.4255123)
+texture = ExtResource("10_hwvhe")
+
+[node name="Yerduz3(1)64" type="Sprite2D" parent="." unique_id=973323108]
+position = Vector2(1493, 39.999996)
+rotation = 3.1415925
+scale = Vector2(1.6112447, 3.4255123)
+texture = ExtResource("10_hwvhe")
+
+[node name="Yerduz3(1)65" type="Sprite2D" parent="." unique_id=1710162580]
+position = Vector2(1539.9999, 1638)
+rotation = 3.1415925
+scale = Vector2(1.6112447, 3.4255123)
+texture = ExtResource("10_hwvhe")
+
+[node name="Yerduz3(1)66" type="Sprite2D" parent="." unique_id=1104942096]
+position = Vector2(4386, 1585.9999)
+rotation = 3.1415925
+scale = Vector2(1.6112447, 3.4255123)
+texture = ExtResource("10_hwvhe")
+
+[node name="Yerduz3(1)67" type="Sprite2D" parent="." unique_id=1856109594]
+position = Vector2(4385.9995, 433)
+rotation = 3.1415925
+scale = Vector2(1.6112447, 3.4255123)
+texture = ExtResource("10_hwvhe")
+
+[node name="Ground92" type="Sprite2D" parent="." unique_id=1682398465]
+position = Vector2(2111, 94)
+rotation = 1.5707964
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("11_pjngk")
+
+[node name="Ground93" type="Sprite2D" parent="." unique_id=232647907]
+position = Vector2(2140, 424)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("11_pjngk")
+
+[node name="Ground95" type="Sprite2D" parent="." unique_id=332492000]
+position = Vector2(2491, 438.00003)
+rotation = 3.1415927
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("11_pjngk")
+
+[node name="Ground128" type="Sprite2D" parent="." unique_id=1053486278]
+position = Vector2(3709, 67)
+rotation = 3.1415927
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("11_pjngk")
+
+[node name="Ground87" type="Sprite2D" parent="." unique_id=427554156]
+position = Vector2(2108.0002, 174)
+rotation = -4.712389
+scale = Vector2(0.1, 0.10400031)
+texture = ExtResource("12_eaal5")
+
+[node name="Ground88" type="Sprite2D" parent="." unique_id=92770730]
+position = Vector2(2108, 277)
+rotation = -4.712389
+scale = Vector2(0.1, 0.10400031)
+texture = ExtResource("12_eaal5")
+
+[node name="Ground117" type="Sprite2D" parent="." unique_id=156027741]
+position = Vector2(3744.1604, 147.00002)
+rotation = -7.853982
+scale = Vector2(0.1, 0.10400031)
+texture = ExtResource("12_eaal5")
+
+[node name="Ground118" type="Sprite2D" parent="." unique_id=456993615]
+position = Vector2(3744.1602, 250)
+rotation = -7.853982
+scale = Vector2(0.1, 0.10400031)
+texture = ExtResource("12_eaal5")
+
+[node name="Ground119" type="Sprite2D" parent="." unique_id=485254058]
+position = Vector2(3744.1604, 357)
+rotation = -7.853982
+scale = Vector2(0.1, 0.10400031)
+texture = ExtResource("12_eaal5")
+
+[node name="Ground120" type="Sprite2D" parent="." unique_id=2098148443]
+position = Vector2(3744.1602, 460)
+rotation = -7.853982
+scale = Vector2(0.1, 0.10400031)
+texture = ExtResource("12_eaal5")
+
+[node name="Ground121" type="Sprite2D" parent="." unique_id=1762827721]
+position = Vector2(3744.1604, 568)
+rotation = -7.853982
+scale = Vector2(0.1, 0.10400031)
+texture = ExtResource("12_eaal5")
+
+[node name="Ground122" type="Sprite2D" parent="." unique_id=829420655]
+position = Vector2(3744.1602, 671)
+rotation = -7.853982
+scale = Vector2(0.1, 0.10400031)
+texture = ExtResource("12_eaal5")
+
+[node name="Ground123" type="Sprite2D" parent="." unique_id=602000231]
+position = Vector2(3744.1604, 776)
+rotation = -7.853982
+scale = Vector2(0.1, 0.10400031)
+texture = ExtResource("12_eaal5")
+
+[node name="Ground124" type="Sprite2D" parent="." unique_id=692282412]
+position = Vector2(3744.1602, 879)
+rotation = -7.853982
+scale = Vector2(0.1, 0.10400031)
+texture = ExtResource("12_eaal5")
+
+[node name="Ground125" type="Sprite2D" parent="." unique_id=1718032714]
+position = Vector2(3744.1604, 985)
+rotation = -7.853982
+scale = Vector2(0.1, 0.10400031)
+texture = ExtResource("12_eaal5")
+
+[node name="Ground126" type="Sprite2D" parent="." unique_id=838800598]
+position = Vector2(3744.1602, 1088)
+rotation = -7.853982
+scale = Vector2(0.1, 0.10400031)
+texture = ExtResource("12_eaal5")
+
+[node name="Ground90" type="Sprite2D" parent="." unique_id=1822335525]
+position = Vector2(2225, 430.00003)
+rotation = -6.2831855
+scale = Vector2(0.1, 0.10400031)
+texture = ExtResource("12_eaal5")
+
+[node name="Ground91" type="Sprite2D" parent="." unique_id=1269443995]
+position = Vector2(2329, 430.00003)
+rotation = -6.2831855
+scale = Vector2(0.1, 0.10400031)
+texture = ExtResource("12_eaal5")
+
+[node name="Ground94" type="Sprite2D" parent="." unique_id=1118895299]
+position = Vector2(2436, 430.00003)
+rotation = -6.2831855
+scale = Vector2(0.1, 0.10400031)
+texture = ExtResource("12_eaal5")
+
+[node name="Ground102" type="Sprite2D" parent="." unique_id=1567810961]
+position = Vector2(2188, 60.160175)
+rotation = -3.1415927
+scale = Vector2(0.1, 0.10400031)
+texture = ExtResource("12_eaal5")
+
+[node name="Ground103" type="Sprite2D" parent="." unique_id=622796698]
+position = Vector2(2292, 60.160175)
+rotation = -3.1415927
+scale = Vector2(0.1, 0.10400031)
+texture = ExtResource("12_eaal5")
+
+[node name="Ground104" type="Sprite2D" parent="." unique_id=528879730]
+position = Vector2(2399, 60.160175)
+rotation = -3.1415927
+scale = Vector2(0.1, 0.10400031)
+texture = ExtResource("12_eaal5")
+
+[node name="Ground105" type="Sprite2D" parent="." unique_id=1434052347]
+position = Vector2(2506, 60.160175)
+rotation = -3.1415927
+scale = Vector2(0.1, 0.10400031)
+texture = ExtResource("12_eaal5")
+
+[node name="Ground106" type="Sprite2D" parent="." unique_id=575152552]
+position = Vector2(2610, 60.160175)
+rotation = -3.1415927
+scale = Vector2(0.1, 0.10400031)
+texture = ExtResource("12_eaal5")
+
+[node name="Ground107" type="Sprite2D" parent="." unique_id=1522790049]
+position = Vector2(2717, 60.160175)
+rotation = -3.1415927
+scale = Vector2(0.1, 0.10400031)
+texture = ExtResource("12_eaal5")
+
+[node name="Ground108" type="Sprite2D" parent="." unique_id=1757853096]
+position = Vector2(2818, 60.160175)
+rotation = -3.1415927
+scale = Vector2(0.1, 0.10400031)
+texture = ExtResource("12_eaal5")
+
+[node name="Ground109" type="Sprite2D" parent="." unique_id=2065847686]
+position = Vector2(2922, 60.160175)
+rotation = -3.1415927
+scale = Vector2(0.1, 0.10400031)
+texture = ExtResource("12_eaal5")
+
+[node name="Ground110" type="Sprite2D" parent="." unique_id=1260334469]
+position = Vector2(3029, 60.160175)
+rotation = -3.1415927
+scale = Vector2(0.1, 0.10400031)
+texture = ExtResource("12_eaal5")
+
+[node name="Ground111" type="Sprite2D" parent="." unique_id=1107791494]
+position = Vector2(3137, 60.160175)
+rotation = -3.1415927
+scale = Vector2(0.1, 0.10400031)
+texture = ExtResource("12_eaal5")
+
+[node name="Ground112" type="Sprite2D" parent="." unique_id=362194152]
+position = Vector2(3241, 60.160175)
+rotation = -3.1415927
+scale = Vector2(0.1, 0.10400031)
+texture = ExtResource("12_eaal5")
+
+[node name="Ground113" type="Sprite2D" parent="." unique_id=517601197]
+position = Vector2(3348, 60.160175)
+rotation = -3.1415927
+scale = Vector2(0.1, 0.10400031)
+texture = ExtResource("12_eaal5")
+
+[node name="Ground114" type="Sprite2D" parent="." unique_id=1375715349]
+position = Vector2(3445, 60.160175)
+rotation = -3.1415927
+scale = Vector2(0.1, 0.10400031)
+texture = ExtResource("12_eaal5")
+
+[node name="Ground115" type="Sprite2D" parent="." unique_id=1485173277]
+position = Vector2(3549, 60.160175)
+rotation = -3.1415927
+scale = Vector2(0.1, 0.10400031)
+texture = ExtResource("12_eaal5")
+
+[node name="Ground116" type="Sprite2D" parent="." unique_id=785335541]
+position = Vector2(3656, 60.160175)
+rotation = -3.1415927
+scale = Vector2(0.1, 0.10400031)
+texture = ExtResource("12_eaal5")
+
+[node name="Ground89" type="Sprite2D" parent="." unique_id=218019132]
+position = Vector2(2109, 382)
+rotation = -4.712389
+scale = Vector2(0.1, 0.10400031)
+texture = ExtResource("12_eaal5")
+
+[node name="Ground127" type="Sprite2D" parent="." unique_id=1477319157]
+position = Vector2(2109, 382)
+rotation = -4.712389
+scale = Vector2(0.1, 0.10400031)
+texture = ExtResource("12_eaal5")
+
+[node name="Ground96" type="Sprite2D" parent="." unique_id=1584447203]
+position = Vector2(2532.1604, 532)
+rotation = -4.712389
+scale = Vector2(0.1, 0.10400031)
+texture = ExtResource("12_eaal5")
+
+[node name="Ground97" type="Sprite2D" parent="." unique_id=820065058]
+position = Vector2(2532.1602, 635)
+rotation = -4.712389
+scale = Vector2(0.1, 0.10400031)
+texture = ExtResource("12_eaal5")
+
+[node name="Ground98" type="Sprite2D" parent="." unique_id=1823516407]
+position = Vector2(2533.1602, 740)
+rotation = -4.712389
+scale = Vector2(0.1, 0.10400031)
+texture = ExtResource("12_eaal5")
+
+[node name="Ground99" type="Sprite2D" parent="." unique_id=671731705]
+position = Vector2(2532.1604, 845)
+rotation = -4.712389
+scale = Vector2(0.1, 0.10400031)
+texture = ExtResource("12_eaal5")
+
+[node name="Ground100" type="Sprite2D" parent="." unique_id=2057224382]
+position = Vector2(2532.1602, 948)
+rotation = -4.712389
+scale = Vector2(0.1, 0.10400031)
+texture = ExtResource("12_eaal5")
+
+[node name="Ground101" type="Sprite2D" parent="." unique_id=676932691]
+position = Vector2(2533.1602, 1053)
+rotation = -4.712389
+scale = Vector2(0.1, 0.10400031)
+texture = ExtResource("12_eaal5")
+
+[node name="Bgclock" type="Sprite2D" parent="." unique_id=289996347]
+show_behind_parent = true
+position = Vector2(2957.0002, 1287)
+scale = Vector2(2.6715636, 2.9501429)
+texture = ExtResource("13_eaal5")
