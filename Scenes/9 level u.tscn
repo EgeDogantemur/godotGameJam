@@ -63,7 +63,7 @@ scale = Vector2(8, 0.4)
 texture = ExtResource("1_sc0l0")
 
 [node name="Floor7" type="StaticBody2D" parent="." unique_id=1867095471]
-position = Vector2(3480.0002, 824.99994)
+position = Vector2(3602.0002, 824.99994)
 rotation = 3.1415925
 scale = Vector2(0.29674086, 1.0130382)
 collision_layer = 4
@@ -157,7 +157,7 @@ position = Vector2(2961, 598)
 position = Vector2(2713, 872)
 
 [node name="ParrySpike3" parent="." unique_id=2119774528 instance=ExtResource("12_pjngk")]
-position = Vector2(3128, 953)
+position = Vector2(3206, 953)
 
 [node name="LevelGoal" parent="." unique_id=1506957731 instance=ExtResource("4_b3f2g")]
 position = Vector2(2992, 398)
@@ -168,8 +168,8 @@ position = Vector2(1745, 304)
 tutorial_video = ExtResource("8_jvnrv")
 
 [node name="Dikenler" type="Sprite2D" parent="." unique_id=1177621559]
-position = Vector2(2887, 661)
-scale = Vector2(0.08267037, 0.24363057)
+position = Vector2(2888, 678)
+scale = Vector2(0.1, 0.12802547)
 texture = SubResource("CompressedTexture2D_jvnrv")
 
 [node name="Dikenler2" type="Sprite2D" parent="." unique_id=1314632788]

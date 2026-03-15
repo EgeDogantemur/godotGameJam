@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://4pp500j3e8lq"]
 
 [ext_resource type="PackedScene" uid="uid://7p3ovn45sywp" path="res://Scenes/Characters/Player.tscn" id="2_fumiv"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/BaseButton.tscn" id="3_bkc38"]
+[ext_resource type="PackedScene" uid="uid://ce4im7wnup582" path="res://Scenes/Objects/BaseButton.tscn" id="3_bkc38"]
 [ext_resource type="PackedScene" uid="uid://brlqcsil5mfbq" path="res://Scenes/Objects/LevelGoal.tscn" id="4_ks7ee"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/KillZone.tscn" id="5_nh11a"]
 [ext_resource type="Texture2D" uid="uid://dubhodusfjhu" path="res://Assets/Sprites/Environment/ground4/Ground/bgdistort.png" id="6_0rinp"]
@@ -68,7 +68,7 @@ position = Vector2(-115.81445, -3.0517578e-05)
 shape = SubResource("RectangleShape2D_ea3mx")
 
 [node name="Floor7" type="StaticBody2D" parent="." unique_id=776743185]
-position = Vector2(1021, 241.00002)
+position = Vector2(1023, 241)
 rotation = 1.5707964
 scale = Vector2(0.57674634, 1.0130382)
 collision_layer = 4
@@ -101,6 +101,13 @@ position = Vector2(359, 652)
 [node name="Bgdistort" type="Sprite2D" parent="." unique_id=626303742]
 show_behind_parent = true
 position = Vector2(527, 251)
+scale = Vector2(0.6276041, 0.7546297)
+texture = ExtResource("6_0rinp")
+
+[node name="Bgdistort2" type="Sprite2D" parent="." unique_id=1273499594]
+show_behind_parent = true
+position = Vector2(301, 1045)
+rotation = -3.1415927
 scale = Vector2(0.6276041, 0.7546297)
 texture = ExtResource("6_0rinp")
 
@@ -261,6 +268,24 @@ texture = ExtResource("10_3lbhn")
 
 [node name="Yerduz3(1)21" type="Sprite2D" parent="Node2D" unique_id=1786715371]
 position = Vector2(1648, 833)
+rotation = 3.1415925
+scale = Vector2(1.6112447, 3.4255123)
+texture = ExtResource("10_3lbhn")
+
+[node name="Yerduz3(1)27" type="Sprite2D" parent="Node2D" unique_id=2039259094]
+position = Vector2(1641, 1751)
+rotation = 3.1415925
+scale = Vector2(1.6112447, 3.4255123)
+texture = ExtResource("10_3lbhn")
+
+[node name="Yerduz3(1)28" type="Sprite2D" parent="Node2D" unique_id=662562363]
+position = Vector2(-1224, 1379.9999)
+rotation = 3.1415925
+scale = Vector2(1.6112447, 3.4255123)
+texture = ExtResource("10_3lbhn")
+
+[node name="Yerduz3(1)29" type="Sprite2D" parent="Node2D" unique_id=2077836179]
+position = Vector2(-1269.9999, 338)
 rotation = 3.1415925
 scale = Vector2(1.6112447, 3.4255123)
 texture = ExtResource("10_3lbhn")

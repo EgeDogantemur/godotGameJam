@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" path="res://Scenes/Objects/KillZone.tscn" id="1_u12oc"]
 [ext_resource type="Texture2D" uid="uid://bapda32hbe4ox" path="res://Assets/Sprites/Environment/ground4/Ground/wallredcorner.png" id="1_wlcv2"]
 [ext_resource type="PackedScene" uid="uid://7p3ovn45sywp" path="res://Scenes/Characters/Player.tscn" id="2_1214l"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/BaseButton.tscn" id="3_ahfju"]
+[ext_resource type="PackedScene" uid="uid://ce4im7wnup582" path="res://Scenes/Objects/BaseButton.tscn" id="3_ahfju"]
 [ext_resource type="PackedScene" uid="uid://b1qncsyl42ixy" path="res://Scenes/Objects/ParrySpike.tscn" id="4_u12oc"]
 [ext_resource type="PackedScene" uid="uid://brlqcsil5mfbq" path="res://Scenes/Objects/LevelGoal.tscn" id="5_ahm7k"]
 [ext_resource type="PackedScene" uid="uid://cj2pbvfmn3ut8" path="res://Scenes/Objects/TutorialTrigger.tscn" id="7_ahm7k"]
@@ -65,6 +65,19 @@ texture = ExtResource("1_wlcv2")
 [node name="Wallredcorner7" type="Sprite2D" parent="." unique_id=1664709723]
 show_behind_parent = true
 position = Vector2(1912.25, 986.8951)
+rotation = 3.1415927
+scale = Vector2(1.5, 1.21)
+texture = ExtResource("1_wlcv2")
+
+[node name="Wallredcorner13" type="Sprite2D" parent="." unique_id=1188044319]
+show_behind_parent = true
+position = Vector2(640.25, 1499.895)
+scale = Vector2(1.5, 1.21)
+texture = ExtResource("1_wlcv2")
+
+[node name="Wallredcorner14" type="Sprite2D" parent="." unique_id=818155096]
+show_behind_parent = true
+position = Vector2(1897.25, 1431.895)
 rotation = 3.1415927
 scale = Vector2(1.5, 1.21)
 texture = ExtResource("1_wlcv2")
@@ -160,7 +173,7 @@ position = Vector2(1236, 267)
 
 [node name="LevelGoal" parent="." unique_id=93781290 instance=ExtResource("5_ahm7k")]
 position = Vector2(376, 136)
-next_level_path = "res://Scenes/6 level.tscn"
+next_level_path = "res://Scenes/9 level u.tscn"
 
 [node name="TutorialTrigger" parent="." unique_id=2046584768 instance=ExtResource("7_ahm7k")]
 position = Vector2(1742, 307)
@@ -585,6 +598,60 @@ texture = ExtResource("13_b3ne5")
 
 [node name="Yerduz3(1)47" type="Sprite2D" parent="Node2D" unique_id=876174376]
 position = Vector2(4540.9995, 7180)
+rotation = 3.1415925
+scale = Vector2(1.6112447, 3.4255123)
+texture = ExtResource("13_b3ne5")
+
+[node name="Yerduz3(1)53" type="Sprite2D" parent="Node2D" unique_id=1264610700]
+position = Vector2(3405.9995, 7197.0005)
+rotation = 3.1415925
+scale = Vector2(1.6112447, 3.4255123)
+texture = ExtResource("13_b3ne5")
+
+[node name="Yerduz3(1)54" type="Sprite2D" parent="Node2D" unique_id=1635450443]
+position = Vector2(7714.0005, 7388)
+rotation = 3.1415925
+scale = Vector2(1.6112447, 3.4255123)
+texture = ExtResource("13_b3ne5")
+
+[node name="Yerduz3(1)55" type="Sprite2D" parent="Node2D" unique_id=1874169716]
+position = Vector2(8546, 6226.9995)
+rotation = 3.1415925
+scale = Vector2(1.6112447, 3.4255123)
+texture = ExtResource("13_b3ne5")
+
+[node name="Yerduz3(1)56" type="Sprite2D" parent="Node2D" unique_id=1316024740]
+position = Vector2(8823, 7387.9995)
+rotation = 3.1415925
+scale = Vector2(1.6112447, 3.4255123)
+texture = ExtResource("13_b3ne5")
+
+[node name="Yerduz3(1)57" type="Sprite2D" parent="Node2D" unique_id=1659037835]
+position = Vector2(8554, 5108.0005)
+rotation = 3.1415925
+scale = Vector2(1.6112447, 3.4255123)
+texture = ExtResource("13_b3ne5")
+
+[node name="Yerduz3(1)58" type="Sprite2D" parent="Node2D" unique_id=1768252507]
+position = Vector2(8589, 3946.9995)
+rotation = 3.1415925
+scale = Vector2(1.6112447, 3.4255123)
+texture = ExtResource("13_b3ne5")
+
+[node name="Yerduz3(1)59" type="Sprite2D" parent="Node2D" unique_id=1390666950]
+position = Vector2(3120, 4857)
+rotation = 3.1415925
+scale = Vector2(1.6112447, 3.4255123)
+texture = ExtResource("13_b3ne5")
+
+[node name="Yerduz3(1)60" type="Sprite2D" parent="Node2D" unique_id=1602086580]
+position = Vector2(3103, 5991.9995)
+rotation = 3.1415925
+scale = Vector2(1.6112447, 3.4255123)
+texture = ExtResource("13_b3ne5")
+
+[node name="Yerduz3(1)61" type="Sprite2D" parent="Node2D" unique_id=1488372743]
+position = Vector2(2973, 7170.9995)
 rotation = 3.1415925
 scale = Vector2(1.6112447, 3.4255123)
 texture = ExtResource("13_b3ne5")

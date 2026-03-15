@@ -1,0 +1,179 @@
+[gd_scene format=3 uid="uid://cfrtt1pv2bghq"]
+
+[ext_resource type="PackedScene" path="res://Scenes/Objects/KillZone.tscn" id="1_t8p5x"]
+[ext_resource type="Texture2D" uid="uid://y514wmisvyuf" path="res://icon.svg" id="2_nqbr6"]
+[ext_resource type="PackedScene" uid="uid://7p3ovn45sywp" path="res://Scenes/Characters/Player.tscn" id="3_g72gv"]
+[ext_resource type="PackedScene" uid="uid://ce4im7wnup582" path="res://Scenes/Objects/BaseButton.tscn" id="4_etm7m"]
+[ext_resource type="PackedScene" uid="uid://b1qncsyl42ixy" path="res://Scenes/Objects/ParrySpike.tscn" id="5_g67b8"]
+[ext_resource type="PackedScene" uid="uid://brlqcsil5mfbq" path="res://Scenes/Objects/LevelGoal.tscn" id="6_018eb"]
+[ext_resource type="PackedScene" uid="uid://cj2pbvfmn3ut8" path="res://Scenes/Objects/TutorialTrigger.tscn" id="7_wmj3w"]
+[ext_resource type="VideoStream" uid="uid://dtopuhck2sdib" path="res://dash.ogv" id="8_ox3v6"]
+[ext_resource type="Texture2D" uid="uid://dffvckrwgiv0p" path="res://Assets/Sprites/Environment/ground4/Ground/dikenler.png" id="9_xqoyu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ndi3h"]
+size = Vector2(1000, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2iox3"]
+size = Vector2(1000, 50)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bg8jt"]
+load_path = "res://.godot/imported/dikenler.png-f57a269801c73ede1a3506b4e26b3b70.ctex"
+
+[node name="Node2D" type="Node2D" unique_id=596819848]
+
+[node name="KillZone" parent="." unique_id=1738008785 instance=ExtResource("1_t8p5x")]
+position = Vector2(2981, 1043)
+
+[node name="KillZone2" parent="." unique_id=1764242398 instance=ExtResource("1_t8p5x")]
+position = Vector2(2998, 512)
+scale = Vector2(0.12109389, 1)
+
+[node name="KillZone3" parent="." unique_id=876148891 instance=ExtResource("1_t8p5x")]
+position = Vector2(2888.0002, 714)
+scale = Vector2(0.020749757, -1.4419562)
+
+[node name="Floor2" type="StaticBody2D" parent="." unique_id=335830630]
+position = Vector2(2325, 432)
+rotation = 3.1415925
+scale = Vector2(0.45674816, 1.0130382)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2" unique_id=11994660]
+shape = SubResource("RectangleShape2D_ndi3h")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor2" unique_id=95396877]
+modulate = Color(0.2, 0.2, 0.2, 1)
+scale = Vector2(8, 0.4)
+texture = ExtResource("2_nqbr6")
+
+[node name="Floor3" type="StaticBody2D" parent="." unique_id=1070669420]
+position = Vector2(3016, 493)
+rotation = 3.1415925
+scale = Vector2(0.29674086, 1.0130382)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor3" unique_id=1281786679]
+shape = SubResource("RectangleShape2D_ndi3h")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor3" unique_id=1706702687]
+modulate = Color(0.2, 0.2, 0.2, 1)
+scale = Vector2(8, 0.4)
+texture = ExtResource("2_nqbr6")
+
+[node name="Floor7" type="StaticBody2D" parent="." unique_id=964356547]
+position = Vector2(3480.0002, 824.99994)
+rotation = 3.1415925
+scale = Vector2(0.29674086, 1.0130382)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor7" unique_id=267840332]
+shape = SubResource("RectangleShape2D_ndi3h")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor7" unique_id=299408210]
+modulate = Color(0.2, 0.2, 0.2, 1)
+scale = Vector2(8, 0.4)
+texture = ExtResource("2_nqbr6")
+
+[node name="Floor5" type="StaticBody2D" parent="." unique_id=1764350298]
+position = Vector2(2890, 335.00003)
+rotation = 1.5707964
+scale = Vector2(0.29674086, 1.0130382)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor5" unique_id=477705703]
+shape = SubResource("RectangleShape2D_ndi3h")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor5" unique_id=385419726]
+modulate = Color(0.2, 0.2, 0.2, 1)
+scale = Vector2(8, 0.4)
+texture = ExtResource("2_nqbr6")
+
+[node name="Floor8" type="StaticBody2D" parent="." unique_id=2102961156]
+position = Vector2(2109, 296.00003)
+rotation = 1.5707964
+scale = Vector2(0.29674086, 1.0130382)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor8" unique_id=717300088]
+shape = SubResource("RectangleShape2D_ndi3h")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor8" unique_id=967525019]
+modulate = Color(0.2, 0.2, 0.2, 1)
+scale = Vector2(8, 0.4)
+texture = ExtResource("2_nqbr6")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Floor8" unique_id=1683823861]
+modulate = Color(0.2, 0.2, 0.2, 1)
+position = Vector2(1457.0359, -421.50436)
+scale = Vector2(15.812063, 0.4)
+texture = ExtResource("2_nqbr6")
+
+[node name="Floor6" type="StaticBody2D" parent="." unique_id=106475987]
+position = Vector2(2888, 850)
+rotation = 1.5707964
+scale = Vector2(0.29674086, 1.0130382)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor6" unique_id=1951698939]
+shape = SubResource("RectangleShape2D_ndi3h")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor6" unique_id=1376238036]
+modulate = Color(0.2, 0.2, 0.2, 1)
+scale = Vector2(8, 0.4)
+texture = ExtResource("2_nqbr6")
+
+[node name="Player" parent="." unique_id=584981649 instance=ExtResource("3_g72gv")]
+position = Vector2(2251, 367)
+speed = 300.0
+parry_launch_force_y = 620.0
+parry_cooldown = 0.1
+parry_buffer_time = 0.6
+
+[node name="Floor4" type="StaticBody2D" parent="." unique_id=1129217420]
+position = Vector2(512.00006, 228.00002)
+rotation = 3.1415925
+scale = Vector2(0.3367451, 1.0130382)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor4" unique_id=1642921756]
+shape = SubResource("RectangleShape2D_2iox3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor4" unique_id=776028206]
+modulate = Color(0.2, 0.2, 0.2, 1)
+scale = Vector2(8, 0.4)
+texture = ExtResource("2_nqbr6")
+
+[node name="Button_Both" parent="." unique_id=924759577 instance=ExtResource("4_etm7m")]
+position = Vector2(2961, 598)
+
+[node name="ParrySpike2" parent="." unique_id=347142923 instance=ExtResource("5_g67b8")]
+position = Vector2(2713, 872)
+
+[node name="ParrySpike3" parent="." unique_id=550935742 instance=ExtResource("5_g67b8")]
+position = Vector2(3128, 953)
+
+[node name="LevelGoal" parent="." unique_id=1506957731 instance=ExtResource("6_018eb")]
+position = Vector2(2992, 398)
+next_level_path = "res://Scenes/6 level.tscn"
+
+[node name="TutorialTrigger" parent="." unique_id=2046584768 instance=ExtResource("7_wmj3w")]
+position = Vector2(1745, 304)
+tutorial_video = ExtResource("8_ox3v6")
+
+[node name="Dikenler" type="Sprite2D" parent="." unique_id=722752243]
+position = Vector2(2888, 678)
+scale = Vector2(0.1, 0.12802547)
+texture = SubResource("CompressedTexture2D_bg8jt")
+
+[node name="Dikenler2" type="Sprite2D" parent="." unique_id=2104564494]
+position = Vector2(2965, 548)
+rotation = 3.1267009
+scale = Vector2(-0.33729315, 0.20723006)
+texture = ExtResource("9_xqoyu")

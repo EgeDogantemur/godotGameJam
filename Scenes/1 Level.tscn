@@ -26,7 +26,7 @@ position = Vector2(230, 776)
 next_level_path = "res://Scenes/3 level .tscn"
 
 [node name="Player2" parent="." unique_id=1389075244 instance=ExtResource("3_nfsis")]
-position = Vector2(993, 792)
+position = Vector2(1005, 547)
 
 [node name="TutorialTrigger" parent="." unique_id=2046584768 instance=ExtResource("4_5qag6")]
 position = Vector2(870, 734)
@@ -203,6 +203,36 @@ rotation = 3.1415925
 scale = Vector2(1.6112447, 3.4255123)
 texture = ExtResource("10_crucb")
 
+[node name="Yerduz3(1)25" type="Sprite2D" parent="Node2D" unique_id=1843050649]
+position = Vector2(623, 104.99988)
+rotation = 3.1415925
+scale = Vector2(1.6112447, 3.4255123)
+texture = ExtResource("10_crucb")
+
+[node name="Yerduz3(1)26" type="Sprite2D" parent="Node2D" unique_id=1343769791]
+position = Vector2(1755, 104.99999)
+rotation = 3.1415925
+scale = Vector2(1.6112447, 3.4255123)
+texture = ExtResource("10_crucb")
+
+[node name="Yerduz3(1)27" type="Sprite2D" parent="Node2D" unique_id=1270711163]
+position = Vector2(-466, 104.99999)
+rotation = 3.1415925
+scale = Vector2(1.6112447, 3.4255123)
+texture = ExtResource("10_crucb")
+
+[node name="Yerduz3(1)23" type="Sprite2D" parent="Node2D" unique_id=1022445531]
+position = Vector2(1240, 2328)
+rotation = 3.1415925
+scale = Vector2(1.6112447, 3.4255123)
+texture = ExtResource("10_crucb")
+
+[node name="Yerduz3(1)24" type="Sprite2D" parent="Node2D" unique_id=1047001356]
+position = Vector2(-50.999996, 2344)
+rotation = 3.1415925
+scale = Vector2(1.6112447, 3.4255123)
+texture = ExtResource("10_crucb")
+
 [node name="Yerduz3(1)22" type="Sprite2D" parent="Node2D" unique_id=426432190]
 position = Vector2(1101, 889.00006)
 rotation = 3.1415925
@@ -275,21 +305,22 @@ texture = ExtResource("10_crucb")
 [node name="Muntar" type="Sprite2D" parent="Node2D" unique_id=1681779955]
 modulate = Color(0.26737827, 0.26737827, 0.26737827, 1)
 show_behind_parent = true
-position = Vector2(532.57, 821.875)
+position = Vector2(506, 833.99994)
+rotation = 0.47632763
 scale = Vector2(0.4581984, 0.38114747)
 texture = ExtResource("11_0qarp")
 
 [node name="Muntar2" type="Sprite2D" parent="Node2D" unique_id=178403752]
 modulate = Color(0.26737827, 0.26737827, 0.26737827, 1)
 show_behind_parent = true
-position = Vector2(882.99994, 822)
+position = Vector2(1036, 822.00006)
 scale = Vector2(0.4581984, 0.38114747)
 texture = ExtResource("11_0qarp")
 
 [node name="Muntar4" type="Sprite2D" parent="Node2D" unique_id=2055626565]
 modulate = Color(0.26737827, 0.26737827, 0.26737827, 1)
 show_behind_parent = true
-position = Vector2(359, 607)
+position = Vector2(124.00001, 549.00006)
 rotation = 1.2990232
 scale = Vector2(0.44177666, 0.39539155)
 skew = 0.019614339
@@ -298,7 +329,7 @@ texture = ExtResource("11_0qarp")
 [node name="Muntar3" type="Sprite2D" parent="Node2D" unique_id=717677679]
 modulate = Color(0.26737827, 0.26737827, 0.26737827, 1)
 show_behind_parent = true
-position = Vector2(672, 540)
+position = Vector2(658, 537)
 rotation = 2.7478278
 scale = Vector2(0.4554709, 0.3835864)
 skew = -0.028562784
@@ -399,6 +430,18 @@ texture = ExtResource("12_4d6ur")
 [node name="Bgschool(1)5" type="Sprite2D" parent="." unique_id=1591319331]
 show_behind_parent = true
 position = Vector2(675.00006, 1069)
+scale = Vector2(0.21067248, 0.2)
+texture = ExtResource("12_4d6ur")
+
+[node name="Bgschool(1)6" type="Sprite2D" parent="." unique_id=711739190]
+show_behind_parent = true
+position = Vector2(531, 1075)
+scale = Vector2(0.21067248, 0.2)
+texture = ExtResource("12_4d6ur")
+
+[node name="Bgschool(1)7" type="Sprite2D" parent="." unique_id=1790397454]
+show_behind_parent = true
+position = Vector2(456, 1479)
 scale = Vector2(0.21067248, 0.2)
 texture = ExtResource("12_4d6ur")
 

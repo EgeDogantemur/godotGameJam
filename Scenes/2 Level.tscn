@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dtb5ysm1qkhxm"]
 
-[ext_resource type="PackedScene" path="res://Scenes/Objects/BaseButton.tscn" id="1_if671"]
+[ext_resource type="PackedScene" uid="uid://ce4im7wnup582" path="res://Scenes/Objects/BaseButton.tscn" id="1_if671"]
 [ext_resource type="PackedScene" uid="uid://brlqcsil5mfbq" path="res://Scenes/Objects/LevelGoal.tscn" id="2_3nnnf"]
 [ext_resource type="PackedScene" uid="uid://7p3ovn45sywp" path="res://Scenes/Characters/Player.tscn" id="3_nfsis"]
 [ext_resource type="Texture2D" uid="uid://cj8a4u1w4pwqm" path="res://Assets/Sprites/Environment/ground4/ground1.png" id="7_dfqmh"]
@@ -207,6 +207,24 @@ texture = ExtResource("10_crucb")
 [node name="Yerduz3(1)16" type="Sprite2D" parent="Collider" unique_id=1111154411]
 position = Vector2(-988.4586, 301)
 rotation = 3.1415925
+scale = Vector2(1.5492692, 3.4255123)
+texture = ExtResource("10_crucb")
+
+[node name="Yerduz3(1)23" type="Sprite2D" parent="Collider" unique_id=1083409850]
+position = Vector2(-407.6911, 725.99994)
+rotation = 1.5707964
+scale = Vector2(1.5492692, 3.4255123)
+texture = ExtResource("10_crucb")
+
+[node name="Yerduz3(1)24" type="Sprite2D" parent="Collider" unique_id=985664675]
+position = Vector2(742.3056, 782.99994)
+rotation = 1.5707964
+scale = Vector2(1.5492692, 3.4255123)
+texture = ExtResource("10_crucb")
+
+[node name="Yerduz3(1)25" type="Sprite2D" parent="Collider" unique_id=1473856893]
+position = Vector2(1382.6881, 753.99994)
+rotation = 1.5707964
 scale = Vector2(1.5492692, 3.4255123)
 texture = ExtResource("10_crucb")
 

@@ -338,6 +338,12 @@ rotation = 3.1415925
 scale = Vector2(1.6112447, 3.4255123)
 texture = ExtResource("13_rblbs")
 
+[node name="Yerduz3(1)32" type="Sprite2D" parent="Node2D" unique_id=1433402732]
+position = Vector2(1888, 1896)
+rotation = 3.1415925
+scale = Vector2(1.6112447, 3.4255123)
+texture = ExtResource("13_rblbs")
+
 [node name="Yerduz3(1)30" type="Sprite2D" parent="Node2D" unique_id=480643544]
 position = Vector2(1876, 865.99994)
 rotation = 3.1415925
@@ -434,9 +440,9 @@ scale = Vector2(0.1, 0.10400031)
 texture = ExtResource("9_ni14q")
 
 [node name="Ground40" type="Sprite2D" parent="Node2D" unique_id=1811699625]
-position = Vector2(3547, 184)
+position = Vector2(3548, 185.90317)
 rotation = -1.5707967
-scale = Vector2(0.1, 0.10400031)
+scale = Vector2(0.10094078, 0.10400031)
 texture = ExtResource("9_ni14q")
 
 [node name="Ground41" type="Sprite2D" parent="Node2D" unique_id=1512677308]
@@ -494,5 +500,11 @@ texture = ExtResource("14_40l3w")
 [node name="Bgclock" type="Sprite2D" parent="Node2D" unique_id=300687774]
 show_behind_parent = true
 position = Vector2(2931.9998, 253)
+scale = Vector2(0.4926838, 0.6329572)
+texture = ExtResource("14_ni14q")
+
+[node name="Bgclock2" type="Sprite2D" parent="Node2D" unique_id=1967335330]
+show_behind_parent = true
+position = Vector2(2839, 1555.9999)
 scale = Vector2(0.4926838, 0.6329572)
 texture = ExtResource("14_ni14q")
