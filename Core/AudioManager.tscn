@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bw1141jipvits" path="res://Core/AudioManager.gd" id="1_audio"]
 [ext_resource type="AudioStream" uid="uid://b45dl78wbad6l" path="res://Scenes/UZlabak (1).mp3" id="2_music"]
 [ext_resource type="AudioStream" uid="uid://cpkdl60tyraw0" path="res://Core/AuidoBerk/dash.mp3" id="3_27tv7"]
-[ext_resource type="AudioStream" uid="uid://1aqykou7jg1u" path="res://Core/AuidoBerk/parry.mp3" id="4_p0tle"]
+[ext_resource type="AudioStream" uid="uid://bsit8xlgfjqvi" path="res://Assets/Audio/SFX/soraatwod-punch-416719 (mp3cut.net).mp3" id="4_p0tle"]
 [ext_resource type="AudioStream" uid="uid://ukf50xxxjpo6" path="res://Core/AuidoBerk/ButtonPress.mp3" id="5_p0tle"]
 
 [node name="AudioManager" type="Node" unique_id=1726115876]
