@@ -48,3 +48,14 @@ explosiveness = 0.24
 randomness = 0.68
 visibility_rect = Rect2(-64, -104, 128, 140)
 process_material = SubResource("ParticleProcessMaterial_pollen")
+
+[node name="PollenParticles2" type="GPUParticles2D" parent="." unique_id=1089447470]
+position = Vector2(1, -46)
+amount = 72
+lifetime = 2.4
+preprocess = 2.4
+speed_scale = 1.35
+explosiveness = 0.24
+randomness = 0.68
+visibility_rect = Rect2(-64, -104, 128, 140)
+process_material = SubResource("ParticleProcessMaterial_pollen")
