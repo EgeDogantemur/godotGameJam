@@ -4,12 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://cj8a4u1w4pwqm" path="res://Assets/Sprites/Environment/ground4/ground1.png" id="2_yeg0n"]
 [ext_resource type="Texture2D" uid="uid://cram50oqv42ly" path="res://Assets/Sprites/Environment/ground4/yerduz3 (1).png" id="3_87get"]
 [ext_resource type="Texture2D" uid="uid://lqtxlbhwhhue" path="res://Assets/Sprites/Environment/ground4/ground4.png" id="3_b3jqs"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/BaseButton.tscn" id="3_t3or0"]
+[ext_resource type="PackedScene" uid="uid://ce4im7wnup582" path="res://Scenes/Objects/BaseButton.tscn" id="3_t3or0"]
 [ext_resource type="Texture2D" uid="uid://bapda32hbe4ox" path="res://Assets/Sprites/Environment/ground4/Ground/wallredcorner.png" id="4_hxxcf"]
 [ext_resource type="PackedScene" uid="uid://brlqcsil5mfbq" path="res://Scenes/Objects/LevelGoal.tscn" id="4_ysn8j"]
 [ext_resource type="Texture2D" uid="uid://d251uixwkyacu" path="res://Assets/Sprites/Environment/ground4/muntar.png" id="5_b3jqs"]
-[ext_resource type="PackedScene" uid="uid://cj2pbvfmn3ut8" path="res://Scenes/Objects/TutorialTrigger.tscn" id="5_kjfpe"]
-[ext_resource type="VideoStream" uid="uid://dqmoqdxqnpi48" path="res://w as d tutorail.ogv" id="6_b2yne"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3w2qy"]
 size = Vector2(835.17224, 45.400024)
@@ -415,10 +413,6 @@ position = Vector2(1382, 446)
 [node name="LevelGoal" parent="." unique_id=690645273 instance=ExtResource("4_ysn8j")]
 position = Vector2(614, 524)
 next_level_path = "res://Scenes/4 level.tscn"
-
-[node name="TutorialTrigger" parent="." unique_id=2046584768 instance=ExtResource("5_kjfpe")]
-position = Vector2(1144, 484)
-tutorial_video = ExtResource("6_b2yne")
 
 [node name="Floor10" type="StaticBody2D" parent="." unique_id=84611198]
 position = Vector2(729, 221.00003)

@@ -2,11 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://y514wmisvyuf" path="res://icon.svg" id="1_sc0l0"]
 [ext_resource type="PackedScene" uid="uid://7p3ovn45sywp" path="res://Scenes/Characters/Player.tscn" id="2_pjngk"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/BaseButton.tscn" id="3_eaal5"]
+[ext_resource type="PackedScene" uid="uid://ce4im7wnup582" path="res://Scenes/Objects/BaseButton.tscn" id="3_eaal5"]
 [ext_resource type="PackedScene" uid="uid://brlqcsil5mfbq" path="res://Scenes/Objects/LevelGoal.tscn" id="4_b3f2g"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/KillZone.tscn" id="5_dxj0s"]
 [ext_resource type="PackedScene" uid="uid://cj2pbvfmn3ut8" path="res://Scenes/Objects/TutorialTrigger.tscn" id="7_c3cqm"]
 [ext_resource type="VideoStream" uid="uid://dtopuhck2sdib" path="res://dash.ogv" id="8_jvnrv"]
+[ext_resource type="Texture2D" uid="uid://dffvckrwgiv0p" path="res://Assets/Sprites/Environment/ground4/Ground/dikenler.png" id="9_jvnrv"]
 [ext_resource type="PackedScene" uid="uid://b1qncsyl42ixy" path="res://Scenes/Objects/ParrySpike.tscn" id="12_pjngk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hwvhe"]
@@ -14,6 +15,9 @@ size = Vector2(1000, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sc0l0"]
 size = Vector2(1000, 50)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jvnrv"]
+load_path = "res://.godot/imported/dikenler.png-f57a269801c73ede1a3506b4e26b3b70.ctex"
 
 [node name="Node2D" type="Node2D" unique_id=204629375]
 
@@ -162,3 +166,14 @@ next_level_path = "res://Scenes/6 level.tscn"
 [node name="TutorialTrigger" parent="." unique_id=2046584768 instance=ExtResource("7_c3cqm")]
 position = Vector2(1745, 304)
 tutorial_video = ExtResource("8_jvnrv")
+
+[node name="Dikenler" type="Sprite2D" parent="." unique_id=1177621559]
+position = Vector2(2887, 661)
+scale = Vector2(0.08267037, 0.24363057)
+texture = SubResource("CompressedTexture2D_jvnrv")
+
+[node name="Dikenler2" type="Sprite2D" parent="." unique_id=1314632788]
+position = Vector2(2965, 548)
+rotation = 3.1267009
+scale = Vector2(-0.33729315, 0.20723006)
+texture = ExtResource("9_jvnrv")
