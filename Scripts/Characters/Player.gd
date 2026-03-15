@@ -193,19 +193,26 @@ func _do_post_parry_slowmo() -> void:
 	# Slowly ramp back to full speed so it feels seamless
 	_slowmo_tween.tween_property(Engine, "time_scale", 1.0, 0.4).set_trans(Tween.TRANS_SINE)
 
+func _get_camera_base_zoom(cam: Camera2D) -> Vector2:
+	if cam and "camera_zoom" in cam:
+		return cam.camera_zoom
+	return Vector2.ONE
+
 func _start_parry_zoom() -> void:
 	var cam = get_viewport().get_camera_2d()
 	if not cam: return
+	var base_zoom := _get_camera_base_zoom(cam)
 	if _parry_zoom_tween: _parry_zoom_tween.kill()
 	_parry_zoom_tween = create_tween()
-	_parry_zoom_tween.tween_property(cam, "zoom", Vector2.ONE * 1.15, 0.1).set_trans(Tween.TRANS_SINE)
+	_parry_zoom_tween.tween_property(cam, "zoom", base_zoom * 1.15, 0.1).set_trans(Tween.TRANS_SINE)
 
 func _end_parry_window() -> void:
 	var cam = get_viewport().get_camera_2d()
 	if not cam: return
+	var base_zoom := _get_camera_base_zoom(cam)
 	if _parry_zoom_tween: _parry_zoom_tween.kill()
 	_parry_zoom_tween = create_tween()
-	_parry_zoom_tween.tween_property(cam, "zoom", Vector2.ONE, 0.2).set_trans(Tween.TRANS_SINE)
+	_parry_zoom_tween.tween_property(cam, "zoom", base_zoom, 0.2).set_trans(Tween.TRANS_SINE)
 
 func _do_hit_freeze() -> void:
 	get_tree().paused = true
@@ -218,13 +225,14 @@ func _do_hit_freeze() -> void:
 func _do_success_zoom() -> void:
 	var cam = get_viewport().get_camera_2d()
 	if not cam: return
+	var base_zoom := _get_camera_base_zoom(cam)
 	if _parry_zoom_tween: _parry_zoom_tween.kill()
 	
-	var punch_zoom = Vector2.ONE * (1.0 / parry_zoom_amount)
+	var punch_zoom = base_zoom * (1.0 / parry_zoom_amount)
 	_parry_zoom_tween = create_tween()
 	_parry_zoom_tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	_parry_zoom_tween.tween_property(cam, "zoom", punch_zoom, parry_zoom_duration * 0.2).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	_parry_zoom_tween.tween_property(cam, "zoom", Vector2.ONE, parry_zoom_duration * 0.8).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	_parry_zoom_tween.tween_property(cam, "zoom", base_zoom, parry_zoom_duration * 0.8).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 func _do_screen_shake() -> void:
 	if parry_shake_intensity <= 0.0: return

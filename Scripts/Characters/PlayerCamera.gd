@@ -22,6 +22,13 @@ var _target_offset: Vector2 = Vector2.ZERO
 @onready var player: CharacterBody2D = get_parent()
 
 func _ready() -> void:
+	# 9 level u sahnesinde zoom her zaman 1 olmalı
+	var scene_path := ""
+	if get_tree().current_scene:
+		scene_path = get_tree().current_scene.scene_file_path
+	if "9 level u" in scene_path:
+		camera_zoom = Vector2.ONE
+	
 	# Enable Godot's built-in sub-pixel position smoothing
 	position_smoothing_enabled = true
 	position_smoothing_speed = smooth_speed
