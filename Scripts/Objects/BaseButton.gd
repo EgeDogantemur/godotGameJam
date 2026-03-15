@@ -8,6 +8,7 @@ enum AcceptedType { BOTH, PLAYER_ONLY, SHADOW_ONLY }
 
 var _is_pressed: bool = false
 var _occupants: int = 0
+var _pollen_tween: Tween
 
 signal button_pressed()
 signal button_released()
@@ -27,6 +28,23 @@ func _get_visual_sprite() -> Sprite2D:
 			return child as Sprite2D
 	
 	return null
+
+func _get_pollen_particles() -> GPUParticles2D:
+	return get_node_or_null("PollenParticles") as GPUParticles2D
+
+func _set_pollen_state(is_pressed: bool) -> void:
+	var pollen := _get_pollen_particles()
+	if not pollen:
+		return
+	
+	if _pollen_tween:
+		_pollen_tween.kill()
+	
+	# Idle'da soft akış, basılınca kısa bir yükselme boost'u.
+	_pollen_tween = create_tween()
+	_pollen_tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	_pollen_tween.tween_property(pollen, "amount_ratio", 0.35 if is_pressed else 1.0, 0.2)
+	_pollen_tween.parallel().tween_property(pollen, "speed_scale", 0.8 if is_pressed else 1.15, 0.2)
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
@@ -74,6 +92,7 @@ func _add_occupant() -> void:
 		var sprite := _get_visual_sprite()
 		if sprite:
 			sprite.modulate = Color(0.5, 1.0, 0.5)
+		_set_pollen_state(true)
 		_play_audio("play_button_press")
 		button_pressed.emit()
 		
@@ -97,6 +116,7 @@ func _remove_occupant() -> void:
 		var sprite := _get_visual_sprite()
 		if sprite:
 			sprite.modulate = Color(1.0, 1.0, 1.0)
+		_set_pollen_state(false)
 		_play_audio("play_button_release")
 		button_released.emit()
 		

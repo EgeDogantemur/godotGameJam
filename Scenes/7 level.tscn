@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://k4swplyiiyj3"]
+[gd_scene format=3 uid="uid://066jtlhf3bif"]
 
 [ext_resource type="PackedScene" uid="uid://7p3ovn45sywp" path="res://Scenes/Characters/Player.tscn" id="2_4ib62"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/BaseButton.tscn" id="3_f0jvj"]
+[ext_resource type="PackedScene" uid="uid://ce4im7wnup582" path="res://Scenes/Objects/BaseButton.tscn" id="3_f0jvj"]
 [ext_resource type="PackedScene" uid="uid://b1qncsyl42ixy" path="res://Scenes/Objects/ParrySpike.tscn" id="4_hfuh8"]
 [ext_resource type="PackedScene" uid="uid://brlqcsil5mfbq" path="res://Scenes/Objects/LevelGoal.tscn" id="5_qxgcj"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/KillZone.tscn" id="6_dab2n"]
@@ -18,7 +18,7 @@ size = Vector2(1166.2875, 59.54953)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hjjyv"]
 size = Vector2(1791.7782, 50)
 
-[node name="Node2D" type="Node2D" unique_id=53774403]
+[node name="Node2D2" type="Node2D" unique_id=53774403]
 
 [node name="Floor2" type="StaticBody2D" parent="." unique_id=1193114066]
 position = Vector2(748, 445)

@@ -28,6 +28,12 @@ extends Node
 @export var sfx_pool_size: int = 8
 @export var ui_pool_size: int = 6
 
+@export_category("Volume")
+@export var music_volume_db: float = -4.0
+@export var game_music_volume_db: float = -2.0
+@export var ui_volume_boost_db: float = 7.0
+@export var sfx_volume_boost_db: float = 8.0
+
 var _music_player: AudioStreamPlayer
 var _sfx_players: Array[AudioStreamPlayer] = []
 var _ui_players: Array[AudioStreamPlayer] = []
@@ -45,53 +51,53 @@ func _ready() -> void:
 	_create_pool(_ui_players, "UI", max(1, ui_pool_size))
 
 func play_menu_music() -> void:
-	_play_music_stream(menu_music, -12.0)
+	_play_music_stream(menu_music, music_volume_db)
 
 func play_game_music() -> void:
-	_play_music_stream(game_music if game_music else menu_music, -10.0)
+	_play_music_stream(game_music if game_music else menu_music, game_music_volume_db)
 
 func stop_music() -> void:
 	_music_player.stop()
 	_current_music = null
 
 func play_ui_hover() -> void:
-	_play_stream(ui_hover_sfx, true, -16.0, randf_range(0.98, 1.04))
+	_play_stream(ui_hover_sfx, true, -9.0, randf_range(0.98, 1.04))
 
 func play_ui_click() -> void:
-	_play_stream(ui_click_sfx, true, -10.0, randf_range(0.98, 1.03))
+	_play_stream(ui_click_sfx, true, -3.0, randf_range(0.98, 1.03))
 
 func play_pause_toggle(paused: bool) -> void:
-	_play_stream(pause_on_sfx if paused else pause_off_sfx, true, -10.0)
+	_play_stream(pause_on_sfx if paused else pause_off_sfx, true, -2.5)
 
 func play_jump() -> void:
-	_play_stream(jump_sfx, false, -8.0, randf_range(0.98, 1.04))
+	_play_stream(jump_sfx, false, -2.0, randf_range(0.98, 1.04))
 
 func play_dash() -> void:
-	_play_stream(dash_sfx, false, -7.0, randf_range(0.97, 1.02))
+	_play_stream(dash_sfx, false, -1.5, randf_range(0.97, 1.02))
 
 func play_parry() -> void:
-	_play_stream(parry_sfx, false, -4.0, randf_range(0.99, 1.01))
+	_play_stream(parry_sfx, false, 1.5, randf_range(0.99, 1.01))
 
 func play_death() -> void:
-	_play_stream(death_sfx, false, -6.0)
+	_play_stream(death_sfx, false, -1.0)
 
 func play_button_press() -> void:
-	_play_stream(button_press_sfx, false, -8.0)
+	_play_stream(button_press_sfx, false, -2.0)
 
 func play_button_release() -> void:
-	_play_stream(button_release_sfx, false, -12.0)
+	_play_stream(button_release_sfx, false, -5.0)
 
 func play_gate_unlock() -> void:
-	_play_stream(gate_unlock_sfx, false, -6.0)
+	_play_stream(gate_unlock_sfx, false, -1.0)
 
 func play_gate_enter() -> void:
-	_play_stream(gate_enter_sfx, false, -8.0)
+	_play_stream(gate_enter_sfx, false, -2.0)
 
 func play_pickup() -> void:
-	_play_stream(pickup_sfx, false, -8.0, randf_range(0.99, 1.03))
+	_play_stream(pickup_sfx, false, -1.0, randf_range(0.99, 1.03))
 
 func play_bounce() -> void:
-	_play_stream(bounce_sfx, false, -7.0, randf_range(0.96, 1.02))
+	_play_stream(bounce_sfx, false, -1.0, randf_range(0.96, 1.02))
 
 func _play_music_stream(stream: AudioStream, volume_db: float) -> void:
 	if not stream:
@@ -113,7 +119,7 @@ func _play_stream(stream: AudioStream, use_ui_pool: bool, volume_db: float = 0.0
 	var player := _next_player(_ui_players, true) if use_ui_pool else _next_player(_sfx_players, false)
 	player.stop()
 	player.stream = stream
-	player.volume_db = volume_db
+	player.volume_db = volume_db + (ui_volume_boost_db if use_ui_pool else sfx_volume_boost_db)
 	player.pitch_scale = pitch_scale
 	player.play()
 

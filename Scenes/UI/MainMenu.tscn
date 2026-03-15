@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://bfriv27y3lh5c"]
 
 [ext_resource type="Script" uid="uid://cx4jitso0biu7" path="res://Scripts/UI/MainMenu.gd" id="1_mm1"]
-[ext_resource type="Texture2D" uid="uid://6irrmxvnkkuc" path="res://Assets/Sprites/Environment/bgschool (1).png" id="2_jex3y"]
 [ext_resource type="Shader" uid="uid://bf21mo16bd0xe" path="res://Assets/Shaders/scanline.gdshader" id="2_scan"]
 [ext_resource type="Texture2D" uid="uid://bp8m2g30w6wuu" path="res://Assets/Sprites/Environment/ground4/goz1.png" id="3_t6w0q"]
 [ext_resource type="Texture2D" uid="uid://2wckprthb2jb" path="res://Assets/Sprites/Environment/ground4/goz2.png" id="4_k8um8"]
+[ext_resource type="Texture2D" uid="uid://syqtr4smptgh" path="res://Assets/Sprites/Environment/ground4/Ground/bgclock.png" id="4_kl3t2"]
 [ext_resource type="Texture2D" uid="uid://c7iqmt2rf64m8" path="res://ECHO.png" id="5_k8um8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_scan"]
@@ -69,10 +69,9 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.01, 0, 0.01, 1)
 
-[node name="Bgschool(1)" type="Sprite2D" parent="Background" unique_id=1413992302]
+[node name="Bgclock" type="Sprite2D" parent="Background" unique_id=1230604603]
 position = Vector2(960, 540)
-scale = Vector2(0.54643875, 0.52307695)
-texture = ExtResource("2_jex3y")
+texture = ExtResource("4_kl3t2")
 
 [node name="TopAccent" type="ColorRect" parent="." unique_id=190744194]
 layout_mode = 1
