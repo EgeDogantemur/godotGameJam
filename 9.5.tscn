@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://jku3nw8jo1cf"]
+[gd_scene format=3]
 
 [ext_resource type="PackedScene" path="res://Scenes/Objects/KillZone.tscn" id="1_ybqts"]
 [ext_resource type="Texture2D" uid="uid://y514wmisvyuf" path="res://icon.svg" id="2_t7lbr"]
