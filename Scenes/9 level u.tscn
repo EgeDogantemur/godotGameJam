@@ -26,7 +26,7 @@ load_path = "res://.godot/imported/dikenler.png-f57a269801c73ede1a3506b4e26b3b70
 [node name="Node2D2" type="Node2D" unique_id=204629375]
 
 [node name="KillZone" parent="." unique_id=1811653841 instance=ExtResource("5_dxj0s")]
-position = Vector2(2981, 1043)
+position = Vector2(2981, 1103)
 
 [node name="KillZone2" parent="." unique_id=706789618 instance=ExtResource("5_dxj0s")]
 position = Vector2(2998, 512)
@@ -176,7 +176,7 @@ position = Vector2(2961, 598)
 position = Vector2(2713, 872)
 
 [node name="ParrySpike3" parent="." unique_id=757424868 instance=ExtResource("12_pjngk")]
-position = Vector2(3206, 953)
+position = Vector2(3290, 976)
 
 [node name="LevelGoal" parent="." unique_id=1506957731 instance=ExtResource("4_b3f2g")]
 position = Vector2(2992, 398)
@@ -503,6 +503,7 @@ scale = Vector2(0.1, 0.10400031)
 texture = ExtResource("12_eaal5")
 
 [node name="Bgclock" type="Sprite2D" parent="." unique_id=289996347]
+visible = false
 show_behind_parent = true
 position = Vector2(2957.0002, 1287)
 scale = Vector2(2.6715636, 2.9501429)

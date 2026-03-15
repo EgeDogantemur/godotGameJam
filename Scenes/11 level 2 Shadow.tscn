@@ -1,3 +1,85 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://bhjv2udw58ke2"]
 
-[node name="Node2D" type="Node2D" unique_id=938517197]
+[ext_resource type="PackedScene" uid="uid://7p3ovn45sywp" path="res://Scenes/Characters/Player.tscn" id="1_jmxf7"]
+[ext_resource type="Texture2D" uid="uid://y514wmisvyuf" path="res://icon.svg" id="2_1b251"]
+[ext_resource type="PackedScene" uid="uid://ce4im7wnup582" path="res://Scenes/Objects/BaseButton.tscn" id="3_1b251"]
+[ext_resource type="PackedScene" uid="uid://brlqcsil5mfbq" path="res://Scenes/Objects/LevelGoal.tscn" id="4_ifdwa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1en0s"]
+size = Vector2(1000, 50)
+
+[node name="Node2D3" type="Node2D" unique_id=938517197]
+
+[node name="Player" parent="." unique_id=584981649 instance=ExtResource("1_jmxf7")]
+position = Vector2(414, 171)
+speed = 300.0
+parry_launch_force_y = 620.0
+parry_cooldown = 0.1
+parry_buffer_time = 0.6
+
+[node name="Floor4" type="StaticBody2D" parent="." unique_id=30815943]
+position = Vector2(512.00006, 228.00002)
+rotation = 3.1415925
+scale = Vector2(0.3367451, 1.0130382)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor4" unique_id=2018066490]
+shape = SubResource("RectangleShape2D_1en0s")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor4" unique_id=1631647937]
+modulate = Color(0.2, 0.2, 0.2, 1)
+scale = Vector2(8, 0.4)
+texture = ExtResource("2_1b251")
+
+[node name="Floor6" type="StaticBody2D" parent="." unique_id=716819063]
+position = Vector2(526.00006, -74)
+rotation = 3.1415925
+scale = Vector2(0.3367451, 1.0130382)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor6" unique_id=1119278488]
+shape = SubResource("RectangleShape2D_1en0s")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor6" unique_id=1034510739]
+modulate = Color(0.2, 0.2, 0.2, 1)
+scale = Vector2(8, 0.4)
+texture = ExtResource("2_1b251")
+
+[node name="Floor7" type="StaticBody2D" parent="." unique_id=955912364]
+position = Vector2(657, 302)
+rotation = 1.5707964
+scale = Vector2(0.3367451, 1.0130382)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor7" unique_id=1047979187]
+shape = SubResource("RectangleShape2D_1en0s")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor7" unique_id=677545119]
+modulate = Color(0.2, 0.2, 0.2, 1)
+scale = Vector2(8, 0.4)
+texture = ExtResource("2_1b251")
+
+[node name="Floor5" type="StaticBody2D" parent="." unique_id=2098766202]
+position = Vector2(924.0001, 441)
+rotation = 3.1415925
+scale = Vector2(0.3367451, 1.0130382)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor5" unique_id=194145144]
+shape = SubResource("RectangleShape2D_1en0s")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor5" unique_id=890258018]
+modulate = Color(0.2, 0.2, 0.2, 1)
+scale = Vector2(8, 0.4)
+texture = ExtResource("2_1b251")
+
+[node name="Button_Both" parent="." unique_id=924759577 instance=ExtResource("3_1b251")]
+position = Vector2(919, 403)
+
+[node name="LevelGoal" parent="." unique_id=1506957731 instance=ExtResource("4_ifdwa")]
+position = Vector2(494, -167)
+next_level_path = "res://Scenes/6 level.tscn"
