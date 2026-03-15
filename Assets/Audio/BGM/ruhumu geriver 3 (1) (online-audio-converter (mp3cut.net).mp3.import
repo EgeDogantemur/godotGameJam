@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bgdo0qgpmyem7"
+path="res://.godot/imported/ruhumu geriver 3 (1) (online-audio-converter (mp3cut.net).mp3-2c432de197965006d9491ca6596c55b0.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/BGM/ruhumu geriver 3 (1) (online-audio-converter (mp3cut.net).mp3"
+dest_files=["res://.godot/imported/ruhumu geriver 3 (1) (online-audio-converter (mp3cut.net).mp3-2c432de197965006d9491ca6596c55b0.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
