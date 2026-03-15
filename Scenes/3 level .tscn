@@ -381,12 +381,14 @@ scale = Vector2(0.27099523, -0.9907846)
 texture = ExtResource("3_87get")
 
 [node name="Bgschool(1)2" type="Sprite2D" parent="Floor" unique_id=1801426595]
+modulate = Color(0.8244924, 0.8244924, 0.8244924, 1)
 show_behind_parent = true
 position = Vector2(552.88306, -196.00002)
 scale = Vector2(0.82273126, 1.1688124)
 texture = ExtResource("4_hxxcf")
 
 [node name="Bgschool(1)3" type="Sprite2D" parent="Floor" unique_id=373577186]
+modulate = Color(0.8235294, 0.8235294, 0.8235294, 1)
 show_behind_parent = true
 position = Vector2(-130.76886, -180.99998)
 scale = Vector2(0.80590653, 1.0271817)

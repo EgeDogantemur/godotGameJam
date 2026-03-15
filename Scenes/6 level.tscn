@@ -19,7 +19,7 @@
 size = Vector2(1459.486, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qytyj"]
-size = Vector2(1000, 50)
+size = Vector2(1162.9933, 50)
 
 [node name="Node2D" type="Node2D" unique_id=906398635]
 
@@ -81,7 +81,7 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor3" unique_id=1456617864]
-position = Vector2(-53.452713, -2.6829348e-06)
+position = Vector2(28.043701, -7.6293945e-06)
 shape = SubResource("RectangleShape2D_qytyj")
 
 [node name="Button_Both" parent="." unique_id=1064031472 instance=ExtResource("3_1srmt")]
@@ -91,11 +91,11 @@ position = Vector2(361, 194)
 position = Vector2(349, 230)
 
 [node name="LevelGoal" parent="." unique_id=2079729435 instance=ExtResource("5_833c3")]
-position = Vector2(1066, 12)
+position = Vector2(1069, 25)
 next_level_path = "res://Scenes/7 level.tscn"
 
 [node name="TutorialTrigger" parent="." unique_id=2046584768 instance=ExtResource("6_a71k1")]
-position = Vector2(646, 369)
+position = Vector2(699, 369)
 tutorial_video = ExtResource("6_ni14q")
 
 [node name="KillZone" parent="." unique_id=1861763500 instance=ExtResource("8_m1gc6")]
@@ -145,8 +145,13 @@ position = Vector2(3222, 207)
 scale = Vector2(0.10400031, 0.1)
 texture = ExtResource("10_m1gc6")
 
+[node name="Ground48" type="Sprite2D" parent="Node2D" unique_id=1388904564]
+position = Vector2(3137, 206)
+scale = Vector2(0.10400031, 0.1)
+texture = ExtResource("10_m1gc6")
+
 [node name="Ground27" type="Sprite2D" parent="Node2D" unique_id=188669070]
-position = Vector2(3146, 214)
+position = Vector2(3076.0002, 214)
 rotation = -3.1415927
 scale = Vector2(0.10400031, 0.1)
 texture = ExtResource("11_30lcr")

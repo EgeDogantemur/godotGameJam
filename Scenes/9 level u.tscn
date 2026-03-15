@@ -118,7 +118,8 @@ shape = SubResource("RectangleShape2D_pjngk")
 
 [node name="Sprite2D" type="Sprite2D" parent="Floor5" unique_id=1283683258]
 modulate = Color(0.2, 0.2, 0.2, 1)
-scale = Vector2(8, 0.4)
+position = Vector2(-225.77692, 0)
+scale = Vector2(11.527764, 0.4)
 texture = ExtResource("1_sc0l0")
 
 [node name="Floor8" type="StaticBody2D" parent="." unique_id=1934945545]

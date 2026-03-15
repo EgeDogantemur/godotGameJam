@@ -10,7 +10,7 @@
 [ext_resource type="VideoStream" uid="uid://dtopuhck2sdib" path="res://dash.ogv" id="8_5ikre"]
 [ext_resource type="Texture2D" uid="uid://dffvckrwgiv0p" path="res://Assets/Sprites/Environment/ground4/Ground/dikenler.png" id="9_h2cbm"]
 [ext_resource type="Texture2D" uid="uid://cram50oqv42ly" path="res://Assets/Sprites/Environment/ground4/yerduz3 (1).png" id="10_fr8tu"]
-[ext_resource type="Texture2D" uid="uid://dubhodusfjhu" path="res://Assets/Sprites/Environment/ground4/Ground/bgdistort.png" id="13_36m21"]
+[ext_resource type="Texture2D" uid="uid://c735c5ecls81y" path="res://Assets/Sprites/Environment/ground4/Ground/bgkid.png" id="13_36m21"]
 [ext_resource type="Texture2D" uid="uid://cj8a4u1w4pwqm" path="res://Assets/Sprites/Environment/ground4/ground1.png" id="17_h2cbm"]
 [ext_resource type="Texture2D" uid="uid://lqtxlbhwhhue" path="res://Assets/Sprites/Environment/ground4/ground4.png" id="18_p00bj"]
 
@@ -33,12 +33,12 @@ rotation = -1.5707964
 scale = Vector2(-0.048, 0.8)
 
 [node name="KillZone3" parent="." unique_id=404595486 instance=ExtResource("1_ogaqe")]
-position = Vector2(3323, 138.99998)
+position = Vector2(3320, 138.99998)
 rotation = -1.5707964
 scale = Vector2(-0.08, 1.3379999)
 
 [node name="KillZone4" parent="." unique_id=2023678867 instance=ExtResource("1_ogaqe")]
-position = Vector2(3198, -192.00002)
+position = Vector2(3199, -202)
 rotation = -1.5707964
 scale = Vector2(-0.08, 1.3379999)
 
@@ -228,7 +228,7 @@ position = Vector2(3062, 404)
 position = Vector2(3065, 450)
 
 [node name="ParrySpike3" parent="." unique_id=942964259 instance=ExtResource("5_36m21")]
-position = Vector2(3571, 227)
+position = Vector2(3548, 227)
 
 [node name="LevelGoal" parent="." unique_id=1506957731 instance=ExtResource("6_mumqm")]
 position = Vector2(4104, -72)
@@ -246,6 +246,12 @@ texture = ExtResource("9_h2cbm")
 [node name="Dikenler3" type="Sprite2D" parent="." unique_id=1756053002]
 position = Vector2(3322, 32.453827)
 scale = Vector2(-0.07304438, 0.26577652)
+texture = ExtResource("9_h2cbm")
+
+[node name="Dikenler5" type="Sprite2D" parent="." unique_id=68263125]
+position = Vector2(3257.9998, 143)
+rotation = -1.5707964
+scale = Vector2(0.2469556, 0.26577652)
 texture = ExtResource("9_h2cbm")
 
 [node name="Dikenler4" type="Sprite2D" parent="." unique_id=1492793964]
@@ -859,20 +865,14 @@ position = Vector2(2154, 419)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("18_p00bj")
 
-[node name="Bgdistort" type="Sprite2D" parent="." unique_id=1662666903]
-show_behind_parent = true
-position = Vector2(3191, 373)
-scale = Vector2(1.1635338, 1.2012919)
-texture = ExtResource("13_36m21")
-
 [node name="Bgdistort3" type="Sprite2D" parent="." unique_id=823181996]
 show_behind_parent = true
-position = Vector2(2648, 1983)
+position = Vector2(2743.0544, 1317.3438)
 scale = Vector2(2.2393472, 1.797142)
 texture = ExtResource("13_36m21")
 
 [node name="Bgdistort2" type="Sprite2D" parent="." unique_id=978770078]
 show_behind_parent = true
-position = Vector2(3232, -915)
+position = Vector2(3327.0544, -1580.6563)
 scale = Vector2(1.1635338, 1.2012919)
 texture = ExtResource("13_36m21")
