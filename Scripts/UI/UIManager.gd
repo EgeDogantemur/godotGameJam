@@ -298,21 +298,36 @@ func show_settings_from_main() -> void:
 
 func load_main_menu() -> void:
 	in_main_menu = true
-	_play_audio("play_menu_music")
 	get_tree().paused = false
 	pause_menu.hide()
 	settings_menu.hide()
 	restart_panel.hide()
+	_play_audio("stop_music")
 	get_tree().change_scene_to_file("res://Scenes/UI/MainMenu.tscn")
 
-func load_game(level_path: String = "res://Scenes/emirantestscene.tscn") -> void:
-	in_main_menu = false
-	_play_audio("play_game_music")
+func load_intro_cutscene(cutscene_path: String = "res://Scenes/UI/IntroCutscene.tscn") -> void:
+	in_main_menu = true
 	get_tree().paused = false
 	pause_menu.hide()
 	settings_menu.hide()
 	restart_panel.hide()
+	_play_audio("stop_music")
+	get_tree().change_scene_to_file(cutscene_path)
+
+func load_game(level_path: String = "res://Scenes/emirantestscene.tscn", play_music: bool = true) -> void:
+	in_main_menu = false
+	get_tree().paused = false
+	pause_menu.hide()
+	settings_menu.hide()
+	restart_panel.hide()
+	_play_audio("stop_music")
 	get_tree().change_scene_to_file(level_path)
+	if play_music:
+		call_deferred("_start_game_music_after_scene_change")
+
+func _start_game_music_after_scene_change() -> void:
+	await get_tree().process_frame
+	_play_audio("play_game_music")
 
 func quit_game() -> void:
 	get_tree().quit()

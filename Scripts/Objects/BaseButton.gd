@@ -10,6 +10,7 @@ var _is_pressed: bool = false
 var _occupants: int = 0
 var _pollen_tween: Tween
 var _flower_tween: Tween
+var _lever_tween: Tween
 
 signal button_pressed()
 signal button_released()
@@ -29,6 +30,53 @@ func _get_visual_sprite() -> Sprite2D:
 			return child as Sprite2D
 	
 	return null
+
+func _get_closed_lever() -> Sprite2D:
+	return get_node_or_null("ClosedLever") as Sprite2D
+
+func _get_open_lever() -> Sprite2D:
+	return get_node_or_null("OpenLever") as Sprite2D
+
+func _set_lever_state(is_pressed: bool, animate: bool = true) -> void:
+	var closed_lever := _get_closed_lever()
+	var open_lever := _get_open_lever()
+	
+	if not closed_lever and not open_lever:
+		var sprite := _get_visual_sprite()
+		if sprite:
+			sprite.modulate = Color(0.5, 1.0, 0.5) if is_pressed else Color.WHITE
+		return
+	
+	if _lever_tween:
+		_lever_tween.kill()
+	
+	if closed_lever:
+		closed_lever.visible = not is_pressed
+		closed_lever.modulate = Color.WHITE
+		closed_lever.rotation = 0.0
+		closed_lever.scale = Vector2.ONE * 0.25
+	
+	if open_lever:
+		open_lever.visible = is_pressed
+		open_lever.modulate = Color.WHITE
+		open_lever.rotation = 0.0
+		open_lever.scale = Vector2.ONE * 0.25
+	
+	if not animate:
+		return
+	
+	var active_lever := open_lever if is_pressed else closed_lever
+	if not active_lever:
+		return
+	
+	_lever_tween = create_tween()
+	_lever_tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	_lever_tween.tween_property(active_lever, "rotation", deg_to_rad(-5.0 if is_pressed else 3.0), 0.08)
+	_lever_tween.parallel().tween_property(active_lever, "scale", Vector2.ONE * 0.2625, 0.08)
+	_lever_tween.tween_property(active_lever, "rotation", deg_to_rad(2.5 if is_pressed else -1.5), 0.1)
+	_lever_tween.parallel().tween_property(active_lever, "scale", Vector2.ONE * 0.2475, 0.1)
+	_lever_tween.tween_property(active_lever, "rotation", 0.0, 0.12)
+	_lever_tween.parallel().tween_property(active_lever, "scale", Vector2.ONE * 0.25, 0.12)
 
 func _get_pollen_particles() -> GPUParticles2D:
 	return get_node_or_null("PollenParticles") as GPUParticles2D
@@ -88,6 +136,7 @@ func _ready() -> void:
 	area_entered.connect(_on_area_entered)
 	area_exited.connect(_on_area_exited)
 	_start_flower_idle()
+	_set_lever_state(false, false)
 	
 	match accepted_type:
 		AcceptedType.BOTH:
@@ -126,9 +175,7 @@ func _add_occupant() -> void:
 	_occupants += 1
 	if _occupants == 1 and not _is_pressed:
 		_is_pressed = true
-		var sprite := _get_visual_sprite()
-		if sprite:
-			sprite.modulate = Color(0.5, 1.0, 0.5)
+		_set_lever_state(true)
 		_set_pollen_state(true)
 		_set_flower_state(true)
 		_play_audio("play_button_press")
@@ -151,9 +198,7 @@ func _remove_occupant() -> void:
 	if _occupants <= 0 and _is_pressed:
 		_occupants = 0
 		_is_pressed = false
-		var sprite := _get_visual_sprite()
-		if sprite:
-			sprite.modulate = Color(1.0, 1.0, 1.0)
+		_set_lever_state(false)
 		_set_pollen_state(false)
 		_set_flower_state(false)
 		_play_audio("play_button_release")

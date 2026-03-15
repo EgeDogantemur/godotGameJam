@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://rekvvy81h6yo"
+path="res://.godot/imported/kalabak iyi son.mp3-ced542282f06f897fd5c0cc4120bc494.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/BGM/kalabak iyi son.mp3"
+dest_files=["res://.godot/imported/kalabak iyi son.mp3-ced542282f06f897fd5c0cc4120bc494.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

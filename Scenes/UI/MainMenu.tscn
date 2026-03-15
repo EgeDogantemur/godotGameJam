@@ -178,6 +178,13 @@ theme_override_font_sizes/font_size = 13
 text = "Hover to open the eye."
 horizontal_alignment = 1
 
+[node name="Hint2" type="Label" parent="MenuCard/Margin/VBoxContainer" unique_id=788689578]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.62, 0.65, 0.69, 0.88)
+theme_override_font_sizes/font_size = 13
+text = "Music by Yigit Turan"
+horizontal_alignment = 1
+
 [node name="Footer" type="Label" parent="." unique_id=317362152]
 layout_mode = 1
 anchors_preset = 12

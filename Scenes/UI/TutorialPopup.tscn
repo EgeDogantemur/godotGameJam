@@ -29,7 +29,7 @@ layout_mode = 2
 theme_override_constants/separation = 20
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="ColorRect/CenterContainer/VBoxContainer" unique_id=825033119]
-custom_minimum_size = Vector2(640, 360)
+custom_minimum_size = Vector2(1280, 720)
 layout_mode = 2
 stream = ExtResource("2_6ggkd")
 expand = true
@@ -38,4 +38,4 @@ expand = true
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Skip / Devam Et"
+text = "Skip / Press 'Z'"

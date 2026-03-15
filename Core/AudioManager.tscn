@@ -1,13 +1,21 @@
 [gd_scene format=3 uid="uid://bwq0a8couu6mh"]
 
 [ext_resource type="Script" uid="uid://bw1141jipvits" path="res://Core/AudioManager.gd" id="1_audio"]
+[ext_resource type="AudioStream" uid="uid://cm67i3wy2mwbm" path="res://Assets/Audio/BGM/ruhumu geri ver (mp3cut.net) (1).mp3" id="2_p0tle"]
+[ext_resource type="AudioStream" uid="uid://rekvvy81h6yo" path="res://Assets/Audio/BGM/kalabak iyi son.mp3" id="2_uii83"]
 [ext_resource type="AudioStream" uid="uid://cpkdl60tyraw0" path="res://Core/AuidoBerk/dash.mp3" id="3_27tv7"]
+[ext_resource type="AudioStream" uid="uid://cwmtjlajw34qo" path="res://Assets/Fonts/lesiakower-minimalist-button-hover-sound-effect-399749.mp3" id="4_i6gva"]
 [ext_resource type="AudioStream" uid="uid://g8v0nxe5ss8" path="res://Assets/Audio/SFX/parryxl.mp3" id="4_p0tle"]
+[ext_resource type="AudioStream" uid="uid://bk1eepiqqfe7i" path="res://Assets/Fonts/audley_fergine-ui-button-click-5-327756.mp3" id="5_o6t67"]
 [ext_resource type="AudioStream" uid="uid://ukf50xxxjpo6" path="res://Core/AuidoBerk/ButtonPress.mp3" id="5_p0tle"]
 
 [node name="AudioManager" type="Node" unique_id=1726115876]
 process_mode = 3
 script = ExtResource("1_audio")
+menu_music = ExtResource("2_uii83")
+game_music = ExtResource("2_p0tle")
+ui_hover_sfx = ExtResource("4_i6gva")
+ui_click_sfx = ExtResource("5_o6t67")
 dash_sfx = ExtResource("3_27tv7")
 parry_sfx = ExtResource("4_p0tle")
 button_press_sfx = ExtResource("5_p0tle")

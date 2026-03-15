@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://bng3yuv0mk4g4"]
+
+[ext_resource type="Script" uid="uid://ear44f1awopt" path="res://Scripts/UI/IntroCutscene.gd" id="1_intro"]
+[ext_resource type="VideoStream" path="res://dash.ogv" id="2_g8hii"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_skip"]
+bg_color = Color(0.1, 0.03, 0.04, 0.92)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.95, 0.22, 0.28, 0.95)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="IntroCutscene" type="CanvasLayer" unique_id=181294552]
+process_mode = 3
+layer = 120
+script = ExtResource("1_intro")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1432814337]
+process_mode = 3
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2096987164]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect" unique_id=2022885980]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 105.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CenterContainer" unique_id=477759919]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="ColorRect/CenterContainer/VBoxContainer" unique_id=336954521]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 2
+stream = ExtResource("2_g8hii")
+expand = true
+
+[node name="HintLabel" type="Label" parent="ColorRect/CenterContainer/VBoxContainer" unique_id=985711720]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.82, 0.86, 0.88)
+theme_override_font_sizes/font_size = 16
+text = "Video ve sesi Inspector'dan ata. Bitince otomatik Level 1'e geçer."
+horizontal_alignment = 1
+
+[node name="SkipButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer" unique_id=600818131]
+custom_minimum_size = Vector2(220, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_skip")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_skip")
+theme_override_styles/hover = SubResource("StyleBoxFlat_skip")
+text = "Skip / Devam Et"

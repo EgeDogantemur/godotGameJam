@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cm67i3wy2mwbm"
+path="res://.godot/imported/ruhumu geri ver (mp3cut.net) (1).mp3-959bac6c4cc82ea9710b3d51c37d929a.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/BGM/ruhumu geri ver (mp3cut.net) (1).mp3"
+dest_files=["res://.godot/imported/ruhumu geri ver (mp3cut.net) (1).mp3-959bac6c4cc82ea9710b3d51c37d929a.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

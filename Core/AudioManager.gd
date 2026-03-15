@@ -51,10 +51,10 @@ func _ready() -> void:
 	_create_pool(_ui_players, "UI", max(1, ui_pool_size))
 
 func play_menu_music() -> void:
-	_play_music_stream(menu_music, music_volume_db)
+	_play_music_stream(menu_music, music_volume_db, true)
 
 func play_game_music() -> void:
-	_play_music_stream(game_music if game_music else menu_music, game_music_volume_db)
+	_play_music_stream(game_music if game_music else menu_music, game_music_volume_db, true)
 
 func stop_music() -> void:
 	_music_player.stop()
@@ -99,10 +99,10 @@ func play_pickup() -> void:
 func play_bounce() -> void:
 	_play_stream(bounce_sfx, false, -1.0, randf_range(0.96, 1.02))
 
-func _play_music_stream(stream: AudioStream, volume_db: float) -> void:
+func _play_music_stream(stream: AudioStream, volume_db: float, restart_if_same: bool = false) -> void:
 	if not stream:
 		return
-	if _current_music == stream and _music_player.playing:
+	if _current_music == stream and _music_player.playing and not restart_if_same:
 		_music_player.volume_db = volume_db
 		return
 	

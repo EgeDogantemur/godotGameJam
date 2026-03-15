@@ -54,7 +54,8 @@ func _set_eye_open(is_open: bool) -> void:
 func _on_play_pressed() -> void:
 	_play_audio("play_ui_click")
 	var ui_mgr = get_node_or_null("/root/UIManager")
-	if ui_mgr: ui_mgr.load_game("res://Scenes/1 Level.tscn")
+	if ui_mgr:
+		ui_mgr.load_intro_cutscene()
 
 func _on_settings_pressed() -> void:
 	_play_audio("play_ui_click")
