@@ -12,7 +12,7 @@ size = Vector2(1000, 50)
 [node name="Node2D2" type="Node2D" unique_id=671286668]
 
 [node name="Player" parent="." unique_id=584981649 instance=ExtResource("1_nwsy0")]
-position = Vector2(414, 171)
+position = Vector2(356, 114)
 speed = 300.0
 shadow_delay_multipliers = PackedInt32Array(1, 2)
 parry_launch_force_y = 620.0
@@ -20,7 +20,7 @@ parry_cooldown = 0.1
 parry_buffer_time = 0.6
 
 [node name="Floor4" type="StaticBody2D" parent="." unique_id=1985749455]
-position = Vector2(512.00006, 228.00002)
+position = Vector2(454.00006, 171.00002)
 rotation = 3.1415925
 scale = Vector2(0.3367451, 1.0130382)
 collision_layer = 4
@@ -35,7 +35,7 @@ scale = Vector2(8, 0.4)
 texture = ExtResource("2_yt17d")
 
 [node name="Floor6" type="StaticBody2D" parent="." unique_id=1646874702]
-position = Vector2(1521, -10)
+position = Vector2(1521, -90)
 rotation = 3.1415925
 scale = Vector2(0.3367451, 1.0130382)
 collision_layer = 4
@@ -50,7 +50,7 @@ scale = Vector2(8, 0.4)
 texture = ExtResource("2_yt17d")
 
 [node name="Floor7" type="StaticBody2D" parent="." unique_id=1557433128]
-position = Vector2(657, 302)
+position = Vector2(599, 245)
 rotation = 1.5707964
 scale = Vector2(0.3367451, 1.0130382)
 collision_layer = 4
@@ -83,7 +83,7 @@ texture = ExtResource("2_yt17d")
 position = Vector2(919, 403)
 
 [node name="LevelGoal" parent="." unique_id=1506957731 instance=ExtResource("4_766he")]
-position = Vector2(1489, -103)
+position = Vector2(1489, -183)
 next_level_path = "res://Scenes/UI/MainMenu.tscn"
 
 [node name="ParrySpike3" parent="." unique_id=347142923 instance=ExtResource("5_8noxx")]

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://brlqcsil5mfbq" path="res://Scenes/Objects/LevelGoal.tscn" id="4_b3f2g"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/KillZone.tscn" id="5_dxj0s"]
 [ext_resource type="PackedScene" uid="uid://cj2pbvfmn3ut8" path="res://Scenes/Objects/TutorialTrigger.tscn" id="7_c3cqm"]
-[ext_resource type="VideoStream" path="res://dash.ogv" id="8_jvnrv"]
+[ext_resource type="VideoStream" uid="uid://dtopuhck2sdib" path="res://dash.ogv" id="8_jvnrv"]
 [ext_resource type="Texture2D" uid="uid://dffvckrwgiv0p" path="res://Assets/Sprites/Environment/ground4/Ground/dikenler.png" id="9_jvnrv"]
 [ext_resource type="Texture2D" uid="uid://cram50oqv42ly" path="res://Assets/Sprites/Environment/ground4/yerduz3 (1).png" id="10_hwvhe"]
 [ext_resource type="Texture2D" uid="uid://lqtxlbhwhhue" path="res://Assets/Sprites/Environment/ground4/ground4.png" id="11_pjngk"]
@@ -29,7 +29,7 @@ load_path = "res://.godot/imported/dikenler.png-f57a269801c73ede1a3506b4e26b3b70
 position = Vector2(2981, 1103)
 
 [node name="KillZone2" parent="." unique_id=706789618 instance=ExtResource("5_dxj0s")]
-position = Vector2(2998, 512)
+position = Vector2(2995, 509)
 scale = Vector2(0.12109389, 1)
 
 [node name="KillZone3" parent="." unique_id=1324612816 instance=ExtResource("5_dxj0s")]
