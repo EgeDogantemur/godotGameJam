@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cfrtt1pv2bghq"]
+[gd_scene format=3 uid="uid://cnl5bq5klg56b"]
 
 [ext_resource type="PackedScene" path="res://Scenes/Objects/KillZone.tscn" id="1_ogaqe"]
 [ext_resource type="Texture2D" uid="uid://y514wmisvyuf" path="res://icon.svg" id="2_fr8tu"]
@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b1qncsyl42ixy" path="res://Scenes/Objects/ParrySpike.tscn" id="5_36m21"]
 [ext_resource type="PackedScene" uid="uid://brlqcsil5mfbq" path="res://Scenes/Objects/LevelGoal.tscn" id="6_mumqm"]
 [ext_resource type="PackedScene" uid="uid://cj2pbvfmn3ut8" path="res://Scenes/Objects/TutorialTrigger.tscn" id="7_0afco"]
-[ext_resource type="VideoStream" uid="uid://dtopuhck2sdib" path="res://dash.ogv" id="8_5ikre"]
+[ext_resource type="VideoStream" path="res://dash.ogv" id="8_5ikre"]
 [ext_resource type="Texture2D" uid="uid://dffvckrwgiv0p" path="res://Assets/Sprites/Environment/ground4/Ground/dikenler.png" id="9_h2cbm"]
 [ext_resource type="Texture2D" uid="uid://cram50oqv42ly" path="res://Assets/Sprites/Environment/ground4/yerduz3 (1).png" id="10_fr8tu"]
 [ext_resource type="Texture2D" uid="uid://c735c5ecls81y" path="res://Assets/Sprites/Environment/ground4/Ground/bgkid.png" id="13_36m21"]
@@ -20,7 +20,7 @@ size = Vector2(1361.457, 50)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2iox3"]
 size = Vector2(1000, 50)
 
-[node name="Node2D" type="Node2D" unique_id=596819848]
+[node name="Node2D2" type="Node2D" unique_id=596819848]
 metadata/_edit_horizontal_guides_ = [-1019.0]
 
 [node name="KillZone" parent="." unique_id=1738008785 instance=ExtResource("1_ogaqe")]
@@ -232,7 +232,7 @@ position = Vector2(3548, 227)
 
 [node name="LevelGoal" parent="." unique_id=1506957731 instance=ExtResource("6_mumqm")]
 position = Vector2(4104, -72)
-next_level_path = "res://Scenes/6 level.tscn"
+next_level_path = "res://Scenes/11 level 2 Shadow.tscn"
 
 [node name="TutorialTrigger" parent="." unique_id=2046584768 instance=ExtResource("7_0afco")]
 position = Vector2(1745, 304)

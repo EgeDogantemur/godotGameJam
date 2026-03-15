@@ -14,6 +14,9 @@ extends CharacterBody2D
 @export var dash_duration: float = 0.15
 @export var dash_cooldown: float = 0.5
 
+@export_category("Shadow Followers")
+@export var shadow_delay_multipliers: PackedInt32Array = PackedInt32Array([1])
+
 @export_category("Proximity Glow")
 @export var glow_detect_radius: float = 150.0
 @export var glow_color: Color = Color(1.0, 1.0, 0.6, 0.35)
@@ -58,7 +61,8 @@ signal dash_charge_changed(has_charge: bool)
 
 var shadow_scene = preload("res://Scenes/Characters/Shadow.tscn")
 var shockwave_scene = preload("res://Scenes/VFX/Shockwave.tscn")
-var shadow_instance: Node2D = null
+var shadow_instances: Array[Node2D] = []
+var shadow_trails: Array[Node] = []
 
 @onready var trail = $ShadowTrail
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -72,9 +76,65 @@ func _ready() -> void:
 	collision_layer = 1
 	if animated_sprite:
 		animated_sprite.play(&"idle")
-	shadow_instance = shadow_scene.instantiate()
-	get_tree().current_scene.call_deferred("add_child", shadow_instance)
-	trail.call_deferred("set_shadow", shadow_instance)
+	_setup_shadows()
+
+func _get_shadow_delay_multipliers() -> Array[int]:
+	var multipliers: Array[int] = []
+	for multiplier in shadow_delay_multipliers:
+		if multiplier > 0 and not multipliers.has(multiplier):
+			multipliers.append(multiplier)
+	
+	if multipliers.is_empty():
+		multipliers.append(1)
+	
+	multipliers.sort()
+	return multipliers
+
+func _create_extra_shadow_trail(delay_frames: int, index: int) -> Node:
+	var extra_trail := Node.new()
+	extra_trail.name = "ShadowTrail%d" % (index + 1)
+	extra_trail.set_script(trail.get_script())
+	extra_trail.follow_delay_frames = delay_frames
+	extra_trail.shadow_follow_smoothness = trail.shadow_follow_smoothness
+	extra_trail.catchup_speed = trail.catchup_speed
+	add_child(extra_trail)
+	return extra_trail
+
+func _setup_shadows() -> void:
+	shadow_instances.clear()
+	shadow_trails.clear()
+	
+	var base_delay: int = max(1, trail.follow_delay_frames)
+	var delay_multipliers := _get_shadow_delay_multipliers()
+	
+	for i in range(delay_multipliers.size()):
+		var multiplier: int = delay_multipliers[i]
+		var shadow := shadow_scene.instantiate() as Node2D
+		shadow.name = "Shadow" if i == 0 else "Shadow%d" % (i + 1)
+		shadow_instances.append(shadow)
+		get_tree().current_scene.call_deferred("add_child", shadow)
+		
+		var current_trail: Node = trail
+		if i == 0:
+			trail.follow_delay_frames = base_delay * multiplier
+		else:
+			current_trail = _create_extra_shadow_trail(base_delay * multiplier, i)
+		
+		shadow_trails.append(current_trail)
+		current_trail.call_deferred("set_shadow", shadow)
+
+func _push_shadow_history_frame(animation_name: StringName, frame_count: int = 8) -> void:
+	var flip_val = animated_sprite.flip_h if animated_sprite else false
+	for shadow_trail in shadow_trails:
+		if not shadow_trail or not ("history" in shadow_trail):
+			continue
+		
+		for i in range(frame_count):
+			shadow_trail.history.push_back({
+				"pos": global_position,
+				"flip": flip_val,
+				"anim": animation_name
+			})
 
 func _physics_process(delta: float) -> void:
 	_dash_cooldown_timer -= delta
@@ -152,15 +212,8 @@ func execute_parry_launch() -> void:
 		animated_sprite.play(&"parry")
 		animated_sprite.set_frame_and_progress(0, 0.0)  # İlk frame'i zorla göster
 	
-	# Gölge trail history'sine parry ekle - gölge bu noktaya geldiğinde parry animasyonu oynatacak
-	if trail:
-		var flip_val = animated_sprite.flip_h if animated_sprite else false
-		for i in range(8):  # Birkaç frame parry göster (gölge takip gecikmesi için)
-			trail.history.push_back({
-				"pos": global_position,
-				"flip": flip_val,
-				"anim": &"parry"
-			})
+	# Tüm shadow trail history'lerine parry ekle - her shadow bu noktaya geldiğinde parry animasyonu oynatacak
+	_push_shadow_history_frame(&"parry")
 	
 	# Pure vertical launch
 	velocity.y = -parry_launch_force_y
