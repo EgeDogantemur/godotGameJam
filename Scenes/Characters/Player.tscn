@@ -356,6 +356,7 @@ shadow_follow_smoothness = 0.3
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=934517961]
 script = ExtResource("4_cam")
+camera_zoom = Vector2(1.3, 1.3)
 smooth_speed = 1.0
 look_ahead_x = 130.0
 look_ahead_y = 60.0
