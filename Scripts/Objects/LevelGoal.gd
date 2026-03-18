@@ -3,6 +3,7 @@ class_name LevelGoal
 
 @export var next_level_path: String = ""
 @export var locked: bool = true
+@export var completes_run: bool = false
 
 var _is_active: bool = false
 var _open_tween: Tween
@@ -101,6 +102,9 @@ func _on_body_entered(body: Node2D) -> void:
 
 func _complete_level() -> void:
 	if next_level_path != "":
+		var gs := get_node_or_null("/root/GameState")
+		if completes_run and gs:
+			gs.complete_run()
 		_play_audio("play_gate_enter")
 		get_tree().call_deferred("change_scene_to_file", next_level_path)
 

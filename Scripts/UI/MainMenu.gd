@@ -5,6 +5,9 @@ extends Control
 @onready var quit_btn: Button = $MenuCard/Margin/VBoxContainer/QuitBtn
 @onready var eye_open: Sprite2D = $Goz1
 @onready var eye_closed: Sprite2D = $Goz2
+@onready var runStatsPanel: Control = $MenuCard/Margin/VBoxContainer/RunStatsPanel
+@onready var lastTimeValue: Label = $MenuCard/Margin/VBoxContainer/RunStatsPanel/Margin/VBox/LastTimeValue
+@onready var bestTimeValue: Label = $MenuCard/Margin/VBoxContainer/RunStatsPanel/Margin/VBox/BestTimeValue
 
 var _eye_tween: Tween
 
@@ -39,6 +42,7 @@ func _ready() -> void:
 	
 	eye_open.modulate.a = 0.0
 	eye_closed.modulate.a = 1.0
+	_refresh_run_stats()
 
 func _set_eye_open(is_open: bool) -> void:
 	if _eye_tween:
@@ -66,3 +70,13 @@ func _on_quit_pressed() -> void:
 	_play_audio("play_ui_click")
 	var ui_mgr = get_node_or_null("/root/UIManager")
 	if ui_mgr: ui_mgr.quit_game()
+
+func _refresh_run_stats() -> void:
+	var gs = get_node_or_null("/root/GameState")
+	if not gs or not gs.has_completed_runs():
+		runStatsPanel.hide()
+		return
+	
+	runStatsPanel.show()
+	lastTimeValue.text = gs.format_run_time(gs.last_completed_run_seconds)
+	bestTimeValue.text = gs.format_run_time(gs.best_completed_run_seconds)

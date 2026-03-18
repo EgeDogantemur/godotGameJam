@@ -6,6 +6,7 @@ extends CanvasLayer
 @onready var settings_menu: Control = $SettingsMenu
 @onready var settings_eye_open: Sprite2D = $SettingsMenu/Goz1
 @onready var settings_eye_closed: Sprite2D = $SettingsMenu/Goz2
+@onready var time_label: Label = $GameHUD/TopLeft/TimeLabel
 @onready var dash_label: Label = $GameHUD/TopLeft/DashLabel
 @onready var restart_panel: Control = $GameHUD/RestartPanel
 @onready var restart_card: Control = $GameHUD/RestartPanel/Card
@@ -41,6 +42,7 @@ func _ready() -> void:
 	if gs:
 		gs.player_died.connect(_on_player_died)
 		gs.dash_unlocked_changed.connect(_on_dash_unlocked_changed)
+		gs.run_time_updated.connect(_on_run_time_updated)
 		
 		# Auto-unlock dash if we are at or beyond level 6
 		var path = get_tree().current_scene.scene_file_path
@@ -49,6 +51,7 @@ func _ready() -> void:
 			gs.dash_unlocked = true
 			
 		dash_label.visible = gs.dash_unlocked
+		time_label.text = "TIME  " + gs.format_run_time(gs.run_time_seconds)
 	
 	_connect_ui_signals()
 	# Connect to player signals deferred to ensure player is in tree
@@ -302,6 +305,9 @@ func load_main_menu() -> void:
 	pause_menu.hide()
 	settings_menu.hide()
 	restart_panel.hide()
+	var gs = get_node_or_null("/root/GameState")
+	if gs and not gs.has_completed_run:
+		gs.abandon_run()
 	_play_audio("stop_music")
 	get_tree().change_scene_to_file("res://Scenes/UI/MainMenu.tscn")
 
@@ -320,6 +326,9 @@ func load_game(level_path: String = "res://Scenes/emirantestscene.tscn", play_mu
 	pause_menu.hide()
 	settings_menu.hide()
 	restart_panel.hide()
+	var gs = get_node_or_null("/root/GameState")
+	if gs and level_path == "res://Scenes/1 Level.tscn":
+		gs.start_new_run()
 	_play_audio("stop_music")
 	get_tree().change_scene_to_file(level_path)
 	if play_music:
@@ -328,6 +337,15 @@ func load_game(level_path: String = "res://Scenes/emirantestscene.tscn", play_mu
 func _start_game_music_after_scene_change() -> void:
 	await get_tree().process_frame
 	_play_audio("play_game_music")
+
+func _on_run_time_updated(time_seconds: float) -> void:
+	time_label.text = "TIME  " + _format_run_time(time_seconds)
+
+func _format_run_time(time_seconds: float) -> String:
+	var gs = get_node_or_null("/root/GameState")
+	if gs:
+		return gs.format_run_time(time_seconds)
+	return "--:--.--"
 
 func quit_game() -> void:
 	get_tree().quit()

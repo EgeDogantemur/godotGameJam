@@ -108,6 +108,7 @@ position = Vector2(919, 403)
 [node name="LevelGoal" parent="." unique_id=1506957731 instance=ExtResource("4_766he")]
 position = Vector2(1489, -183)
 next_level_path = "res://Scenes/UI/MainMenu.tscn"
+completes_run = true
 
 [node name="ParrySpike3" parent="." unique_id=347142923 instance=ExtResource("5_8noxx")]
 position = Vector2(1235, 241)
