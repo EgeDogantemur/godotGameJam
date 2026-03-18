@@ -50,13 +50,6 @@ layout_mode = 2
 stream = ExtResource("2_g8hii")
 expand = true
 
-[node name="HintLabel" type="Label" parent="ColorRect/CenterContainer/VBoxContainer" unique_id=985711720]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.8, 0.82, 0.86, 0.88)
-theme_override_font_sizes/font_size = 16
-text = "Video ve sesi Inspector'dan ata. Bitince otomatik Level 1'e geçer."
-horizontal_alignment = 1
-
 [node name="SkipButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer" unique_id=600818131]
 custom_minimum_size = Vector2(220, 50)
 layout_mode = 2

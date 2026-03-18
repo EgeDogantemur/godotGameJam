@@ -93,6 +93,32 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hud_card"]
+bg_color = Color(0.03, 0.01, 0.02, 0.9)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.92, 0.14, 0.2, 0.82)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_color = Color(0.95, 0.06, 0.14, 0.18)
+shadow_size = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hud_status"]
+bg_color = Color(0.11, 0.02, 0.04, 0.92)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.3, 0.95, 0.86, 0.3)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
 [node name="UIManager" type="CanvasLayer" unique_id=150784983]
 layer = 100
 script = ExtResource("1_uim1")
@@ -444,19 +470,57 @@ mouse_filter = 2
 layout_mode = 1
 offset_left = 16.0
 offset_top = 16.0
-offset_right = 230.0
-offset_bottom = 90.0
+offset_right = 304.0
+offset_bottom = 138.0
 theme_override_constants/separation = 6
 
-[node name="TimeLabel" type="Label" parent="GameHUD/TopLeft" unique_id=1206501059]
+[node name="HUDCard" type="PanelContainer" parent="GameHUD/TopLeft" unique_id=166890001]
 layout_mode = 2
-theme_override_font_sizes/font_size = 18
+theme_override_styles/panel = SubResource("StyleBoxFlat_hud_card")
+
+[node name="Margin" type="MarginContainer" parent="GameHUD/TopLeft/HUDCard" unique_id=152996236]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 12
+
+[node name="VBox" type="VBoxContainer" parent="GameHUD/TopLeft/HUDCard/Margin" unique_id=1255799367]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Overline" type="Label" parent="GameHUD/TopLeft/HUDCard/Margin/VBox" unique_id=313695528]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3, 0.95, 0.86, 0.95)
+theme_override_font_sizes/font_size = 11
+text = ">> RUN DATA"
+
+[node name="TimeLabel" type="Label" parent="GameHUD/TopLeft/HUDCard/Margin/VBox" unique_id=1206501059]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.94, 0.96, 1)
+theme_override_font_sizes/font_size = 24
 text = "TIME  00:00.00"
 
-[node name="DashLabel" type="Label" parent="GameHUD/TopLeft" unique_id=1052850656]
+[node name="Divider" type="ColorRect" parent="GameHUD/TopLeft/HUDCard/Margin/VBox" unique_id=207104243]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+color = Color(0.96, 0.12, 0.18, 0.42)
+
+[node name="DashPanel" type="PanelContainer" parent="GameHUD/TopLeft/HUDCard/Margin/VBox" unique_id=112247105]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hud_status")
+
+[node name="Margin" type="MarginContainer" parent="GameHUD/TopLeft/HUDCard/Margin/VBox/DashPanel" unique_id=1111575080]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 8
+
+[node name="DashLabel" type="Label" parent="GameHUD/TopLeft/HUDCard/Margin/VBox/DashPanel/Margin" unique_id=1052850656]
 modulate = Color(0.5, 0.5, 0.5, 0.5)
 layout_mode = 2
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 16
 text = "DASH: —"
 
 [node name="RestartPanel" type="ColorRect" parent="GameHUD" unique_id=1882042694]
