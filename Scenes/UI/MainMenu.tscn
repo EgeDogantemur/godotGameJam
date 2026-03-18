@@ -124,7 +124,7 @@ anchor_bottom = 0.5
 offset_left = -220.0
 offset_top = -110.0
 offset_right = 220.0
-offset_bottom = 250.0
+offset_bottom = 302.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_menu_card")
@@ -170,6 +170,18 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_menu_button_hover")
 theme_override_styles/hover = SubResource("StyleBoxFlat_menu_button_hover")
 theme_override_styles/focus = SubResource("StyleBoxFlat_menu_button_hover")
 text = "[ SYSTEM CONFIG ]"
+
+[node name="LeaderboardBtn" type="Button" parent="MenuCard/Margin/VBoxContainer" unique_id=135805111]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.94, 0.96, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_menu_button")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_menu_button_hover")
+theme_override_styles/hover = SubResource("StyleBoxFlat_menu_button_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_menu_button_hover")
+text = "[ LEADERBOARD ]"
 
 [node name="QuitBtn" type="Button" parent="MenuCard/Margin/VBoxContainer" unique_id=258504052]
 custom_minimum_size = Vector2(0, 48)

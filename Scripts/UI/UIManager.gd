@@ -11,6 +11,7 @@ extends CanvasLayer
 @onready var restart_panel: Control = $GameHUD/RestartPanel
 @onready var restart_card: Control = $GameHUD/RestartPanel/Card
 @onready var restart_title: Label = $GameHUD/RestartPanel/Card/Margin/VBox/Title
+@onready var leaderboard_overlay: ColorRect = $LeaderboardOverlay
 @onready var proximity_overlay: ColorRect = $ProximityOverlay
 @onready var scanline_overlay: ColorRect = $ScanlineOverlay
 
@@ -20,6 +21,7 @@ var master_bus_idx: int
 var _restart_tween: Tween
 var _pause_eye_tween: Tween
 var _settings_eye_tween: Tween
+var _leaderboard_paused_game := false
 
 func _play_audio(method_name: String, args: Array = []) -> void:
 	var audio_manager := get_node_or_null("/root/AudioManager")
@@ -31,6 +33,7 @@ func _ready() -> void:
 	pause_menu.hide()
 	settings_menu.hide()
 	restart_panel.hide()
+	leaderboard_overlay.hide()
 	pause_eye_open.modulate.a = 0.0
 	pause_eye_closed.modulate.a = 1.0
 	settings_eye_open.modulate.a = 0.0
@@ -52,6 +55,9 @@ func _ready() -> void:
 			
 		dash_label.visible = gs.dash_unlocked
 		time_label.text = "TIME  " + gs.format_run_time(gs.run_time_seconds)
+
+	if leaderboard_overlay.has_signal("close_requested"):
+		leaderboard_overlay.close_requested.connect(_close_leaderboard)
 	
 	_connect_ui_signals()
 	# Connect to player signals deferred to ensure player is in tree
@@ -72,6 +78,20 @@ func _process(delta: float) -> void:
 	_update_proximity_visuals(delta)
 
 func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("leaderboard"):
+		if leaderboard_overlay.visible:
+			_close_leaderboard()
+		else:
+			show_leaderboard()
+		get_viewport().set_input_as_handled()
+		return
+
+	if leaderboard_overlay.visible:
+		if event.is_action_pressed("ui_cancel"):
+			_close_leaderboard()
+			get_viewport().set_input_as_handled()
+		return
+
 	if in_main_menu: return
 	if restart_panel.visible:
 		if event.is_action_pressed("jump"):
@@ -299,12 +319,31 @@ func show_settings_from_main() -> void:
 	settings_menu.show()
 	_set_settings_eye_open(false)
 
+func show_leaderboard() -> void:
+	if restart_panel.visible:
+		return
+
+	leaderboard_overlay.open_overlay()
+	if not in_main_menu and not get_tree().paused:
+		_leaderboard_paused_game = true
+		get_tree().paused = true
+	else:
+		_leaderboard_paused_game = false
+
+func _close_leaderboard() -> void:
+	leaderboard_overlay.close_overlay()
+	if _leaderboard_paused_game:
+		_leaderboard_paused_game = false
+		if not is_paused and not settings_menu.visible and not restart_panel.visible:
+			get_tree().paused = false
+
 func load_main_menu() -> void:
 	in_main_menu = true
 	get_tree().paused = false
 	pause_menu.hide()
 	settings_menu.hide()
 	restart_panel.hide()
+	leaderboard_overlay.hide()
 	var gs = get_node_or_null("/root/GameState")
 	if gs and not gs.has_completed_run:
 		gs.abandon_run()
@@ -317,6 +356,7 @@ func load_intro_cutscene(cutscene_path: String = "res://Scenes/UI/IntroCutscene.
 	pause_menu.hide()
 	settings_menu.hide()
 	restart_panel.hide()
+	leaderboard_overlay.hide()
 	_play_audio("stop_music")
 	get_tree().change_scene_to_file(cutscene_path)
 
@@ -326,6 +366,7 @@ func load_game(level_path: String = "res://Scenes/emirantestscene.tscn", play_mu
 	pause_menu.hide()
 	settings_menu.hide()
 	restart_panel.hide()
+	leaderboard_overlay.hide()
 	var gs = get_node_or_null("/root/GameState")
 	if gs and level_path == "res://Scenes/1 Level.tscn":
 		gs.start_new_run()

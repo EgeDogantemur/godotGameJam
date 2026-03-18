@@ -31,30 +31,35 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="CenterContainer" type="CenterContainer" parent="ColorRect" unique_id=2022885980]
-layout_mode = 1
-anchors_preset = 15
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="ColorRect" unique_id=336954521]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = 105.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CenterContainer" unique_id=477759919]
-layout_mode = 2
-theme_override_constants/separation = 16
-
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="ColorRect/CenterContainer/VBoxContainer" unique_id=336954521]
-custom_minimum_size = Vector2(1920, 1080)
-layout_mode = 2
 stream = ExtResource("2_g8hii")
 expand = true
 
-[node name="SkipButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer" unique_id=600818131]
+[node name="SkipMargin" type="MarginContainer" parent="ColorRect" unique_id=399198212]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -92.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect/SkipMargin" unique_id=2022885980]
+layout_mode = 2
+
+[node name="SkipButton" type="Button" parent="ColorRect/SkipMargin/CenterContainer" unique_id=600818131]
 custom_minimum_size = Vector2(220, 50)
 layout_mode = 2
-size_flags_horizontal = 4
 theme_override_styles/normal = SubResource("StyleBoxFlat_skip")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_skip")
 theme_override_styles/hover = SubResource("StyleBoxFlat_skip")
-text = "Skip / Devam Et"
+text = "SKIP [ Z / ENTER / ESC ]"

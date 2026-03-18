@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c7mvx281gynin" path="res://Scripts/UI/UIManager.gd" id="1_uim1"]
 [ext_resource type="Shader" uid="uid://bf21mo16bd0xe" path="res://Assets/Shaders/scanline.gdshader" id="2_scan"]
 [ext_resource type="Shader" uid="uid://bulkq5lprtsbq" path="res://Assets/Shaders/danger_pulse.gdshader" id="3_danger"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/LeaderboardOverlay.tscn" id="4_lbovr"]
 [ext_resource type="Texture2D" uid="uid://bp8m2g30w6wuu" path="res://Assets/Sprites/Environment/ground4/goz1.png" id="4_gozopen"]
 [ext_resource type="Texture2D" uid="uid://2wckprthb2jb" path="res://Assets/Sprites/Environment/ground4/goz2.png" id="5_gozclosed"]
 
@@ -456,6 +457,8 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_pause_button_hover")
 theme_override_styles/hover = SubResource("StyleBoxFlat_pause_button_hover")
 theme_override_styles/focus = SubResource("StyleBoxFlat_pause_button_hover")
 text = "[ CLOSE ]"
+
+[node name="LeaderboardOverlay" parent="." instance=ExtResource("4_lbovr")]
 
 [node name="GameHUD" type="Control" parent="." unique_id=482110635]
 layout_mode = 3

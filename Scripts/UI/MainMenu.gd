@@ -5,6 +5,7 @@ const BASE_VIEWPORT_SIZE := Vector2(1920.0, 1080.0)
 @onready var bgclock: Sprite2D = $Background/Bgclock
 @onready var play_btn: Button = $MenuCard/Margin/VBoxContainer/PlayBtn
 @onready var settings_btn: Button = $MenuCard/Margin/VBoxContainer/SettingsBtn
+@onready var leaderboard_btn: Button = $MenuCard/Margin/VBoxContainer/LeaderboardBtn
 @onready var quit_btn: Button = $MenuCard/Margin/VBoxContainer/QuitBtn
 @onready var eye_open: Sprite2D = $Goz1
 @onready var eye_closed: Sprite2D = $Goz2
@@ -43,6 +44,7 @@ func _ready() -> void:
 	
 	play_btn.pressed.connect(_on_play_pressed)
 	settings_btn.pressed.connect(_on_settings_pressed)
+	leaderboard_btn.pressed.connect(_on_leaderboard_pressed)
 	quit_btn.pressed.connect(_on_quit_pressed)
 	
 	play_btn.mouse_entered.connect(func() -> void:
@@ -57,6 +59,8 @@ func _ready() -> void:
 	play_btn.focus_exited.connect(func() -> void: _set_eye_open(false))
 	settings_btn.mouse_entered.connect(func() -> void: _play_audio("play_ui_hover"))
 	settings_btn.focus_entered.connect(func() -> void: _play_audio("play_ui_hover"))
+	leaderboard_btn.mouse_entered.connect(func() -> void: _play_audio("play_ui_hover"))
+	leaderboard_btn.focus_entered.connect(func() -> void: _play_audio("play_ui_hover"))
 	quit_btn.mouse_entered.connect(func() -> void: _play_audio("play_ui_hover"))
 	quit_btn.focus_entered.connect(func() -> void: _play_audio("play_ui_hover"))
 	
@@ -138,6 +142,12 @@ func _on_settings_pressed() -> void:
 	_play_audio("play_ui_click")
 	var ui_mgr = get_node_or_null("/root/UIManager")
 	if ui_mgr: ui_mgr.show_settings_from_main()
+
+func _on_leaderboard_pressed() -> void:
+	_play_audio("play_ui_click")
+	var ui_mgr = get_node_or_null("/root/UIManager")
+	if ui_mgr:
+		ui_mgr.show_leaderboard()
 
 func _on_quit_pressed() -> void:
 	_play_audio("play_ui_click")

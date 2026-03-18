@@ -1,0 +1,266 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://Scripts/UI/LeaderboardOverlay.gd" id="1_lbovr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lb_card"]
+bg_color = Color(0.03, 0.01, 0.02, 0.96)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.95, 0.12, 0.18, 0.95)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0.95, 0.05, 0.14, 0.22)
+shadow_size = 18
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lb_button"]
+bg_color = Color(0.12, 0.02, 0.04, 0.95)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.86, 0.14, 0.18, 0.95)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lb_button_hover"]
+bg_color = Color(0.22, 0.03, 0.06, 0.98)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 0.38, 0.45, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lb_panel"]
+bg_color = Color(0.08, 0.02, 0.03, 0.92)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.3, 0.95, 0.86, 0.38)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="LeaderboardOverlay" type="ColorRect"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0.01, 0, 0.02, 0.92)
+script = ExtResource("1_lbovr")
+
+[node name="TopAccent" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 5.0
+grow_horizontal = 2
+color = Color(0.96, 0.08, 0.14, 0.95)
+
+[node name="BottomAccent" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -3.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.18, 0.95, 0.86, 0.55)
+
+[node name="SignalText" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 34.0
+offset_bottom = 60.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.86, 0.18, 0.22, 0.9)
+theme_override_font_sizes/font_size = 14
+text = "GLOBAL LEADERBOARD"
+horizontal_alignment = 1
+
+[node name="Card" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.0
+offset_top = -210.0
+offset_right = 270.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lb_card")
+
+[node name="Margin" type="MarginContainer" parent="Card"]
+layout_mode = 2
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 24
+
+[node name="VBox" type="VBoxContainer" parent="Card/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Overline" type="Label" parent="Card/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3, 0.95, 0.86, 0.95)
+theme_override_font_sizes/font_size = 13
+text = ">> ONLINE RANKING"
+horizontal_alignment = 1
+
+[node name="Title" type="Label" parent="Card/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.12, 0.16, 1)
+theme_override_font_sizes/font_size = 36
+text = "LEADERBOARD"
+horizontal_alignment = 1
+
+[node name="Status" type="Label" parent="Card/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.76, 0.78, 0.82, 0.95)
+theme_override_font_sizes/font_size = 14
+text = "Baglanti bekleniyor..."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="ProfilePanel" type="PanelContainer" parent="Card/Margin/VBox"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lb_panel")
+
+[node name="Margin" type="MarginContainer" parent="Card/Margin/VBox/ProfilePanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 12
+
+[node name="VBox" type="VBoxContainer" parent="Card/Margin/VBox/ProfilePanel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="NameLabel" type="Label" parent="Card/Margin/VBox/ProfilePanel/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.94, 0.96, 1)
+theme_override_font_sizes/font_size = 14
+text = "Kullanici Adi"
+
+[node name="NameInput" type="LineEdit" parent="Card/Margin/VBox/ProfilePanel/Margin/VBox"]
+layout_mode = 2
+max_length = 16
+placeholder_text = "Oyuncu adini gir"
+
+[node name="PendingHint" type="Label" parent="Card/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3, 0.95, 0.86, 0.85)
+theme_override_font_sizes/font_size = 12
+text = "Son tamamlanan kosu geldiginde buradan gonderebilirsin."
+horizontal_alignment = 1
+
+[node name="Actions" type="HBoxContainer" parent="Card/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="SaveNameBtn" type="Button" parent="Card/Margin/VBox/Actions"]
+custom_minimum_size = Vector2(110, 42)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.94, 0.96, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_lb_button")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lb_button_hover")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lb_button_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_lb_button_hover")
+text = "[ SAVE NAME ]"
+
+[node name="SubmitRunBtn" type="Button" parent="Card/Margin/VBox/Actions"]
+custom_minimum_size = Vector2(110, 42)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.94, 0.96, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_lb_button")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lb_button_hover")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lb_button_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_lb_button_hover")
+text = "[ SUBMIT ]"
+
+[node name="RefreshBtn" type="Button" parent="Card/Margin/VBox/Actions"]
+custom_minimum_size = Vector2(110, 42)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.94, 0.96, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_lb_button")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lb_button_hover")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lb_button_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_lb_button_hover")
+text = "[ REFRESH ]"
+
+[node name="CloseBtn" type="Button" parent="Card/Margin/VBox/Actions"]
+custom_minimum_size = Vector2(110, 42)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.94, 0.96, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_lb_button")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lb_button_hover")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lb_button_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_lb_button_hover")
+text = "[ CLOSE ]"
+
+[node name="ScoresPanel" type="PanelContainer" parent="Card/Margin/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_lb_panel")
+
+[node name="Margin" type="MarginContainer" parent="Card/Margin/VBox/ScoresPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 12
+
+[node name="VBox" type="VBoxContainer" parent="Card/Margin/VBox/ScoresPanel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="ScoresTitle" type="Label" parent="Card/Margin/VBox/ScoresPanel/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3, 0.95, 0.86, 0.95)
+theme_override_font_sizes/font_size = 12
+text = ">> FASTEST RUNS"
+
+[node name="EntriesText" type="RichTextLabel" parent="Card/Margin/VBox/ScoresPanel/Margin/VBox"]
+custom_minimum_size = Vector2(0, 170)
+layout_mode = 2
+bbcode_enabled = false
+fit_content = false
+scroll_active = true
+text = "Leaderboard yukleniyor..."
+
+[node name="Hint" type="Label" parent="Card/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.62, 0.65, 0.69, 0.88)
+theme_override_font_sizes/font_size = 12
+text = "Oyunda [ L ] tusu ile acip kapatabilirsin."
+horizontal_alignment = 1

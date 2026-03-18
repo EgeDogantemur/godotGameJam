@@ -3,8 +3,8 @@ extends CanvasLayer
 @export_file("*.tscn") var next_level_path: String = "res://Scenes/1 Level.tscn"
 @export var allow_skip: bool = true
 
-@onready var video_player: VideoStreamPlayer = $ColorRect/CenterContainer/VBoxContainer/VideoStreamPlayer
-@onready var skip_btn: Button = $ColorRect/CenterContainer/VBoxContainer/SkipButton
+@onready var video_player: VideoStreamPlayer = $ColorRect/VideoStreamPlayer
+@onready var skip_btn: Button = $ColorRect/SkipMargin/CenterContainer/SkipButton
 @onready var audio_player: AudioStreamPlayer = $AudioStreamPlayer
 
 var _is_transitioning: bool = false
